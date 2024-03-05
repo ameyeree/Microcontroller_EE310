@@ -30,8 +30,8 @@
 ;---------------------
 ; Program Inputs
 ;---------------------
-#define	measuredTempInput   45	    ;Input value for temp sensor
-#define refTempInput	    25	    ;Input value for keypad (user value)
+#define	measuredTempInput   -20   ;Input value for temp sensor
+#define refTempInput	    20	 ;Input value for keypad (user value)
     
 ;---------------------
 ; Registers
@@ -39,25 +39,27 @@
 #define refTemp	   	    0x20    ;
 #define measuredTemp	    0x21    ;
 #define contReg		    0x22    ;
-#define measuredDecHund	    0x62    ;
-#define measuredDecTens	    0x61    ;
-#define measuredDecOnes	    0x60    ;
-#define refDecHund	    0x72    ;
-#define refDecTens	    0x71    ;
-#define refDecOnes	    0x70    ;
-#define	numerator	    0x30    ;
-#define	denominator	    0x30    ;
+#define measuredDecHund	    0x72    ;
+#define measuredDecTens	    0x71    ;
+#define measuredDecOnes	    0x70    ;
+#define refDecHund	    0x62    ;
+#define refDecTens	    0x61    ;
+#define refDecOnes	    0x60    ;    
+numerator   EQU	    0x30    ;For decimal conversion
+denominator EQU	    0x31    ;For decimal conversion
+quotient    EQU	    0x33    ;For decimal conversion
     
 ;---------------------
 ; Program Outputs
 ;---------------------
-#define	HEATER	PORTD,2
-#define COOLER	PORTD,1
+#define	HEATER	PORTD,1
+#define COOLER	PORTD,2
 
 ;---------------------
 ; Program Constants
 ;---------------------
 #define	convDenom	10	    ;Used for dividing to convert
+    
 ;---------------------
 ; Main Program
 ;---------------------
@@ -72,39 +74,93 @@
 _start1:
     MOVLW   0x00
     MOVWF   TRISD,0
-    MOVWF   PORTD
+    MOVWF   PORTD,0
+
     MOVLW   measuredTempInput
     MOVWF   measuredTemp
-    CALL    _convert,1
-    MOVLW   refTempInput
-    MOVWF   refTemp;
-    CALL    _convert,1
-
-_convert: ;Convert to decimal: Code taken from Mazid Pg 165
+    CALL    _convertMeasured
     
-    RETURN
+    MOVLW   refTempInput
+    MOVWF   refTemp	    
+    CALL    _convertReference
+    
 _compare:
-    CPFSGT  measuredTemp,0
-    CPFSLT  measuredTemp,0
+    CPFSGT  measuredTemp,a	;if measuredTemp > refTemp go to _greater
+    CPFSLT  measuredTemp,a	;if measuredTemp < refTemp go to _less
     BRA	    _greater
-    CPFSEQ  measuredTemp,0
+    CPFSEQ  measuredTemp,a	;if measuredTemp == refTemp go to equal
     BRA	    _less
     BRA	    _equal
     
-_equal:
-    MOVLW   0x00
+_equal:			    ;if measuredTemp == refTemp go to equal
+    MOVLW   0x00	    ;To set contReg to 0
+    BCF	    HEATER
+    BCF	    COOLER
     BRA	    _end
     
-_greater:
-    MOVLW   0x02
+_greater:		    ;if measuredTemp > refTemp go to _greater   
+    MOVLW   0x02	    ;To set contReg to 2
+    BCF	    HEATER
+    BSF	    COOLER
     BRA	    _end
     
-_less:
-    MOVLW   0x01
+_less:			    ;if measuredTemp < refTemp go to _less
+    MOVLW   0x01	    ;To set contReg to 1
+    BSF	    HEATER
+    BCF	    COOLER
     BRA	    _end
+    
+    
+_convertMeasured: ;Convert to decimal: Code taken from Mazid Pg 165
+    ORG	    0x300
+    
+    MOVWF   numerator
+    MOVLW   convDenom
+    CLRF    quotient
+_digit1m:
+    INCF    quotient,F
+    SUBWF   numerator
+    BC	    _digit1m
+    ADDWF   numerator
+    DECF    quotient,F
+    MOVFF   numerator,measuredDecOnes
+    MOVFF   quotient,numerator
+    CLRF    quotient
+_digit2m:
+    INCF    quotient,F
+    SUBWF   numerator
+    BC	    _digit2m
+    ADDWF   numerator
+    DECF    quotient,F
+    MOVFF   numerator,measuredDecTens
+    MOVFF   quotient,measuredDecHund
+    RETURN
+    
+_convertReference: ;Convert to decimal: Code taken from Mazid Pg 165
+    ORG	    0x350
+    
+    MOVWF   numerator
+    MOVLW   convDenom
+    CLRF    quotient
+_digit1r:
+    INCF    quotient,F
+    SUBWF   numerator
+    BC	    _digit1r
+    ADDWF   numerator
+    DECF    quotient,F
+    MOVFF   numerator,refDecOnes
+    MOVFF   quotient,numerator
+    CLRF    quotient
+_digit2r:
+    INCF    quotient,F
+    SUBWF   numerator
+    BC	    _digit2r
+    ADDWF   numerator
+    DECF    quotient,F
+    MOVFF   numerator,refDecTens
+    MOVFF   quotient,refDecHund
+    RETURN
     
 _end:
-    MOVWF   contReg
-    MOVWF   PORTD
-    
+    MOVWF   contReg,0
 END

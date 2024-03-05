@@ -12,7 +12,7 @@
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
 $build/default/debug/assignment4.o
-absdata - 0 0 0 4A 1 1
+absdata - 0 0 0 380 1 1
 config CONFIG 4 300000 300000 A 1 1
 # %UNUSED Section
 # This section enumerates the unused ranges of each CLASS. Each entry
@@ -32,17 +32,17 @@ BANK6 600-6FF 1
 BANK7 700-7FF 1
 BANK8 800-8FF 1
 BANK9 900-9FF 1
-CONST 4A-FFFF 1
+CONST 380-FFFF 1
 IDLOC 200000-20000F 1
 SMALLCONST 1000-FFFF 1
-CODE 4A-FFFF 1
+CODE 380-FFFF 1
 BANK10 A00-AFF 1
 BANK11 B00-BFF 1
 BANK12 C00-CFF 1
 BANK13 D00-DFF 1
 BANK14 E00-EFF 1
 BANK15 F00-FFF 1
-BIGRAM 4A-FFF 1
+BIGRAM 380-FFF 1
 BIGSFR 3800-3FFF 1
 COMRAM 0-5F 1
 EEDATA 310000-3103FF 1
@@ -61,28 +61,75 @@ MEDIUMCONST 1000-FFFF 1
 # All other numeric values are in decimal.
 %LINETAB
 $build/default/debug/assignment4.o
-0 absdata ABS >61:C:\Users\James\Documents\EE310\Microcontroller_EE310\Assignments\assignment4.asm
-20 absdata ABS >67:C:\Users\James\Documents\EE310\Microcontroller_EE310\Assignments\assignment4.asm
-22 absdata ABS >68:C:\Users\James\Documents\EE310\Microcontroller_EE310\Assignments\assignment4.asm
-24 absdata ABS >69:C:\Users\James\Documents\EE310\Microcontroller_EE310\Assignments\assignment4.asm
-26 absdata ABS >70:C:\Users\James\Documents\EE310\Microcontroller_EE310\Assignments\assignment4.asm
-28 absdata ABS >71:C:\Users\James\Documents\EE310\Microcontroller_EE310\Assignments\assignment4.asm
-2A absdata ABS >72:C:\Users\James\Documents\EE310\Microcontroller_EE310\Assignments\assignment4.asm
-2C absdata ABS >73:C:\Users\James\Documents\EE310\Microcontroller_EE310\Assignments\assignment4.asm
-2E absdata ABS >75:C:\Users\James\Documents\EE310\Microcontroller_EE310\Assignments\assignment4.asm
-30 absdata ABS >76:C:\Users\James\Documents\EE310\Microcontroller_EE310\Assignments\assignment4.asm
-32 absdata ABS >77:C:\Users\James\Documents\EE310\Microcontroller_EE310\Assignments\assignment4.asm
-34 absdata ABS >78:C:\Users\James\Documents\EE310\Microcontroller_EE310\Assignments\assignment4.asm
-36 absdata ABS >79:C:\Users\James\Documents\EE310\Microcontroller_EE310\Assignments\assignment4.asm
-38 absdata ABS >80:C:\Users\James\Documents\EE310\Microcontroller_EE310\Assignments\assignment4.asm
-3A absdata ABS >83:C:\Users\James\Documents\EE310\Microcontroller_EE310\Assignments\assignment4.asm
-3C absdata ABS >84:C:\Users\James\Documents\EE310\Microcontroller_EE310\Assignments\assignment4.asm
-3E absdata ABS >87:C:\Users\James\Documents\EE310\Microcontroller_EE310\Assignments\assignment4.asm
-40 absdata ABS >88:C:\Users\James\Documents\EE310\Microcontroller_EE310\Assignments\assignment4.asm
-42 absdata ABS >91:C:\Users\James\Documents\EE310\Microcontroller_EE310\Assignments\assignment4.asm
-44 absdata ABS >92:C:\Users\James\Documents\EE310\Microcontroller_EE310\Assignments\assignment4.asm
-46 absdata ABS >95:C:\Users\James\Documents\EE310\Microcontroller_EE310\Assignments\assignment4.asm
-48 absdata ABS >96:C:\Users\James\Documents\EE310\Microcontroller_EE310\Assignments\assignment4.asm
+0 absdata ABS >69:C:\Users\James\Documents\EE310\Microcontroller_EE310\Assignments\assignment4.asm
+20 absdata ABS >75:C:\Users\James\Documents\EE310\Microcontroller_EE310\Assignments\assignment4.asm
+22 absdata ABS >76:C:\Users\James\Documents\EE310\Microcontroller_EE310\Assignments\assignment4.asm
+24 absdata ABS >77:C:\Users\James\Documents\EE310\Microcontroller_EE310\Assignments\assignment4.asm
+26 absdata ABS >79:C:\Users\James\Documents\EE310\Microcontroller_EE310\Assignments\assignment4.asm
+28 absdata ABS >80:C:\Users\James\Documents\EE310\Microcontroller_EE310\Assignments\assignment4.asm
+2A absdata ABS >81:C:\Users\James\Documents\EE310\Microcontroller_EE310\Assignments\assignment4.asm
+2C absdata ABS >82:C:\Users\James\Documents\EE310\Microcontroller_EE310\Assignments\assignment4.asm
+2E absdata ABS >85:C:\Users\James\Documents\EE310\Microcontroller_EE310\Assignments\assignment4.asm
+32 absdata ABS >87:C:\Users\James\Documents\EE310\Microcontroller_EE310\Assignments\assignment4.asm
+34 absdata ABS >88:C:\Users\James\Documents\EE310\Microcontroller_EE310\Assignments\assignment4.asm
+36 absdata ABS >89:C:\Users\James\Documents\EE310\Microcontroller_EE310\Assignments\assignment4.asm
+3A absdata ABS >92:C:\Users\James\Documents\EE310\Microcontroller_EE310\Assignments\assignment4.asm
+3C absdata ABS >93:C:\Users\James\Documents\EE310\Microcontroller_EE310\Assignments\assignment4.asm
+3E absdata ABS >94:C:\Users\James\Documents\EE310\Microcontroller_EE310\Assignments\assignment4.asm
+40 absdata ABS >95:C:\Users\James\Documents\EE310\Microcontroller_EE310\Assignments\assignment4.asm
+42 absdata ABS >96:C:\Users\James\Documents\EE310\Microcontroller_EE310\Assignments\assignment4.asm
+44 absdata ABS >97:C:\Users\James\Documents\EE310\Microcontroller_EE310\Assignments\assignment4.asm
+46 absdata ABS >100:C:\Users\James\Documents\EE310\Microcontroller_EE310\Assignments\assignment4.asm
+48 absdata ABS >101:C:\Users\James\Documents\EE310\Microcontroller_EE310\Assignments\assignment4.asm
+4A absdata ABS >102:C:\Users\James\Documents\EE310\Microcontroller_EE310\Assignments\assignment4.asm
+4C absdata ABS >103:C:\Users\James\Documents\EE310\Microcontroller_EE310\Assignments\assignment4.asm
+4E absdata ABS >106:C:\Users\James\Documents\EE310\Microcontroller_EE310\Assignments\assignment4.asm
+50 absdata ABS >107:C:\Users\James\Documents\EE310\Microcontroller_EE310\Assignments\assignment4.asm
+52 absdata ABS >108:C:\Users\James\Documents\EE310\Microcontroller_EE310\Assignments\assignment4.asm
+54 absdata ABS >109:C:\Users\James\Documents\EE310\Microcontroller_EE310\Assignments\assignment4.asm
+56 absdata ABS >112:C:\Users\James\Documents\EE310\Microcontroller_EE310\Assignments\assignment4.asm
+58 absdata ABS >113:C:\Users\James\Documents\EE310\Microcontroller_EE310\Assignments\assignment4.asm
+5A absdata ABS >114:C:\Users\James\Documents\EE310\Microcontroller_EE310\Assignments\assignment4.asm
+5C absdata ABS >115:C:\Users\James\Documents\EE310\Microcontroller_EE310\Assignments\assignment4.asm
+300 absdata ABS >121:C:\Users\James\Documents\EE310\Microcontroller_EE310\Assignments\assignment4.asm
+302 absdata ABS >122:C:\Users\James\Documents\EE310\Microcontroller_EE310\Assignments\assignment4.asm
+304 absdata ABS >123:C:\Users\James\Documents\EE310\Microcontroller_EE310\Assignments\assignment4.asm
+306 absdata ABS >125:C:\Users\James\Documents\EE310\Microcontroller_EE310\Assignments\assignment4.asm
+308 absdata ABS >126:C:\Users\James\Documents\EE310\Microcontroller_EE310\Assignments\assignment4.asm
+30A absdata ABS >127:C:\Users\James\Documents\EE310\Microcontroller_EE310\Assignments\assignment4.asm
+30C absdata ABS >128:C:\Users\James\Documents\EE310\Microcontroller_EE310\Assignments\assignment4.asm
+30E absdata ABS >129:C:\Users\James\Documents\EE310\Microcontroller_EE310\Assignments\assignment4.asm
+310 absdata ABS >130:C:\Users\James\Documents\EE310\Microcontroller_EE310\Assignments\assignment4.asm
+314 absdata ABS >131:C:\Users\James\Documents\EE310\Microcontroller_EE310\Assignments\assignment4.asm
+318 absdata ABS >132:C:\Users\James\Documents\EE310\Microcontroller_EE310\Assignments\assignment4.asm
+31A absdata ABS >134:C:\Users\James\Documents\EE310\Microcontroller_EE310\Assignments\assignment4.asm
+31C absdata ABS >135:C:\Users\James\Documents\EE310\Microcontroller_EE310\Assignments\assignment4.asm
+31E absdata ABS >136:C:\Users\James\Documents\EE310\Microcontroller_EE310\Assignments\assignment4.asm
+320 absdata ABS >137:C:\Users\James\Documents\EE310\Microcontroller_EE310\Assignments\assignment4.asm
+322 absdata ABS >138:C:\Users\James\Documents\EE310\Microcontroller_EE310\Assignments\assignment4.asm
+324 absdata ABS >139:C:\Users\James\Documents\EE310\Microcontroller_EE310\Assignments\assignment4.asm
+328 absdata ABS >140:C:\Users\James\Documents\EE310\Microcontroller_EE310\Assignments\assignment4.asm
+32C absdata ABS >141:C:\Users\James\Documents\EE310\Microcontroller_EE310\Assignments\assignment4.asm
+350 absdata ABS >146:C:\Users\James\Documents\EE310\Microcontroller_EE310\Assignments\assignment4.asm
+352 absdata ABS >147:C:\Users\James\Documents\EE310\Microcontroller_EE310\Assignments\assignment4.asm
+354 absdata ABS >148:C:\Users\James\Documents\EE310\Microcontroller_EE310\Assignments\assignment4.asm
+356 absdata ABS >150:C:\Users\James\Documents\EE310\Microcontroller_EE310\Assignments\assignment4.asm
+358 absdata ABS >151:C:\Users\James\Documents\EE310\Microcontroller_EE310\Assignments\assignment4.asm
+35A absdata ABS >152:C:\Users\James\Documents\EE310\Microcontroller_EE310\Assignments\assignment4.asm
+35C absdata ABS >153:C:\Users\James\Documents\EE310\Microcontroller_EE310\Assignments\assignment4.asm
+35E absdata ABS >154:C:\Users\James\Documents\EE310\Microcontroller_EE310\Assignments\assignment4.asm
+360 absdata ABS >155:C:\Users\James\Documents\EE310\Microcontroller_EE310\Assignments\assignment4.asm
+364 absdata ABS >156:C:\Users\James\Documents\EE310\Microcontroller_EE310\Assignments\assignment4.asm
+368 absdata ABS >157:C:\Users\James\Documents\EE310\Microcontroller_EE310\Assignments\assignment4.asm
+36A absdata ABS >159:C:\Users\James\Documents\EE310\Microcontroller_EE310\Assignments\assignment4.asm
+36C absdata ABS >160:C:\Users\James\Documents\EE310\Microcontroller_EE310\Assignments\assignment4.asm
+36E absdata ABS >161:C:\Users\James\Documents\EE310\Microcontroller_EE310\Assignments\assignment4.asm
+370 absdata ABS >162:C:\Users\James\Documents\EE310\Microcontroller_EE310\Assignments\assignment4.asm
+372 absdata ABS >163:C:\Users\James\Documents\EE310\Microcontroller_EE310\Assignments\assignment4.asm
+374 absdata ABS >164:C:\Users\James\Documents\EE310\Microcontroller_EE310\Assignments\assignment4.asm
+378 absdata ABS >165:C:\Users\James\Documents\EE310\Microcontroller_EE310\Assignments\assignment4.asm
+37C absdata ABS >166:C:\Users\James\Documents\EE310\Microcontroller_EE310\Assignments\assignment4.asm
+37E absdata ABS >169:C:\Users\James\Documents\EE310\Microcontroller_EE310\Assignments\assignment4.asm
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -95,7 +142,7 @@ $build/default/debug/assignment4.o
 # was defined in a psect then <psect> will be "-". File-name
 # is the name of the object file in which the symbol was defined.
 %SYMTAB
-__Hspace_0 4A 0 ABS 0 - -
+__Hspace_0 380 0 ABS 0 - -
 __Hspace_1 0 0 ABS 0 - -
 __Hspace_3 0 0 ABS 0 - -
 __Hspace_4 60000A 0 ABS 0 - -
@@ -127,7 +174,7 @@ __Hcode 0 0 ABS 0 code -
 __Hdata 0 0 ABS 0 data -
 __Lcode 0 0 ABS 0 code -
 __Ldata 0 0 ABS 0 data -
-__Habsdata 4A 0 ABS 0 absdata -
+__Habsdata 380 0 ABS 0 absdata -
 __S0 0 0 ABS 0 - -
 __S1 0 0 ABS 0 - -
 __S3 0 0 ABS 0 - -

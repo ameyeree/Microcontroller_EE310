@@ -32762,11 +32762,20 @@ ENDM
 ;---------------------
 ; Registers
 ;---------------------
-# 49 "assignment4.asm"
+# 48 "assignment4.asm"
+numerator EQU 0x30 ;For decimal conversion
+denominator EQU 0x31 ;For decimal conversion
+quotient EQU 0x33 ;For decimal conversion
+
 ;---------------------
 ; Program Outputs
 ;---------------------
 
+
+
+;---------------------
+; Program Constants
+;---------------------
 
 
 ;---------------------
@@ -32783,33 +32792,97 @@ ENDM
 _start1:
     MOVLW 0x00
     MOVWF TRISD,0
-    MOVWF PORTD
-    MOVLW 45 ;Input value for temp sensor
-    MOVWF 0x21 ;
-    MOVLW 25 ;Input value for keypad (user value)
-    MOVWF 0x20 ;;
+    MOVWF PORTD,0
 
-    CPFSGT 0x21 ;,0
-    CPFSLT 0x21 ;,0
+    MOVLW -20 ;Input value for temp sensor
+    MOVWF 0x21 ;
+    BNN _sendMagnitudeM
+    NEGF WREG
+
+_sendMagnitudeM:
+    CALL _convertMeasured
+
+    MOVLW 20 ;Input value for keypad (user value)
+    MOVWF 0x20 ;
+    CALL _convertReference
+
+_compare:
+    CPFSGT 0x21 ;,a ;if 0x21 ; > 0x20 ; go to _greater
+    CPFSLT 0x21 ;,a ;if 0x21 ; < 0x20 ; go to _less
     BRA _greater
-    CPFSEQ 0x21 ;,0
+    CPFSEQ 0x21 ;,a ;if 0x21 ; == 0x20 ; go to equal
     BRA _less
     BRA _equal
 
 _equal:
-    MOVLW 0x00
+    MOVLW 0x00 ;To set 0x22 ; to 0
+    BCF PORTD,1
+    BCF PORTD,2
     BRA _end
 
 _greater:
-    MOVLW 0x02
+    MOVLW 0x02 ;To set 0x22 ; to 2
+    BCF PORTD,1
+    BSF PORTD,2
     BRA _end
 
 _less:
-    MOVLW 0x01
+    MOVLW 0x01 ;To set 0x22 ; to 1
+    BSF PORTD,1
+    BCF PORTD,2
     BRA _end
 
-_end:
-    MOVWF 0x22 ;
-    MOVWF PORTD
 
+_convertMeasured: ;Convert to decimal: Code taken from Mazid Pg 165
+    ORG 0x300
+
+    MOVWF numerator
+    MOVLW 10 ;Used for dividing to convert
+    CLRF quotient
+_digit1m:
+    INCF quotient,F
+    SUBWF numerator
+    BC _digit1m
+    ADDWF numerator
+    DECF quotient,F
+    MOVFF numerator,0x70 ;
+    MOVFF quotient,numerator
+    CLRF quotient
+_digit2m:
+    INCF quotient,F
+    SUBWF numerator
+    BC _digit2m
+    ADDWF numerator
+    DECF quotient,F
+    MOVFF numerator,0x71 ;
+    MOVFF quotient,0x72 ;
+    RETURN
+
+_convertReference: ;Convert to decimal: Code taken from Mazid Pg 165
+    ORG 0x350
+
+    MOVWF numerator
+    MOVLW 10 ;Used for dividing to convert
+    CLRF quotient
+_digit1r:
+    INCF quotient,F
+    SUBWF numerator
+    BC _digit1r
+    ADDWF numerator
+    DECF quotient,F
+    MOVFF numerator,0x60 ;
+    MOVFF quotient,numerator
+    CLRF quotient
+_digit2r:
+    INCF quotient,F
+    SUBWF numerator
+    BC _digit2r
+    ADDWF numerator
+    DECF quotient,F
+    MOVFF numerator,0x61 ;
+    MOVFF quotient,0x62 ;
+    RETURN
+
+_end:
+    MOVWF 0x22 ;,0
 END
