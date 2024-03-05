@@ -6,5 +6,5 @@
 CND_BASEDIR=`pwd`
 # default configuration
 CND_ARTIFACT_DIR_default=dist/default/production
-CND_ARTIFACT_NAME_default=Assignments.production.hex
-CND_ARTIFACT_PATH_default=dist/default/production/Assignments.production.hex
+CND_ARTIFACT_NAME_default=Assignment4.production.hex
+CND_ARTIFACT_PATH_default=dist/default/production/Assignment4.production.hex
