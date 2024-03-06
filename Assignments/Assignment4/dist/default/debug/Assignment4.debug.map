@@ -4,11 +4,11 @@ Linker command line:
 
 -W-3 \
   --edf=C:\Program Files\Microchip\xc8\v2.46\pic\dat\20240104201356_en.msgs \
-  -cs -h+dist/default/debug\Assignments.debug.sym \
-  --cmf=dist/default/debug\Assignments.debug.cmf -z -Q18F46K42 \
-  -oC:\Users\James\AppData\Local\Temp\xcAsokk.\driver_tmp_3.o \
+  -cs -h+dist/default/debug\Assignment4.debug.sym \
+  --cmf=dist/default/debug\Assignment4.debug.cmf -z -Q18F46K42 \
+  -oC:\Users\James\AppData\Local\Temp\xcAsf4g.\driver_tmp_3.o \
   --fixupoverflow=error -ver=XC8 PIC(R) Assembler --fixupoverflow=lstwarn \
-  -Mdist/default/debug/Assignments.debug.map -E1 --acfsm=1493 \
+  -Mdist/default/debug/Assignment4.debug.map -E1 --acfsm=1493 \
   -ACODE=00h-0FFFFh -ACONST=00h-0FFFFh -ASMALLCONST=01000h-010FFhx240 \
   -AMEDIUMCONST=01000h-0FFFFh -ACOMRAM=00h-05Fh -AABS1=00h-0FFFh \
   -ABIGRAM=00h-0FFFh -ARAM=060h-0FFh,0100h-01FFhx15 -ABANK0=060h-0FFh \
