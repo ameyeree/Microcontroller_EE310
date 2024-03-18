@@ -37,9 +37,9 @@
 ;---------------------
 ; Program Inputs
 ;---------------------
-#define	measuredTempInput   -5	    ;Input value for temp sensor
+#define	measuredTempInput   -10	    ;Input value for temp sensor
 				    ;Value is assumed to be between -20 and 60
-#define refTempInput	    15	    ;Input value for keypad (user value)
+#define refTempInput	    10	    ;Input value for keypad (user value)
 				    ;Value is assumed to be between 10 and 50
     
 ;---------------------
@@ -80,9 +80,16 @@ quotient	EQU	    0x33    ;For decimal conversion
     ORG          0x20		    ;Begin assembly at 0x20
     
 _start1:			    ;Initializes PORTD
-    MOVLW   0x00
-    MOVWF   TRISD,0
-    MOVWF   PORTD,0
+    BANKSEL PORTD
+    CLRF    PORTD
+    BANKSEL LATD
+    CLRF    LATD
+    BANKSEL ANSELD
+    CLRF    ANSELD
+    BANKSEL TRISD
+    MOVLW   0x11111001
+    MOVWF   TRISD
+    
     
 _measuredTempInput:
     MOVLW   measuredTempInput

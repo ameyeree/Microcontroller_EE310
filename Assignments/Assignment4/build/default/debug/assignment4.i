@@ -32806,12 +32806,19 @@ quotient EQU 0x33 ;For decimal conversion
     ORG 0x20 ;Begin assembly at 0x20
 
 _start1: ;Initializes PORTD
-    MOVLW 0x00
-    MOVWF TRISD,0
-    MOVWF PORTD,0
+    BANKSEL PORTD
+    CLRF PORTD
+    BANKSEL LATD
+    CLRF LATD
+    BANKSEL ANSELD
+    CLRF ANSELD
+    BANKSEL TRISD
+    MOVLW 0x11111001
+    MOVWF TRISD
+
 
 _measuredTempInput:
-    MOVLW -5 ;Input value for temp sensor
+    MOVLW -10 ;Input value for temp sensor
     MOVWF measuredTemp
     BTFSS measuredTemp,7 ;If negative,convert to "magnitude" of number
     GOTO _convMCall
@@ -32819,15 +32826,15 @@ _measuredTempInput:
 
 _convMCall: ;Convert measured temp to decimal and save
     CALL _convertMeasured ; in registers 0x70,0x71,0x72
-    MOVLW -5 ;Input value for temp sensor
+    MOVLW -10 ;Input value for temp sensor
 
 _referenceTempInput:
-    MOVLW 15 ;Input value for keypad (user value)
+    MOVLW 10 ;Input value for keypad (user value)
     MOVWF refTemp
 
 _convRCall: ;Convert reference temp to decimal and save
     CALL _convertReference ; in registers 0x60,0x61,0x62
-    MOVLW 15 ;Input value for keypad (user value)
+    MOVLW 10 ;Input value for keypad (user value)
 
 _isNegative: ;Assuming ref temp can not be negative
     BTFSC measuredTemp,7 ; if measuredTemp is negative, then
