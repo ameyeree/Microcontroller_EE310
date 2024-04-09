@@ -1,4 +1,4 @@
-# 1 "7segpc.c"
+# 1 "calculator.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,8 +6,8 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "7segpc.c" 2
-# 23 "7segpc.c"
+# 1 "calculator.c" 2
+# 35 "calculator.c"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -26866,9 +26866,9 @@ __attribute__((__unsupported__("The READTIMER" "0" "() macro is not available wi
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 33 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\xc.h" 2 3
-# 23 "7segpc.c" 2
+# 35 "calculator.c" 2
 
-# 1 "./header.h" 1
+# 1 "./cnfg.h" 1
 
 
 
@@ -26920,14 +26920,320 @@ unsigned char __t3rd16on(void);
 
 
 #pragma config CP = OFF
-# 24 "7segpc.c" 2
+# 36 "calculator.c" 2
+
+# 1 "./calcFunctions.h" 1
+
+
+
+
+
+
+void initializeAllPorts();
+void initializePORTA();
+void initializePORTB();
+void initializePORTC();
+void initializePORTD();
+void updateSevenSeg(int lhs, int rhs);
+void lhsSevenSeg(int index);
+void rhsSevenSeg(int index);
+void negSevenSeg(int lhs, int rhs);
+int getKeypad();
+int getValue(int* operation, int* isEqualSign);
+void dispConvNumber(int decimalValue);
+int calculateFinalValue(int operation, int valueX, int valueY);
+int Addition_Op(int valueX, int valueY);
+int Subtraction_Op(int valueX, int valueY);
+int Multiplication_Op(int valueX, int valueY);
+int Division_Op(int valueX, int valueY);
+
+
+
+unsigned char sevenSegValues[] = {0x3F,0x06,0x5B,0x4F,0x66,0x6D,0x7D,0x07,0x7F,0x67,0x00,0x79};
+
+
+void initializeAllPorts(){
+    initializePORTA();
+    initializePORTB();
+    initializePORTC();
+    initializePORTD();
+}
+void initializePORTA(){
+    PORTA = 0;
+    LATA = 0;
+    ANSELA = 0;
+    TRISA = 0b11110000;
+}
+void initializePORTB(){
+    PORTB = 0;
+    LATB = 0;
+    ANSELB = 0;
+    TRISB = 0b00000011;
+}
+void initializePORTC(){
+    PORTC = 0;
+    LATC = 0;
+    ANSELC = 0;
+    TRISC = 0;
+}
+void initializePORTD(){
+    TRISD = 0;
+    PORTD = 0;
+    LATD = 0;
+    ANSELD = 0;
+}
+
+void updateSevenSeg(int lhsIndex, int rhsIndex){
+    rhsSevenSeg(rhsIndex);
+    _delay((unsigned long)((1)*(4000000/4000.0)));
+    lhsSevenSeg(lhsIndex);
+    _delay((unsigned long)((1)*(4000000/4000.0)));
+}
+
+void rhsSevenSeg(int index){
+    if(index < 0 || index > 9){
+        index = 10;
+    }
+    PORTC = 0b00000100;
+    PORTD = sevenSegValues[index];
+    _delay((unsigned long)((5)*(4000000/4000.0)));
+}
+
+void lhsSevenSeg(int index){
+    if(index < 0){
+        index = 10;
+    }
+    PORTC = 0b00001000;
+    PORTD = sevenSegValues[index];
+    _delay((unsigned long)((5)*(4000000/4000.0)));
+}
+
+
+void negSevenSeg(int lhs, int rhs){
+    if(lhs == 0){
+        lhs = 10;
+    }
+
+    PORTC = 0b00001000;
+    PORTD = sevenSegValues[lhs];
+    _delay((unsigned long)((5)*(4000000/4000.0)));
+
+    PORTC = 0b00000100;
+    PORTD = sevenSegValues[rhs] + 0x80;
+    _delay((unsigned long)((5)*(4000000/4000.0)));
+}
+
+
+int getKeypad(){
+    int buttonNumber = -1;
+
+
+    PORTAbits.RA0 = 1;
+    if(PORTAbits.RA4 == 1){
+
+        buttonNumber = 1;
+        while(PORTAbits.RA4 == 1);
+    }
+    if(PORTAbits.RA5 == 1){
+
+        buttonNumber = 4;
+        while(PORTAbits.RA5 == 1);
+    }
+    if(PORTBbits.RB0 == 1){
+
+        buttonNumber = 7;
+        while(PORTBbits.RB0 == 1);
+    }
+    if(PORTBbits.RB1 == 1){
+
+        buttonNumber = 15;
+        while(PORTBbits.RB1 == 1);
+    }
+    PORTAbits.RA0 = 0;
+
+
+    PORTAbits.RA1 = 1;
+    if(PORTAbits.RA4 == 1){
+
+        buttonNumber = 2;
+        while(PORTAbits.RA4 == 1);
+    }
+    if(PORTAbits.RA5 == 1){
+
+        buttonNumber = 5;
+        while(PORTAbits.RA5 == 1);
+    }
+    if(PORTBbits.RB0 == 1){
+
+        buttonNumber = 8;
+        while(PORTBbits.RB0 == 1);
+    }
+    if(PORTBbits.RB1 == 1){
+
+        buttonNumber = 0;
+        while(PORTBbits.RB1 == 1);
+    }
+    PORTAbits.RA1 = 0;
+
+
+    PORTAbits.RA2 = 1;
+    if(PORTAbits.RA4 == 1){
+
+        buttonNumber = 3;
+        while(PORTAbits.RA4 == 1);
+    }
+    if(PORTAbits.RA5 == 1){
+
+        buttonNumber = 6;
+        while(PORTAbits.RA5 == 1);
+    }
+    if(PORTBbits.RB0 == 1){
+
+        buttonNumber = 9;
+        while(PORTBbits.RB0 == 1);
+    }
+    if(PORTBbits.RB1 == 1){
+
+        buttonNumber = 10;
+        while(PORTBbits.RB1 == 1);
+    }
+    PORTAbits.RA2 = 0;
+
+
+    PORTAbits.RA3 = 1;
+    if(PORTAbits.RA4 == 1){
+
+        buttonNumber = 11;
+        while(PORTAbits.RA4 == 1);
+    }
+    if(PORTAbits.RA5 == 1){
+
+        buttonNumber = 12;
+        while(PORTAbits.RA5 == 1);
+    }
+    if(PORTBbits.RB0 == 1){
+
+        buttonNumber = 13;
+        while(PORTBbits.RB0 == 1);
+    }
+    if(PORTBbits.RB1 == 1){
+
+        buttonNumber = 14;
+        while(PORTBbits.RB1 == 1);
+    }
+    PORTAbits.RA3 = 0;
+
+    return buttonNumber;
+}
+
+
+int getValue(int* operation, int* isEqualSign){
+    int value1 = -1;
+    int value2 = -1;
+    int decimalValue = 0;
+
+    updateSevenSeg(value1,value2);
+
+    while(value1 < 0 || value1 > 9){
+            value1 = getKeypad();
+    }
+    rhsSevenSeg(value1);
+
+    while(value2<0){
+        value2 = getKeypad();
+    }
+    if(*operation < 10){
+
+
+        if(value2 >= 0 && value2 <= 9){
+                updateSevenSeg(value1,value2);
+                decimalValue = (value1 * 10) + value2;
+        }else{
+                *operation = value2;
+                decimalValue = value1;
+                rhsSevenSeg(0);
+        }
+    }else{
+        if(value2 == 10){
+            *isEqualSign = value2;
+            decimalValue = value1;
+            rhsSevenSeg(0);
+        }
+        while(*isEqualSign != 10){
+            if(value2 >= 0 && value2 <= 9){
+                updateSevenSeg(value1,value2);
+                decimalValue = (value1 * 10) + value2;
+            }
+            *isEqualSign = getKeypad();
+        }
+
+    }
+    return decimalValue;
+}
+
+
+
+
+
+
+void dispConvNumber(int decimalValue){
+    if(decimalValue >= 0 && decimalValue <= 99){
+        if(decimalValue < 10){
+            rhsSevenSeg(decimalValue);
+        }else{
+            updateSevenSeg(decimalValue/10,decimalValue%10);
+        }
+    }else if(decimalValue < -99 || decimalValue > 99){
+
+        updateSevenSeg(11,11);
+    }else{
+
+        decimalValue *= -1;
+        negSevenSeg(decimalValue/10,decimalValue%10);
+    }
+
+}
+
+int calculateFinalValue(int operation, int valueX, int valueY){
+    int finalValue = 0;
+    switch (operation)
+    {
+        case 11:
+            finalValue = Addition_Op(valueX,valueY);
+            break;
+        case 12:
+            finalValue = Subtraction_Op(valueX,valueY);
+            break;
+        case 13:
+            finalValue = Multiplication_Op(valueX,valueY);
+            break;
+        case 14:
+            finalValue = Division_Op(valueX,valueY);
+            break;
+    }
+
+    return finalValue;
+}
+
+int Addition_Op(int valueX, int valueY){
+    return valueX + valueY;
+}
+
+int Subtraction_Op(int valueX, int valueY){
+    return valueX - valueY;
+}
+
+int Multiplication_Op(int valueX, int valueY){
+    return valueX * valueY;
+}
+
+int Division_Op(int valueX, int valueY){
+    return valueX / valueY;
+}
+# 37 "calculator.c" 2
 
 # 1 "C:/Program Files/Microchip/xc8/v2.46/pic/include/proc/pic18f47k42.h" 1
-# 25 "7segpc.c" 2
-
-
-
-
+# 38 "calculator.c" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\stdio.h" 1 3
 # 24 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\stdio.h" 3
@@ -27081,7 +27387,7 @@ char *ctermid(char *);
 
 
 char *tempnam(const char *, const char *);
-# 30 "7segpc.c" 2
+# 39 "calculator.c" 2
 
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\string.h" 1 3
@@ -27141,159 +27447,57 @@ size_t strxfrm_l (char *restrict, const char *restrict, size_t, locale_t);
 
 
 void *memccpy (void *restrict, const void *restrict, int, size_t);
-# 32 "7segpc.c" 2
+# 41 "calculator.c" 2
 
 
-void initializePORTA();
-void initializePORTB();
-void initializePORTC();
-void initializePORTD();
-unsigned char sevenSegValues[] = {0x3F,0x06,0x5B,0x4F,0x66,0x6D,0x7D,0x07,0x7F,0x67,0x00};
-void updatedSevenSeg();
-void lhsSevenSeg(int index);
-void rhsSevenSeg(int index);
-int getKeypad();
 
-void main(void) {
-    initializePORTA();
-    initializePORTB();
-    initializePORTC();
-    initializePORTD();
-    int value1 = -1;
-    int value2 = -1;
-    int convertedFirstNumber = 0;
 
+
+
+int main(void) {
+
+    initializeAllPorts();
+    int Operation_REG = 0;
+    int X_Input_REG = -1;
+    int Y_Input_REG = -1;
+    int Display_Result_REG = 0;
+    int isEqualSign = 0;
 
 
     while(1){
-        value1 = getKeypad();
-        rhsSevenSeg(value1);
-        _delay((unsigned long)((2000)*(4000000/4000.0)));
-    }
 
-    return;
-}
-void initializePORTA(){
-    PORTA = 0;
-    LATA = 0;
-    ANSELA = 0;
-    TRISA = 0b11110000;
-}
-void initializePORTB(){
-    PORTB = 0;
-    LATB = 0;
-    ANSELB = 0;
-    TRISB = 0b00000011;
-}
-void initializePORTC(){
-    PORTC = 0;
-    LATC = 0;
-    ANSELC = 0;
-    TRISC = 0;
-}
-void initializePORTD(){
-    TRISD = 0;
-    PORTD = 0;
-    LATD = 0;
-    ANSELD = 0;
-}
-void updatedSevenSeg(int rhsIndex, int lhsIndex){
-    rhsSevenSeg(rhsIndex);
-    _delay((unsigned long)((1)*(4000000/4000.0)));
-    lhsSevenSeg(lhsIndex);
-    _delay((unsigned long)((1)*(4000000/4000.0)));
-}
-
-void rhsSevenSeg(int index){
-    if(index < 0 || index > 9){
-        index = 10;
-    }
-    PORTC = 0b00001000;
-    PORTD = sevenSegValues[index];
-    _delay((unsigned long)((5)*(4000000/4000.0)));
-}
-void lhsSevenSeg(int index){
-    if(index < 0){
-        index = 10;
-    }
-    PORTC = 0b00000100;
-    PORTD = sevenSegValues[1];
-    _delay((unsigned long)((5)*(4000000/4000.0)));
-}
-int getKeypad(){
-    int buttonNumber = -1;
+        Operation_REG = 0;
+        isEqualSign = 0;
+        Display_Result_REG = 0;
+        X_Input_REG = -1;
+        Y_Input_REG = -1;
 
 
-    PORTAbits.RA0 = 1;
-    if(PORTAbits.RA4 == 1){
-        buttonNumber = 1;
-        while(PORTAbits.RA4 == 1);
-    }
-    if(PORTAbits.RA5 == 1){
-        buttonNumber = 4;
-        while(PORTAbits.RA5 == 1);
-    }
-    if(PORTBbits.RB0 == 1){
-        buttonNumber = 7;
-        while(PORTBbits.RB0 == 1);
-    }
-    PORTAbits.RA0 = 0;
+        X_Input_REG = getValue(&Operation_REG,&isEqualSign);
 
-    PORTAbits.RA1 = 1;
-    if(PORTAbits.RA4 == 1){
-        buttonNumber = 2;
-        while(PORTAbits.RA4 == 1);
-    }
-    if(PORTAbits.RA5 == 1){
-        buttonNumber = 5;
-        while(PORTAbits.RA5 == 1);
-    }
-    if(PORTBbits.RB0 == 1){
-        buttonNumber = 8;
-        while(PORTBbits.RB0 == 1);
-    }
-    if(PORTBbits.RB1 == 1){
-        buttonNumber = 0;
-        while(PORTBbits.RB1 == 1);
-    }
-    PORTAbits.RA1 = 0;
 
-    PORTAbits.RA2 = 1;
-    if(PORTAbits.RA4 == 1){
-        buttonNumber = 3;
-        while(PORTAbits.RA4 == 1);
-    }
-    if(PORTAbits.RA5 == 1){
-        buttonNumber = 6;
-        while(PORTAbits.RA5 == 1);
-    }
-    if(PORTBbits.RB0 == 1){
-        buttonNumber = 9;
-        while(PORTBbits.RB0 == 1);
-    }
-    if(PORTBbits.RB1 == 1){
-        buttonNumber = 10;
-        while(PORTBbits.RB1 == 1);
-    }
-    PORTAbits.RA2 = 0;
+        while(Operation_REG <= 10 || Operation_REG >= 15){
+            dispConvNumber(X_Input_REG);
+            Operation_REG = getKeypad();
+        }
 
-    PORTAbits.RA3 = 1;
-    if(PORTAbits.RA4 == 1){
-        buttonNumber = 11;
-        while(PORTAbits.RA4 == 1);
+
+        Y_Input_REG = getValue(&Operation_REG,&isEqualSign);
+
+
+        while(isEqualSign != 10){
+            dispConvNumber(Y_Input_REG);
+            isEqualSign = getKeypad();
+        }
+
+
+        Display_Result_REG = calculateFinalValue(Operation_REG,X_Input_REG,Y_Input_REG);
+
+
+        while(Operation_REG != 15){
+            dispConvNumber(Display_Result_REG);
+            Operation_REG = getKeypad();
+        }
     }
-    if(PORTAbits.RA5 == 1){
-        buttonNumber = 12;
-        while(PORTAbits.RA5 == 1);
-    }
-    if(PORTBbits.RB0 == 1){
-        buttonNumber = 13;
-        while(PORTBbits.RB0 == 1);
-    }
-    if(PORTBbits.RB1 == 1){
-        buttonNumber = 14;
-        while(PORTBbits.RB1 == 1);
-    }
-    PORTAbits.RA3 = 0;
-    return buttonNumber;
+    return 0;
 }

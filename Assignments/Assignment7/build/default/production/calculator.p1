@@ -1,21 +1,16 @@
 Version 4.0 HI-TECH Software Intermediate Code
-[p mainexit ]
-"34 7segpc.c
+"8 ./calcFunctions.h
+[; ;./calcFunctions.h: 8: void initializePORTA();
 [v _initializePORTA `(v ~T0 @X0 0 e? ]
-"35
+"9
+[; ;./calcFunctions.h: 9: void initializePORTB();
 [v _initializePORTB `(v ~T0 @X0 0 e? ]
-"36
+"10
+[; ;./calcFunctions.h: 10: void initializePORTC();
 [v _initializePORTC `(v ~T0 @X0 0 e? ]
-"37
+"11
+[; ;./calcFunctions.h: 11: void initializePORTD();
 [v _initializePORTD `(v ~T0 @X0 0 e? ]
-"42
-[v _getKeypad `(i ~T0 @X0 0 e? ]
-"41
-[v _rhsSevenSeg `(v ~T0 @X0 0 ef1`i ]
-[v F205 `(v ~T0 @X0 1 tf1`ul ]
-"20 C:\Program Files\Microchip\xc8\v2.46\pic\include\builtins.h
-[v __delay `JF205 ~T0 @X0 0 e ]
-[p i __delay ]
 "46756 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f47k42.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f47k42.h: 46756: extern volatile unsigned char PORTA __attribute__((address(0x3FCA)));
 [v _PORTA `Vuc ~T0 @X0 0 e@16330 ]
@@ -64,7 +59,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 "9937
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f47k42.h: 9937: extern volatile unsigned char ANSELD __attribute__((address(0x3A70)));
 [v _ANSELD `Vuc ~T0 @X0 0 e@14960 ]
-"40 7segpc.c
+"14 ./calcFunctions.h
+[; ;./calcFunctions.h: 14: void rhsSevenSeg(int index);
+[v _rhsSevenSeg `(v ~T0 @X0 0 ef1`i ]
+[v F205 `(v ~T0 @X0 1 tf1`ul ]
+"20 C:\Program Files\Microchip\xc8\v2.46\pic\include\builtins.h
+[v __delay `JF205 ~T0 @X0 0 e ]
+[p i __delay ]
+"13 ./calcFunctions.h
+[; ;./calcFunctions.h: 13: void lhsSevenSeg(int index);
 [v _lhsSevenSeg `(v ~T0 @X0 0 ef1`i ]
 "46762 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f47k42.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f47k42.h: 46762:     struct {
@@ -88,6 +91,19 @@ Version 4.0 HI-TECH Software Intermediate Code
 "46835
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f47k42.h: 46835: extern volatile PORTBbits_t PORTBbits __attribute__((address(0x3FCB)));
 [v _PORTBbits `VS2129 ~T0 @X0 0 e@16331 ]
+"20 ./calcFunctions.h
+[; ;./calcFunctions.h: 20: int Addition_Op(int valueX, int valueY);
+[v _Addition_Op `(i ~T0 @X0 0 ef2`i`i ]
+"21
+[; ;./calcFunctions.h: 21: int Subtraction_Op(int valueX, int valueY);
+[v _Subtraction_Op `(i ~T0 @X0 0 ef2`i`i ]
+"22
+[; ;./calcFunctions.h: 22: int Multiplication_Op(int valueX, int valueY);
+[v _Multiplication_Op `(i ~T0 @X0 0 ef2`i`i ]
+"23
+[; ;./calcFunctions.h: 23: int Division_Op(int valueX, int valueY);
+[v _Division_Op `(i ~T0 @X0 0 ef2`i`i ]
+[p mainexit ]
 "250 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f47k42.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f47k42.h: 250: __asm("STATUS_CSHAD equ 03880h");
 [; <" STATUS_CSHAD equ 03880h ;# ">
@@ -2314,7 +2330,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "48482
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f47k42.h: 48482: __asm("TOSU equ 03FFFh");
 [; <" TOSU equ 03FFFh ;# ">
-"4 ./header.h
+"4 ./cnfg.h
 [p x FEXTOSC  =  LP      ]
 "5
 [p x RSTOSC  =  EXTOSC   ]
@@ -2378,8 +2394,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 [p x LVP  =  ON          ]
 "51
 [p x CP  =  OFF          ]
-"38 7segpc.c
-[v _sevenSegValues `uc ~T0 @X0 -> 11 `i e ]
+"27 ./calcFunctions.h
+[; ;./calcFunctions.h: 27: unsigned char sevenSegValues[] = {0x3F,0x06,0x5B,0x4F,0x66,0x6D,0x7D,0x07,0x7F,0x67,0x00,0x79};
+[v _sevenSegValues `uc ~T0 @X0 -> 12 `i e ]
 [i _sevenSegValues
 :U ..
 -> -> 63 `i `uc
@@ -2393,415 +2410,1058 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 127 `i `uc
 -> -> 103 `i `uc
 -> -> 0 `i `uc
+-> -> 121 `i `uc
 ..
 ]
-[v $root$_main `(v ~T0 @X0 0 e ]
-"44
-[v _main `(v ~T0 @X0 1 ef ]
+"30
+[; ;./calcFunctions.h: 30: void initializeAllPorts(){
+[v _initializeAllPorts `(v ~T0 @X0 1 ef ]
 {
-[e :U _main ]
+[e :U _initializeAllPorts ]
 [f ]
-"45
+"31
+[; ;./calcFunctions.h: 31:     initializePORTA();
 [e ( _initializePORTA ..  ]
-"46
+"32
+[; ;./calcFunctions.h: 32:     initializePORTB();
 [e ( _initializePORTB ..  ]
-"47
+"33
+[; ;./calcFunctions.h: 33:     initializePORTC();
 [e ( _initializePORTC ..  ]
-"48
+"34
+[; ;./calcFunctions.h: 34:     initializePORTD();
 [e ( _initializePORTD ..  ]
-"49
-[v _value1 `i ~T0 @X0 1 a ]
-[e = _value1 -U -> 1 `i ]
-"50
-[v _value2 `i ~T0 @X0 1 a ]
-[e = _value2 -U -> 1 `i ]
-"51
-[v _convertedFirstNumber `i ~T0 @X0 1 a ]
-[e = _convertedFirstNumber -> 0 `i ]
-"55
-[e :U 2249 ]
-{
-"56
-[e = _value1 ( _getKeypad ..  ]
-"57
-[e ( _rhsSevenSeg (1 _value1 ]
-"58
-[e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"59
+"35
+[; ;./calcFunctions.h: 35: }
+[e :UE 2244 ]
 }
-[e :U 2248 ]
-[e $U 2249  ]
-[e :U 2250 ]
-"61
-[e $UE 2247  ]
-"62
-[e :UE 2247 ]
-}
-"63
+"36
+[; ;./calcFunctions.h: 36: void initializePORTA(){
 [v _initializePORTA `(v ~T0 @X0 1 ef ]
 {
 [e :U _initializePORTA ]
 [f ]
-"64
+"37
+[; ;./calcFunctions.h: 37:     PORTA = 0;
 [e = _PORTA -> -> 0 `i `uc ]
-"65
+"38
+[; ;./calcFunctions.h: 38:     LATA = 0;
 [e = _LATA -> -> 0 `i `uc ]
-"66
+"39
+[; ;./calcFunctions.h: 39:     ANSELA = 0;
 [e = _ANSELA -> -> 0 `i `uc ]
-"67
+"40
+[; ;./calcFunctions.h: 40:     TRISA = 0b11110000;
 [e = _TRISA -> -> 240 `i `uc ]
-"68
-[e :UE 2251 ]
+"41
+[; ;./calcFunctions.h: 41: }
+[e :UE 2245 ]
 }
-"69
+"42
+[; ;./calcFunctions.h: 42: void initializePORTB(){
 [v _initializePORTB `(v ~T0 @X0 1 ef ]
 {
 [e :U _initializePORTB ]
 [f ]
-"70
+"43
+[; ;./calcFunctions.h: 43:     PORTB = 0;
 [e = _PORTB -> -> 0 `i `uc ]
-"71
+"44
+[; ;./calcFunctions.h: 44:     LATB = 0;
 [e = _LATB -> -> 0 `i `uc ]
-"72
+"45
+[; ;./calcFunctions.h: 45:     ANSELB = 0;
 [e = _ANSELB -> -> 0 `i `uc ]
-"73
+"46
+[; ;./calcFunctions.h: 46:     TRISB = 0b00000011;
 [e = _TRISB -> -> 3 `i `uc ]
-"74
-[e :UE 2252 ]
+"47
+[; ;./calcFunctions.h: 47: }
+[e :UE 2246 ]
 }
-"75
+"48
+[; ;./calcFunctions.h: 48: void initializePORTC(){
 [v _initializePORTC `(v ~T0 @X0 1 ef ]
 {
 [e :U _initializePORTC ]
 [f ]
-"76
+"49
+[; ;./calcFunctions.h: 49:     PORTC = 0;
 [e = _PORTC -> -> 0 `i `uc ]
-"77
+"50
+[; ;./calcFunctions.h: 50:     LATC = 0;
 [e = _LATC -> -> 0 `i `uc ]
-"78
+"51
+[; ;./calcFunctions.h: 51:     ANSELC = 0;
 [e = _ANSELC -> -> 0 `i `uc ]
-"79
+"52
+[; ;./calcFunctions.h: 52:     TRISC = 0;
 [e = _TRISC -> -> 0 `i `uc ]
-"80
-[e :UE 2253 ]
+"53
+[; ;./calcFunctions.h: 53: }
+[e :UE 2247 ]
 }
-"81
+"54
+[; ;./calcFunctions.h: 54: void initializePORTD(){
 [v _initializePORTD `(v ~T0 @X0 1 ef ]
 {
 [e :U _initializePORTD ]
 [f ]
-"82
+"55
+[; ;./calcFunctions.h: 55:     TRISD = 0;
 [e = _TRISD -> -> 0 `i `uc ]
-"83
+"56
+[; ;./calcFunctions.h: 56:     PORTD = 0;
 [e = _PORTD -> -> 0 `i `uc ]
-"84
+"57
+[; ;./calcFunctions.h: 57:     LATD = 0;
 [e = _LATD -> -> 0 `i `uc ]
-"85
+"58
+[; ;./calcFunctions.h: 58:     ANSELD = 0;
 [e = _ANSELD -> -> 0 `i `uc ]
-"86
-[e :UE 2254 ]
+"59
+[; ;./calcFunctions.h: 59: }
+[e :UE 2248 ]
 }
-"87
-[v _updatedSevenSeg `(v ~T0 @X0 1 ef2`i`i ]
+"61
+[; ;./calcFunctions.h: 61: void updateSevenSeg(int lhsIndex, int rhsIndex){
+[v _updateSevenSeg `(v ~T0 @X0 1 ef2`i`i ]
 {
-[e :U _updatedSevenSeg ]
-[v _rhsIndex `i ~T0 @X0 1 r1 ]
-[v _lhsIndex `i ~T0 @X0 1 r2 ]
+[e :U _updateSevenSeg ]
+[v _lhsIndex `i ~T0 @X0 1 r1 ]
+[v _rhsIndex `i ~T0 @X0 1 r2 ]
 [f ]
-"88
+"62
+[; ;./calcFunctions.h: 62:     rhsSevenSeg(rhsIndex);
 [e ( _rhsSevenSeg (1 _rhsIndex ]
-"89
+"63
+[; ;./calcFunctions.h: 63:     _delay((unsigned long)((1)*(4000000/4000.0)));
 [e ( __delay (1 -> * -> -> 1 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"90
+"64
+[; ;./calcFunctions.h: 64:     lhsSevenSeg(lhsIndex);
 [e ( _lhsSevenSeg (1 _lhsIndex ]
-"91
+"65
+[; ;./calcFunctions.h: 65:     _delay((unsigned long)((1)*(4000000/4000.0)));
 [e ( __delay (1 -> * -> -> 1 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"92
-[e :UE 2255 ]
+"66
+[; ;./calcFunctions.h: 66: }
+[e :UE 2249 ]
 }
-"94
+"68
+[; ;./calcFunctions.h: 68: void rhsSevenSeg(int index){
 [v _rhsSevenSeg `(v ~T0 @X0 1 ef1`i ]
 {
 [e :U _rhsSevenSeg ]
 [v _index `i ~T0 @X0 1 r1 ]
 [f ]
-"95
-[e $ ! || < _index -> 0 `i > _index -> 9 `i 2257  ]
+"69
+[; ;./calcFunctions.h: 69:     if(index < 0 || index > 9){
+[e $ ! || < _index -> 0 `i > _index -> 9 `i 2251  ]
 {
-"96
+"70
+[; ;./calcFunctions.h: 70:         index = 10;
 [e = _index -> 10 `i ]
-"97
+"71
+[; ;./calcFunctions.h: 71:     }
 }
-[e :U 2257 ]
-"98
-[e = _PORTC -> -> 8 `i `uc ]
-"99
+[e :U 2251 ]
+"72
+[; ;./calcFunctions.h: 72:     PORTC = 0b00000100;
+[e = _PORTC -> -> 4 `i `uc ]
+"73
+[; ;./calcFunctions.h: 73:     PORTD = sevenSegValues[index];
 [e = _PORTD *U + &U _sevenSegValues * -> -> _index `ui `ux -> -> # *U &U _sevenSegValues `ui `ux ]
-"100
+"74
+[; ;./calcFunctions.h: 74:     _delay((unsigned long)((5)*(4000000/4000.0)));
 [e ( __delay (1 -> * -> -> 5 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"101
-[e :UE 2256 ]
+"75
+[; ;./calcFunctions.h: 75: }
+[e :UE 2250 ]
 }
-"102
+"77
+[; ;./calcFunctions.h: 77: void lhsSevenSeg(int index){
 [v _lhsSevenSeg `(v ~T0 @X0 1 ef1`i ]
 {
 [e :U _lhsSevenSeg ]
 [v _index `i ~T0 @X0 1 r1 ]
 [f ]
-"103
-[e $ ! < _index -> 0 `i 2259  ]
+"78
+[; ;./calcFunctions.h: 78:     if(index < 0){
+[e $ ! < _index -> 0 `i 2253  ]
 {
-"104
+"79
+[; ;./calcFunctions.h: 79:         index = 10;
 [e = _index -> 10 `i ]
-"105
+"80
+[; ;./calcFunctions.h: 80:     }
 }
-[e :U 2259 ]
-"106
-[e = _PORTC -> -> 4 `i `uc ]
-"107
-[e = _PORTD *U + &U _sevenSegValues * -> -> -> 1 `i `ui `ux -> -> # *U &U _sevenSegValues `ui `ux ]
-"108
+[e :U 2253 ]
+"81
+[; ;./calcFunctions.h: 81:     PORTC = 0b00001000;
+[e = _PORTC -> -> 8 `i `uc ]
+"82
+[; ;./calcFunctions.h: 82:     PORTD = sevenSegValues[index];
+[e = _PORTD *U + &U _sevenSegValues * -> -> _index `ui `ux -> -> # *U &U _sevenSegValues `ui `ux ]
+"83
+[; ;./calcFunctions.h: 83:     _delay((unsigned long)((5)*(4000000/4000.0)));
 [e ( __delay (1 -> * -> -> 5 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"109
-[e :UE 2258 ]
+"84
+[; ;./calcFunctions.h: 84: }
+[e :UE 2252 ]
 }
-"110
+"87
+[; ;./calcFunctions.h: 87: void negSevenSeg(int lhs, int rhs){
+[v _negSevenSeg `(v ~T0 @X0 1 ef2`i`i ]
+{
+[e :U _negSevenSeg ]
+[v _lhs `i ~T0 @X0 1 r1 ]
+[v _rhs `i ~T0 @X0 1 r2 ]
+[f ]
+"88
+[; ;./calcFunctions.h: 88:     if(lhs == 0){
+[e $ ! == _lhs -> 0 `i 2255  ]
+{
+"89
+[; ;./calcFunctions.h: 89:         lhs = 10;
+[e = _lhs -> 10 `i ]
+"90
+[; ;./calcFunctions.h: 90:     }
+}
+[e :U 2255 ]
+"92
+[; ;./calcFunctions.h: 92:     PORTC = 0b00001000;
+[e = _PORTC -> -> 8 `i `uc ]
+"93
+[; ;./calcFunctions.h: 93:     PORTD = sevenSegValues[lhs];
+[e = _PORTD *U + &U _sevenSegValues * -> -> _lhs `ui `ux -> -> # *U &U _sevenSegValues `ui `ux ]
+"94
+[; ;./calcFunctions.h: 94:     _delay((unsigned long)((5)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"96
+[; ;./calcFunctions.h: 96:     PORTC = 0b00000100;
+[e = _PORTC -> -> 4 `i `uc ]
+"97
+[; ;./calcFunctions.h: 97:     PORTD = sevenSegValues[rhs] + 0x80;
+[e = _PORTD -> + -> *U + &U _sevenSegValues * -> -> _rhs `ui `ux -> -> # *U &U _sevenSegValues `ui `ux `i -> 128 `i `uc ]
+"98
+[; ;./calcFunctions.h: 98:     _delay((unsigned long)((5)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"99
+[; ;./calcFunctions.h: 99: }
+[e :UE 2254 ]
+}
+"102
+[; ;./calcFunctions.h: 102: int getKeypad(){
 [v _getKeypad `(i ~T0 @X0 1 ef ]
 {
 [e :U _getKeypad ]
 [f ]
-"111
+"103
+[; ;./calcFunctions.h: 103:     int buttonNumber = -1;
 [v _buttonNumber `i ~T0 @X0 1 a ]
 [e = _buttonNumber -U -> 1 `i ]
-"114
+"106
+[; ;./calcFunctions.h: 106:     PORTAbits.RA0 = 1;
 [e = . . _PORTAbits 0 0 -> -> 1 `i `uc ]
-"115
-[e $ ! == -> . . _PORTAbits 0 4 `i -> 1 `i 2261  ]
+"107
+[; ;./calcFunctions.h: 107:     if(PORTAbits.RA4 == 1){
+[e $ ! == -> . . _PORTAbits 0 4 `i -> 1 `i 2257  ]
 {
-"116
+"109
+[; ;./calcFunctions.h: 109:         buttonNumber = 1;
 [e = _buttonNumber -> 1 `i ]
-"117
+"110
+[; ;./calcFunctions.h: 110:         while(PORTAbits.RA4 == 1);
+[e $U 2258  ]
+[e :U 2259 ]
+[e :U 2258 ]
+[e $ == -> . . _PORTAbits 0 4 `i -> 1 `i 2259  ]
+[e :U 2260 ]
+"111
+[; ;./calcFunctions.h: 111:     }
+}
+[e :U 2257 ]
+"112
+[; ;./calcFunctions.h: 112:     if(PORTAbits.RA5 == 1){
+[e $ ! == -> . . _PORTAbits 0 5 `i -> 1 `i 2261  ]
+{
+"114
+[; ;./calcFunctions.h: 114:         buttonNumber = 4;
+[e = _buttonNumber -> 4 `i ]
+"115
+[; ;./calcFunctions.h: 115:         while(PORTAbits.RA5 == 1);
 [e $U 2262  ]
 [e :U 2263 ]
 [e :U 2262 ]
-[e $ == -> . . _PORTAbits 0 4 `i -> 1 `i 2263  ]
+[e $ == -> . . _PORTAbits 0 5 `i -> 1 `i 2263  ]
 [e :U 2264 ]
-"118
+"116
+[; ;./calcFunctions.h: 116:     }
 }
 [e :U 2261 ]
-"119
-[e $ ! == -> . . _PORTAbits 0 5 `i -> 1 `i 2265  ]
+"117
+[; ;./calcFunctions.h: 117:     if(PORTBbits.RB0 == 1){
+[e $ ! == -> . . _PORTBbits 0 0 `i -> 1 `i 2265  ]
 {
+"119
+[; ;./calcFunctions.h: 119:         buttonNumber = 7;
+[e = _buttonNumber -> 7 `i ]
 "120
-[e = _buttonNumber -> 4 `i ]
-"121
+[; ;./calcFunctions.h: 120:         while(PORTBbits.RB0 == 1);
 [e $U 2266  ]
 [e :U 2267 ]
 [e :U 2266 ]
-[e $ == -> . . _PORTAbits 0 5 `i -> 1 `i 2267  ]
+[e $ == -> . . _PORTBbits 0 0 `i -> 1 `i 2267  ]
 [e :U 2268 ]
-"122
+"121
+[; ;./calcFunctions.h: 121:     }
 }
 [e :U 2265 ]
-"123
-[e $ ! == -> . . _PORTBbits 0 0 `i -> 1 `i 2269  ]
+"122
+[; ;./calcFunctions.h: 122:     if(PORTBbits.RB1 == 1){
+[e $ ! == -> . . _PORTBbits 0 1 `i -> 1 `i 2269  ]
 {
 "124
-[e = _buttonNumber -> 7 `i ]
+[; ;./calcFunctions.h: 124:         buttonNumber = 15;
+[e = _buttonNumber -> 15 `i ]
 "125
+[; ;./calcFunctions.h: 125:         while(PORTBbits.RB1 == 1);
 [e $U 2270  ]
 [e :U 2271 ]
 [e :U 2270 ]
-[e $ == -> . . _PORTBbits 0 0 `i -> 1 `i 2271  ]
+[e $ == -> . . _PORTBbits 0 1 `i -> 1 `i 2271  ]
 [e :U 2272 ]
 "126
+[; ;./calcFunctions.h: 126:     }
 }
 [e :U 2269 ]
 "127
+[; ;./calcFunctions.h: 127:     PORTAbits.RA0 = 0;
 [e = . . _PORTAbits 0 0 -> -> 0 `i `uc ]
-"129
-[e = . . _PORTAbits 0 1 -> -> 1 `i `uc ]
 "130
+[; ;./calcFunctions.h: 130:     PORTAbits.RA1 = 1;
+[e = . . _PORTAbits 0 1 -> -> 1 `i `uc ]
+"131
+[; ;./calcFunctions.h: 131:     if(PORTAbits.RA4 == 1){
 [e $ ! == -> . . _PORTAbits 0 4 `i -> 1 `i 2273  ]
 {
-"131
+"133
+[; ;./calcFunctions.h: 133:         buttonNumber = 2;
 [e = _buttonNumber -> 2 `i ]
-"132
+"134
+[; ;./calcFunctions.h: 134:         while(PORTAbits.RA4 == 1);
 [e $U 2274  ]
 [e :U 2275 ]
 [e :U 2274 ]
 [e $ == -> . . _PORTAbits 0 4 `i -> 1 `i 2275  ]
 [e :U 2276 ]
-"133
+"135
+[; ;./calcFunctions.h: 135:     }
 }
 [e :U 2273 ]
-"134
+"136
+[; ;./calcFunctions.h: 136:     if(PORTAbits.RA5 == 1){
 [e $ ! == -> . . _PORTAbits 0 5 `i -> 1 `i 2277  ]
 {
-"135
+"138
+[; ;./calcFunctions.h: 138:         buttonNumber = 5;
 [e = _buttonNumber -> 5 `i ]
-"136
+"139
+[; ;./calcFunctions.h: 139:         while(PORTAbits.RA5 == 1);
 [e $U 2278  ]
 [e :U 2279 ]
 [e :U 2278 ]
 [e $ == -> . . _PORTAbits 0 5 `i -> 1 `i 2279  ]
 [e :U 2280 ]
-"137
+"140
+[; ;./calcFunctions.h: 140:     }
 }
 [e :U 2277 ]
-"138
+"141
+[; ;./calcFunctions.h: 141:     if(PORTBbits.RB0 == 1){
 [e $ ! == -> . . _PORTBbits 0 0 `i -> 1 `i 2281  ]
 {
-"139
+"143
+[; ;./calcFunctions.h: 143:         buttonNumber = 8;
 [e = _buttonNumber -> 8 `i ]
-"140
+"144
+[; ;./calcFunctions.h: 144:         while(PORTBbits.RB0 == 1);
 [e $U 2282  ]
 [e :U 2283 ]
 [e :U 2282 ]
 [e $ == -> . . _PORTBbits 0 0 `i -> 1 `i 2283  ]
 [e :U 2284 ]
-"141
+"145
+[; ;./calcFunctions.h: 145:     }
 }
 [e :U 2281 ]
-"142
+"146
+[; ;./calcFunctions.h: 146:     if(PORTBbits.RB1 == 1){
 [e $ ! == -> . . _PORTBbits 0 1 `i -> 1 `i 2285  ]
 {
-"143
+"148
+[; ;./calcFunctions.h: 148:         buttonNumber = 0;
 [e = _buttonNumber -> 0 `i ]
-"144
+"149
+[; ;./calcFunctions.h: 149:         while(PORTBbits.RB1 == 1);
 [e $U 2286  ]
 [e :U 2287 ]
 [e :U 2286 ]
 [e $ == -> . . _PORTBbits 0 1 `i -> 1 `i 2287  ]
 [e :U 2288 ]
-"145
+"150
+[; ;./calcFunctions.h: 150:     }
 }
 [e :U 2285 ]
-"146
+"151
+[; ;./calcFunctions.h: 151:     PORTAbits.RA1 = 0;
 [e = . . _PORTAbits 0 1 -> -> 0 `i `uc ]
-"148
+"154
+[; ;./calcFunctions.h: 154:     PORTAbits.RA2 = 1;
 [e = . . _PORTAbits 0 2 -> -> 1 `i `uc ]
-"149
+"155
+[; ;./calcFunctions.h: 155:     if(PORTAbits.RA4 == 1){
 [e $ ! == -> . . _PORTAbits 0 4 `i -> 1 `i 2289  ]
 {
-"150
+"157
+[; ;./calcFunctions.h: 157:         buttonNumber = 3;
 [e = _buttonNumber -> 3 `i ]
-"151
+"158
+[; ;./calcFunctions.h: 158:         while(PORTAbits.RA4 == 1);
 [e $U 2290  ]
 [e :U 2291 ]
 [e :U 2290 ]
 [e $ == -> . . _PORTAbits 0 4 `i -> 1 `i 2291  ]
 [e :U 2292 ]
-"152
+"159
+[; ;./calcFunctions.h: 159:     }
 }
 [e :U 2289 ]
-"153
+"160
+[; ;./calcFunctions.h: 160:     if(PORTAbits.RA5 == 1){
 [e $ ! == -> . . _PORTAbits 0 5 `i -> 1 `i 2293  ]
 {
-"154
+"162
+[; ;./calcFunctions.h: 162:         buttonNumber = 6;
 [e = _buttonNumber -> 6 `i ]
-"155
+"163
+[; ;./calcFunctions.h: 163:         while(PORTAbits.RA5 == 1);
 [e $U 2294  ]
 [e :U 2295 ]
 [e :U 2294 ]
 [e $ == -> . . _PORTAbits 0 5 `i -> 1 `i 2295  ]
 [e :U 2296 ]
-"156
+"164
+[; ;./calcFunctions.h: 164:     }
 }
 [e :U 2293 ]
-"157
+"165
+[; ;./calcFunctions.h: 165:     if(PORTBbits.RB0 == 1){
 [e $ ! == -> . . _PORTBbits 0 0 `i -> 1 `i 2297  ]
 {
-"158
+"167
+[; ;./calcFunctions.h: 167:         buttonNumber = 9;
 [e = _buttonNumber -> 9 `i ]
-"159
+"168
+[; ;./calcFunctions.h: 168:         while(PORTBbits.RB0 == 1);
 [e $U 2298  ]
 [e :U 2299 ]
 [e :U 2298 ]
 [e $ == -> . . _PORTBbits 0 0 `i -> 1 `i 2299  ]
 [e :U 2300 ]
-"160
+"169
+[; ;./calcFunctions.h: 169:     }
 }
 [e :U 2297 ]
-"161
+"170
+[; ;./calcFunctions.h: 170:     if(PORTBbits.RB1 == 1){
 [e $ ! == -> . . _PORTBbits 0 1 `i -> 1 `i 2301  ]
 {
-"162
+"172
+[; ;./calcFunctions.h: 172:         buttonNumber = 10;
 [e = _buttonNumber -> 10 `i ]
-"163
+"173
+[; ;./calcFunctions.h: 173:         while(PORTBbits.RB1 == 1);
 [e $U 2302  ]
 [e :U 2303 ]
 [e :U 2302 ]
 [e $ == -> . . _PORTBbits 0 1 `i -> 1 `i 2303  ]
 [e :U 2304 ]
-"164
+"174
+[; ;./calcFunctions.h: 174:     }
 }
 [e :U 2301 ]
-"165
+"175
+[; ;./calcFunctions.h: 175:     PORTAbits.RA2 = 0;
 [e = . . _PORTAbits 0 2 -> -> 0 `i `uc ]
-"167
+"178
+[; ;./calcFunctions.h: 178:     PORTAbits.RA3 = 1;
 [e = . . _PORTAbits 0 3 -> -> 1 `i `uc ]
-"168
+"179
+[; ;./calcFunctions.h: 179:     if(PORTAbits.RA4 == 1){
 [e $ ! == -> . . _PORTAbits 0 4 `i -> 1 `i 2305  ]
 {
-"169
+"181
+[; ;./calcFunctions.h: 181:         buttonNumber = 11;
 [e = _buttonNumber -> 11 `i ]
-"170
+"182
+[; ;./calcFunctions.h: 182:         while(PORTAbits.RA4 == 1);
 [e $U 2306  ]
 [e :U 2307 ]
 [e :U 2306 ]
 [e $ == -> . . _PORTAbits 0 4 `i -> 1 `i 2307  ]
 [e :U 2308 ]
-"171
+"183
+[; ;./calcFunctions.h: 183:     }
 }
 [e :U 2305 ]
-"172
+"184
+[; ;./calcFunctions.h: 184:     if(PORTAbits.RA5 == 1){
 [e $ ! == -> . . _PORTAbits 0 5 `i -> 1 `i 2309  ]
 {
-"173
+"186
+[; ;./calcFunctions.h: 186:         buttonNumber = 12;
 [e = _buttonNumber -> 12 `i ]
-"174
+"187
+[; ;./calcFunctions.h: 187:         while(PORTAbits.RA5 == 1);
 [e $U 2310  ]
 [e :U 2311 ]
 [e :U 2310 ]
 [e $ == -> . . _PORTAbits 0 5 `i -> 1 `i 2311  ]
 [e :U 2312 ]
-"175
+"188
+[; ;./calcFunctions.h: 188:     }
 }
 [e :U 2309 ]
-"176
+"189
+[; ;./calcFunctions.h: 189:     if(PORTBbits.RB0 == 1){
 [e $ ! == -> . . _PORTBbits 0 0 `i -> 1 `i 2313  ]
 {
-"177
+"191
+[; ;./calcFunctions.h: 191:         buttonNumber = 13;
 [e = _buttonNumber -> 13 `i ]
-"178
+"192
+[; ;./calcFunctions.h: 192:         while(PORTBbits.RB0 == 1);
 [e $U 2314  ]
 [e :U 2315 ]
 [e :U 2314 ]
 [e $ == -> . . _PORTBbits 0 0 `i -> 1 `i 2315  ]
 [e :U 2316 ]
-"179
+"193
+[; ;./calcFunctions.h: 193:     }
 }
 [e :U 2313 ]
-"180
+"194
+[; ;./calcFunctions.h: 194:     if(PORTBbits.RB1 == 1){
 [e $ ! == -> . . _PORTBbits 0 1 `i -> 1 `i 2317  ]
 {
-"181
+"196
+[; ;./calcFunctions.h: 196:         buttonNumber = 14;
 [e = _buttonNumber -> 14 `i ]
-"182
+"197
+[; ;./calcFunctions.h: 197:         while(PORTBbits.RB1 == 1);
 [e $U 2318  ]
 [e :U 2319 ]
 [e :U 2318 ]
 [e $ == -> . . _PORTBbits 0 1 `i -> 1 `i 2319  ]
 [e :U 2320 ]
-"183
+"198
+[; ;./calcFunctions.h: 198:     }
 }
 [e :U 2317 ]
-"184
+"199
+[; ;./calcFunctions.h: 199:     PORTAbits.RA3 = 0;
 [e = . . _PORTAbits 0 3 -> -> 0 `i `uc ]
-"185
+"201
+[; ;./calcFunctions.h: 201:     return buttonNumber;
 [e ) _buttonNumber ]
-[e $UE 2260  ]
-"186
-[e :UE 2260 ]
+[e $UE 2256  ]
+"202
+[; ;./calcFunctions.h: 202: }
+[e :UE 2256 ]
+}
+"205
+[; ;./calcFunctions.h: 205: int getValue(int* operation, int* isEqualSign){
+[v _getValue `(i ~T0 @X0 1 ef2`*i`*i ]
+{
+[e :U _getValue ]
+[v _operation `*i ~T0 @X0 1 r1 ]
+[v _isEqualSign `*i ~T0 @X0 1 r2 ]
+[f ]
+"206
+[; ;./calcFunctions.h: 206:     int value1 = -1;
+[v _value1 `i ~T0 @X0 1 a ]
+[e = _value1 -U -> 1 `i ]
+"207
+[; ;./calcFunctions.h: 207:     int value2 = -1;
+[v _value2 `i ~T0 @X0 1 a ]
+[e = _value2 -U -> 1 `i ]
+"208
+[; ;./calcFunctions.h: 208:     int decimalValue = 0;
+[v _decimalValue `i ~T0 @X0 1 a ]
+[e = _decimalValue -> 0 `i ]
+"210
+[; ;./calcFunctions.h: 210:     updateSevenSeg(value1,value2);
+[e ( _updateSevenSeg (2 , _value1 _value2 ]
+"212
+[; ;./calcFunctions.h: 212:     while(value1 < 0 || value1 > 9){
+[e $U 2322  ]
+[e :U 2323 ]
+{
+"213
+[; ;./calcFunctions.h: 213:             value1 = getKeypad();
+[e = _value1 ( _getKeypad ..  ]
+"214
+[; ;./calcFunctions.h: 214:     }
+}
+[e :U 2322 ]
+"212
+[; ;./calcFunctions.h: 212:     while(value1 < 0 || value1 > 9){
+[e $ || < _value1 -> 0 `i > _value1 -> 9 `i 2323  ]
+[e :U 2324 ]
+"215
+[; ;./calcFunctions.h: 215:     rhsSevenSeg(value1);
+[e ( _rhsSevenSeg (1 _value1 ]
+"217
+[; ;./calcFunctions.h: 217:     while(value2<0){
+[e $U 2325  ]
+[e :U 2326 ]
+{
+"218
+[; ;./calcFunctions.h: 218:         value2 = getKeypad();
+[e = _value2 ( _getKeypad ..  ]
+"219
+[; ;./calcFunctions.h: 219:     }
+}
+[e :U 2325 ]
+"217
+[; ;./calcFunctions.h: 217:     while(value2<0){
+[e $ < _value2 -> 0 `i 2326  ]
+[e :U 2327 ]
+"220
+[; ;./calcFunctions.h: 220:     if(*operation < 10){
+[e $ ! < *U _operation -> 10 `i 2328  ]
+{
+"223
+[; ;./calcFunctions.h: 223:         if(value2 >= 0 && value2 <= 9){
+[e $ ! && >= _value2 -> 0 `i <= _value2 -> 9 `i 2329  ]
+{
+"224
+[; ;./calcFunctions.h: 224:                 updateSevenSeg(value1,value2);
+[e ( _updateSevenSeg (2 , _value1 _value2 ]
+"225
+[; ;./calcFunctions.h: 225:                 decimalValue = (value1 * 10) + value2;
+[e = _decimalValue + * _value1 -> 10 `i _value2 ]
+"226
+[; ;./calcFunctions.h: 226:         }else{
+}
+[e $U 2330  ]
+[e :U 2329 ]
+{
+"227
+[; ;./calcFunctions.h: 227:                 *operation = value2;
+[e = *U _operation _value2 ]
+"228
+[; ;./calcFunctions.h: 228:                 decimalValue = value1;
+[e = _decimalValue _value1 ]
+"229
+[; ;./calcFunctions.h: 229:                 rhsSevenSeg(0);
+[e ( _rhsSevenSeg (1 -> 0 `i ]
+"230
+[; ;./calcFunctions.h: 230:         }
+}
+[e :U 2330 ]
+"231
+[; ;./calcFunctions.h: 231:     }else{
+}
+[e $U 2331  ]
+[e :U 2328 ]
+{
+"232
+[; ;./calcFunctions.h: 232:         if(value2 == 10){
+[e $ ! == _value2 -> 10 `i 2332  ]
+{
+"233
+[; ;./calcFunctions.h: 233:             *isEqualSign = value2;
+[e = *U _isEqualSign _value2 ]
+"234
+[; ;./calcFunctions.h: 234:             decimalValue = value1;
+[e = _decimalValue _value1 ]
+"235
+[; ;./calcFunctions.h: 235:             rhsSevenSeg(0);
+[e ( _rhsSevenSeg (1 -> 0 `i ]
+"236
+[; ;./calcFunctions.h: 236:         }
+}
+[e :U 2332 ]
+"237
+[; ;./calcFunctions.h: 237:         while(*isEqualSign != 10){
+[e $U 2333  ]
+[e :U 2334 ]
+{
+"238
+[; ;./calcFunctions.h: 238:             if(value2 >= 0 && value2 <= 9){
+[e $ ! && >= _value2 -> 0 `i <= _value2 -> 9 `i 2336  ]
+{
+"239
+[; ;./calcFunctions.h: 239:                 updateSevenSeg(value1,value2);
+[e ( _updateSevenSeg (2 , _value1 _value2 ]
+"240
+[; ;./calcFunctions.h: 240:                 decimalValue = (value1 * 10) + value2;
+[e = _decimalValue + * _value1 -> 10 `i _value2 ]
+"241
+[; ;./calcFunctions.h: 241:             }
+}
+[e :U 2336 ]
+"242
+[; ;./calcFunctions.h: 242:             *isEqualSign = getKeypad();
+[e = *U _isEqualSign ( _getKeypad ..  ]
+"243
+[; ;./calcFunctions.h: 243:         }
+}
+[e :U 2333 ]
+"237
+[; ;./calcFunctions.h: 237:         while(*isEqualSign != 10){
+[e $ != *U _isEqualSign -> 10 `i 2334  ]
+[e :U 2335 ]
+"245
+[; ;./calcFunctions.h: 245:     }
+}
+[e :U 2331 ]
+"246
+[; ;./calcFunctions.h: 246:     return decimalValue;
+[e ) _decimalValue ]
+[e $UE 2321  ]
+"247
+[; ;./calcFunctions.h: 247: }
+[e :UE 2321 ]
+}
+"254
+[; ;./calcFunctions.h: 254: void dispConvNumber(int decimalValue){
+[v _dispConvNumber `(v ~T0 @X0 1 ef1`i ]
+{
+[e :U _dispConvNumber ]
+[v _decimalValue `i ~T0 @X0 1 r1 ]
+[f ]
+"255
+[; ;./calcFunctions.h: 255:     if(decimalValue >= 0 && decimalValue <= 99){
+[e $ ! && >= _decimalValue -> 0 `i <= _decimalValue -> 99 `i 2338  ]
+{
+"256
+[; ;./calcFunctions.h: 256:         if(decimalValue < 10){
+[e $ ! < _decimalValue -> 10 `i 2339  ]
+{
+"257
+[; ;./calcFunctions.h: 257:             rhsSevenSeg(decimalValue);
+[e ( _rhsSevenSeg (1 _decimalValue ]
+"258
+[; ;./calcFunctions.h: 258:         }else{
+}
+[e $U 2340  ]
+[e :U 2339 ]
+{
+"259
+[; ;./calcFunctions.h: 259:             updateSevenSeg(decimalValue/10,decimalValue%10);
+[e ( _updateSevenSeg (2 , / _decimalValue -> 10 `i % _decimalValue -> 10 `i ]
+"260
+[; ;./calcFunctions.h: 260:         }
+}
+[e :U 2340 ]
+"261
+[; ;./calcFunctions.h: 261:     }else if(decimalValue < -99 || decimalValue > 99){
+}
+[e $U 2341  ]
+[e :U 2338 ]
+[e $ ! || < _decimalValue -U -> 99 `i > _decimalValue -> 99 `i 2342  ]
+{
+"263
+[; ;./calcFunctions.h: 263:         updateSevenSeg(11,11);
+[e ( _updateSevenSeg (2 , -> 11 `i -> 11 `i ]
+"264
+[; ;./calcFunctions.h: 264:     }else{
+}
+[e $U 2343  ]
+[e :U 2342 ]
+{
+"266
+[; ;./calcFunctions.h: 266:         decimalValue *= -1;
+[e =* _decimalValue -U -> 1 `i ]
+"267
+[; ;./calcFunctions.h: 267:         negSevenSeg(decimalValue/10,decimalValue%10);
+[e ( _negSevenSeg (2 , / _decimalValue -> 10 `i % _decimalValue -> 10 `i ]
+"268
+[; ;./calcFunctions.h: 268:     }
+}
+[e :U 2343 ]
+[e :U 2341 ]
+"270
+[; ;./calcFunctions.h: 270: }
+[e :UE 2337 ]
+}
+"272
+[; ;./calcFunctions.h: 272: int calculateFinalValue(int operation, int valueX, int valueY){
+[v _calculateFinalValue `(i ~T0 @X0 1 ef3`i`i`i ]
+{
+[e :U _calculateFinalValue ]
+[v _operation `i ~T0 @X0 1 r1 ]
+[v _valueX `i ~T0 @X0 1 r2 ]
+[v _valueY `i ~T0 @X0 1 r3 ]
+[f ]
+"273
+[; ;./calcFunctions.h: 273:     int finalValue = 0;
+[v _finalValue `i ~T0 @X0 1 a ]
+[e = _finalValue -> 0 `i ]
+"274
+[; ;./calcFunctions.h: 274:     switch (operation)
+[e $U 2346  ]
+"275
+[; ;./calcFunctions.h: 275:     {
+{
+"276
+[; ;./calcFunctions.h: 276:         case 11:
+[e :U 2347 ]
+"277
+[; ;./calcFunctions.h: 277:             finalValue = Addition_Op(valueX,valueY);
+[e = _finalValue ( _Addition_Op (2 , _valueX _valueY ]
+"278
+[; ;./calcFunctions.h: 278:             break;
+[e $U 2345  ]
+"279
+[; ;./calcFunctions.h: 279:         case 12:
+[e :U 2348 ]
+"280
+[; ;./calcFunctions.h: 280:             finalValue = Subtraction_Op(valueX,valueY);
+[e = _finalValue ( _Subtraction_Op (2 , _valueX _valueY ]
+"281
+[; ;./calcFunctions.h: 281:             break;
+[e $U 2345  ]
+"282
+[; ;./calcFunctions.h: 282:         case 13:
+[e :U 2349 ]
+"283
+[; ;./calcFunctions.h: 283:             finalValue = Multiplication_Op(valueX,valueY);
+[e = _finalValue ( _Multiplication_Op (2 , _valueX _valueY ]
+"284
+[; ;./calcFunctions.h: 284:             break;
+[e $U 2345  ]
+"285
+[; ;./calcFunctions.h: 285:         case 14:
+[e :U 2350 ]
+"286
+[; ;./calcFunctions.h: 286:             finalValue = Division_Op(valueX,valueY);
+[e = _finalValue ( _Division_Op (2 , _valueX _valueY ]
+"287
+[; ;./calcFunctions.h: 287:             break;
+[e $U 2345  ]
+"288
+[; ;./calcFunctions.h: 288:     }
+}
+[e $U 2345  ]
+[e :U 2346 ]
+[e [\ _operation , $ -> 11 `i 2347
+ , $ -> 12 `i 2348
+ , $ -> 13 `i 2349
+ , $ -> 14 `i 2350
+ 2345 ]
+[e :U 2345 ]
+"290
+[; ;./calcFunctions.h: 290:     return finalValue;
+[e ) _finalValue ]
+[e $UE 2344  ]
+"291
+[; ;./calcFunctions.h: 291: }
+[e :UE 2344 ]
+}
+"293
+[; ;./calcFunctions.h: 293: int Addition_Op(int valueX, int valueY){
+[v _Addition_Op `(i ~T0 @X0 1 ef2`i`i ]
+{
+[e :U _Addition_Op ]
+[v _valueX `i ~T0 @X0 1 r1 ]
+[v _valueY `i ~T0 @X0 1 r2 ]
+[f ]
+"294
+[; ;./calcFunctions.h: 294:     return valueX + valueY;
+[e ) + _valueX _valueY ]
+[e $UE 2351  ]
+"295
+[; ;./calcFunctions.h: 295: }
+[e :UE 2351 ]
+}
+"297
+[; ;./calcFunctions.h: 297: int Subtraction_Op(int valueX, int valueY){
+[v _Subtraction_Op `(i ~T0 @X0 1 ef2`i`i ]
+{
+[e :U _Subtraction_Op ]
+[v _valueX `i ~T0 @X0 1 r1 ]
+[v _valueY `i ~T0 @X0 1 r2 ]
+[f ]
+"298
+[; ;./calcFunctions.h: 298:     return valueX - valueY;
+[e ) - _valueX _valueY ]
+[e $UE 2352  ]
+"299
+[; ;./calcFunctions.h: 299: }
+[e :UE 2352 ]
+}
+"301
+[; ;./calcFunctions.h: 301: int Multiplication_Op(int valueX, int valueY){
+[v _Multiplication_Op `(i ~T0 @X0 1 ef2`i`i ]
+{
+[e :U _Multiplication_Op ]
+[v _valueX `i ~T0 @X0 1 r1 ]
+[v _valueY `i ~T0 @X0 1 r2 ]
+[f ]
+"302
+[; ;./calcFunctions.h: 302:     return valueX * valueY;
+[e ) * _valueX _valueY ]
+[e $UE 2353  ]
+"303
+[; ;./calcFunctions.h: 303: }
+[e :UE 2353 ]
+}
+"305
+[; ;./calcFunctions.h: 305: int Division_Op(int valueX, int valueY){
+[v _Division_Op `(i ~T0 @X0 1 ef2`i`i ]
+{
+[e :U _Division_Op ]
+[v _valueX `i ~T0 @X0 1 r1 ]
+[v _valueY `i ~T0 @X0 1 r2 ]
+[f ]
+"306
+[; ;./calcFunctions.h: 306:     return valueX / valueY;
+[e ) / _valueX _valueY ]
+[e $UE 2354  ]
+"307
+[; ;./calcFunctions.h: 307: }
+[e :UE 2354 ]
+}
+[v $root$_main `(v ~T0 @X0 0 e ]
+"47 calculator.c
+[; ;calculator.c: 47: int main(void) {
+[v _main `(i ~T0 @X0 1 ef ]
+{
+[e :U _main ]
+[f ]
+"49
+[; ;calculator.c: 49:     initializeAllPorts();
+[e ( _initializeAllPorts ..  ]
+"50
+[; ;calculator.c: 50:     int Operation_REG = 0;
+[v _Operation_REG `i ~T0 @X0 1 a ]
+[e = _Operation_REG -> 0 `i ]
+"51
+[; ;calculator.c: 51:     int X_Input_REG = -1;
+[v _X_Input_REG `i ~T0 @X0 1 a ]
+[e = _X_Input_REG -U -> 1 `i ]
+"52
+[; ;calculator.c: 52:     int Y_Input_REG = -1;
+[v _Y_Input_REG `i ~T0 @X0 1 a ]
+[e = _Y_Input_REG -U -> 1 `i ]
+"53
+[; ;calculator.c: 53:     int Display_Result_REG = 0;
+[v _Display_Result_REG `i ~T0 @X0 1 a ]
+[e = _Display_Result_REG -> 0 `i ]
+"54
+[; ;calculator.c: 54:     int isEqualSign = 0;
+[v _isEqualSign `i ~T0 @X0 1 a ]
+[e = _isEqualSign -> 0 `i ]
+"57
+[; ;calculator.c: 57:     while(1){
+[e :U 2360 ]
+{
+"59
+[; ;calculator.c: 59:         Operation_REG = 0;
+[e = _Operation_REG -> 0 `i ]
+"60
+[; ;calculator.c: 60:         isEqualSign = 0;
+[e = _isEqualSign -> 0 `i ]
+"61
+[; ;calculator.c: 61:         Display_Result_REG = 0;
+[e = _Display_Result_REG -> 0 `i ]
+"62
+[; ;calculator.c: 62:         X_Input_REG = -1;
+[e = _X_Input_REG -U -> 1 `i ]
+"63
+[; ;calculator.c: 63:         Y_Input_REG = -1;
+[e = _Y_Input_REG -U -> 1 `i ]
+"66
+[; ;calculator.c: 66:         X_Input_REG = getValue(&Operation_REG,&isEqualSign);
+[e = _X_Input_REG ( _getValue (2 , &U _Operation_REG &U _isEqualSign ]
+"69
+[; ;calculator.c: 69:         while(Operation_REG <= 10 || Operation_REG >= 15){
+[e $U 2362  ]
+[e :U 2363 ]
+{
+"70
+[; ;calculator.c: 70:             dispConvNumber(X_Input_REG);
+[e ( _dispConvNumber (1 _X_Input_REG ]
+"71
+[; ;calculator.c: 71:             Operation_REG = getKeypad();
+[e = _Operation_REG ( _getKeypad ..  ]
+"72
+[; ;calculator.c: 72:         }
+}
+[e :U 2362 ]
+"69
+[; ;calculator.c: 69:         while(Operation_REG <= 10 || Operation_REG >= 15){
+[e $ || <= _Operation_REG -> 10 `i >= _Operation_REG -> 15 `i 2363  ]
+[e :U 2364 ]
+"75
+[; ;calculator.c: 75:         Y_Input_REG = getValue(&Operation_REG,&isEqualSign);
+[e = _Y_Input_REG ( _getValue (2 , &U _Operation_REG &U _isEqualSign ]
+"78
+[; ;calculator.c: 78:         while(isEqualSign != 10){
+[e $U 2365  ]
+[e :U 2366 ]
+{
+"79
+[; ;calculator.c: 79:             dispConvNumber(Y_Input_REG);
+[e ( _dispConvNumber (1 _Y_Input_REG ]
+"80
+[; ;calculator.c: 80:             isEqualSign = getKeypad();
+[e = _isEqualSign ( _getKeypad ..  ]
+"81
+[; ;calculator.c: 81:         }
+}
+[e :U 2365 ]
+"78
+[; ;calculator.c: 78:         while(isEqualSign != 10){
+[e $ != _isEqualSign -> 10 `i 2366  ]
+[e :U 2367 ]
+"84
+[; ;calculator.c: 84:         Display_Result_REG = calculateFinalValue(Operation_REG,X_Input_REG,Y_Input_REG);
+[e = _Display_Result_REG ( _calculateFinalValue (3 , , _Operation_REG _X_Input_REG _Y_Input_REG ]
+"87
+[; ;calculator.c: 87:         while(Operation_REG != 15){
+[e $U 2368  ]
+[e :U 2369 ]
+{
+"88
+[; ;calculator.c: 88:             dispConvNumber(Display_Result_REG);
+[e ( _dispConvNumber (1 _Display_Result_REG ]
+"89
+[; ;calculator.c: 89:             Operation_REG = getKeypad();
+[e = _Operation_REG ( _getKeypad ..  ]
+"90
+[; ;calculator.c: 90:         }
+}
+[e :U 2368 ]
+"87
+[; ;calculator.c: 87:         while(Operation_REG != 15){
+[e $ != _Operation_REG -> 15 `i 2369  ]
+[e :U 2370 ]
+"91
+[; ;calculator.c: 91:     }
+}
+[e :U 2359 ]
+[e $U 2360  ]
+[e :U 2361 ]
+"92
+[; ;calculator.c: 92:     return 0;
+[e ) -> 0 `i ]
+[e $UE 2358  ]
+"93
+[; ;calculator.c: 93: }
+[e :UE 2358 ]
 }
