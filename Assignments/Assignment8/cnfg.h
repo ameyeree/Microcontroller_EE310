@@ -51,3 +51,7 @@
 
 // CONFIG5L
 #pragma config CP = OFF         // PFM and Data EEPROM Code Protection bit (PFM and Data EEPROM code protection disabled)
+
+// For delay
+#define _XTAL_FREQ 4000000                 // Fosc  frequency for _delay()  library
+#define FCY    _XTAL_FREQ/4

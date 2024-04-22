@@ -1,6 +1,27 @@
 Version 4.0 HI-TECH Software Intermediate Code
+"13 ./initialization.h
+[; ;./initialization.h: 13: void intializePorts();
+[v _intializePorts `(v ~T0 @X0 0 e? ]
+"12
+[; ;./initialization.h: 12: void INTERRUPT_Initialize (void);
+[v _INTERRUPT_Initialize `(v ~T0 @X0 0 ef ]
+"46762 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f47k42.h
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f47k42.h: 46762:     struct {
+[s S2128 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S2128 . RA0 RA1 RA2 RA3 RA4 RA5 RA6 RA7 ]
+"46761
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f47k42.h: 46761: typedef union {
+[u S2127 `S2128 1 ]
+[n S2127 . . ]
+"46773
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f47k42.h: 46773: extern volatile PORTAbits_t PORTAbits __attribute__((address(0x3FCA)));
+[v _PORTAbits `VS2127 ~T0 @X0 0 e@16330 ]
 [t ~ __interrupt . k ]
-[t T1 __interrupt irq ( 61 ) base ( 16392 ) ]
+[t T2 __interrupt irq ( 61 ) base ( 16392 ) ]
+[v F205 `(v ~T0 @X0 1 tf1`ul ]
+"20 C:\Program Files\Microchip\xc8\v2.46\pic\include\builtins.h
+[v __delay `JF205 ~T0 @X0 0 e ]
+[p i __delay ]
 "4330 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f47k42.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f47k42.h: 4330:     struct {
 [s S186 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -58,27 +79,17 @@ Version 4.0 HI-TECH Software Intermediate Code
 "47167
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f47k42.h: 47167: extern volatile unsigned char IVTBASEL __attribute__((address(0x3FD5)));
 [v _IVTBASEL `Vuc ~T0 @X0 0 e@16341 ]
-[p mainexit ]
-"59 interrupts.c
-[; ;interrupts.c: 59: void intializePorts();
-[v _intializePorts `(v ~T0 @X0 0 e? ]
-"64
-[; ;interrupts.c: 64: void dispConvNumber(int decimalValue);
-[v _dispConvNumber `(v ~T0 @X0 0 ef1`i ]
-"68
-[; ;interrupts.c: 68: void ledBCD(int decimalValue);
-[v _ledBCD `(v ~T0 @X0 0 ef1`i ]
-"60
-[; ;interrupts.c: 60: void initializePORTA();
+"14 ./initialization.h
+[; ;./initialization.h: 14: void initializePORTA();
 [v _initializePORTA `(v ~T0 @X0 0 e? ]
-"61
-[; ;interrupts.c: 61: void initializePORTB();
+"15
+[; ;./initialization.h: 15: void initializePORTB();
 [v _initializePORTB `(v ~T0 @X0 0 e? ]
-"62
-[; ;interrupts.c: 62: void initializePORTD();
+"16
+[; ;./initialization.h: 16: void initializePORTD();
 [v _initializePORTD `(v ~T0 @X0 0 e? ]
-"63
-[; ;interrupts.c: 63: void initializePORTC();
+"17
+[; ;./initialization.h: 17: void initializePORTC();
 [v _initializePORTC `(v ~T0 @X0 0 e? ]
 "46756 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f47k42.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f47k42.h: 46756: extern volatile unsigned char PORTA __attribute__((address(0x3FCA)));
@@ -131,19 +142,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 "46600
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f47k42.h: 46600: extern volatile unsigned char TRISC __attribute__((address(0x3FC4)));
 [v _TRISC `Vuc ~T0 @X0 0 e@16324 ]
-"67 interrupts.c
-[; ;interrupts.c: 67: void rhsSevenSeg(int index);
-[v _rhsSevenSeg `(v ~T0 @X0 0 ef1`i ]
-"65
-[; ;interrupts.c: 65: void updateSevenSeg(int lhsIndex, int rhsIndex);
-[v _updateSevenSeg `(v ~T0 @X0 0 ef2`i`i ]
-[v F205 `(v ~T0 @X0 1 tf1`ul ]
-"20 C:\Program Files\Microchip\xc8\v2.46\pic\include\builtins.h
-[v __delay `JF205 ~T0 @X0 0 e ]
-[p i __delay ]
-"66 interrupts.c
-[; ;interrupts.c: 66: void lhsSevenSeg(int index);
-[v _lhsSevenSeg `(v ~T0 @X0 0 ef1`i ]
+"46824
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f47k42.h: 46824:     struct {
+[s S2130 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S2130 . RB0 RB1 RB2 RB3 RB4 RB5 RB6 RB7 ]
+"46823
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f47k42.h: 46823: typedef union {
+[u S2129 `S2130 1 ]
+[n S2129 . . ]
+"46835
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f47k42.h: 46835: extern volatile PORTBbits_t PORTBbits __attribute__((address(0x3FCB)));
+[v _PORTBbits `VS2129 ~T0 @X0 0 e@16331 ]
+[p mainexit ]
 "250 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f47k42.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f47k42.h: 250: __asm("STATUS_CSHAD equ 03880h");
 [; <" STATUS_CSHAD equ 03880h ;# ">
@@ -2434,14 +2444,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [p x LVP  =  ON          ]
 "53
 [p x CP  =  OFF          ]
-"19 interrupts.c
-[; ;interrupts.c: 19: int count = 0;
-[v _count `i ~T0 @X0 1 e ]
-[i _count
--> 0 `i
-]
-"20
-[; ;interrupts.c: 20: unsigned char sevenSegValues[] = {0x3F,0x06,0x5B,0x4F,0x66,0x6D,0x7D,0x07,0x7F,0x67,0x00,0x79};
+"2 ./initialization.h
+[; ;./initialization.h: 2: unsigned char sevenSegValues[] = {0x3F,0x06,0x5B,0x4F,0x66,0x6D,0x7D,0x07,0x7F,0x67,0x00,0x79};
 [v _sevenSegValues `uc ~T0 @X0 -> 12 `i e ]
 [i _sevenSegValues
 :U ..
@@ -2459,387 +2463,732 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 121 `i `uc
 ..
 ]
-[v $root$_INT2_ISR `(v ~T0 @X0 0 e ]
+"3
+[; ;./initialization.h: 3: int count = 0;
+[v _count `i ~T0 @X0 1 e ]
+[i _count
+-> 0 `i
+]
+"4
+[; ;./initialization.h: 4: int pr1Count = 0;
+[v _pr1Count `i ~T0 @X0 1 e ]
+[i _pr1Count
+-> 0 `i
+]
+"5
+[; ;./initialization.h: 5: unsigned char done = 0;
+[v _done `uc ~T0 @X0 1 e ]
+[i _done
+-> -> 0 `i `uc
+]
+"6
+[; ;./initialization.h: 6: int pr2Count = 0;
+[v _pr2Count `i ~T0 @X0 1 e ]
+[i _pr2Count
+-> 0 `i
+]
+"7
+[; ;./initialization.h: 7: int SECRET_CODE = 0x00;
+[v _SECRET_CODE `i ~T0 @X0 1 e ]
+[i _SECRET_CODE
+-> 0 `i
+]
+"8
+[; ;./initialization.h: 8: int USER_GUESS = 0x00;
+[v _USER_GUESS `i ~T0 @X0 1 e ]
+[i _USER_GUESS
+-> 0 `i
+]
+"20
+[; ;./initialization.h: 20: void initializeALL(){
+[v _initializeALL `(v ~T0 @X0 1 ef ]
+{
+[e :U _initializeALL ]
+[f ]
+"21
+[; ;./initialization.h: 21:     intializePorts();
+[e ( _intializePorts ..  ]
 "22
-[; ;interrupts.c: 22: void __attribute__((picinterrupt(("irq(61),base(0x4008)")))) INT2_ISR(void)
-[v _INT2_ISR `(v ~T1 @X0 1 ef ]
+[; ;./initialization.h: 22:     INTERRUPT_Initialize();
+[e ( _INTERRUPT_Initialize ..  ]
 "23
-[; ;interrupts.c: 23: {
+[; ;./initialization.h: 23:     PORTAbits.RA1 = 1;
+[e = . . _PORTAbits 0 1 -> -> 1 `i `uc ]
+"24
+[; ;./initialization.h: 24: }
+[e :UE 2244 ]
+}
+[v $root$_INT2_ISR `(v ~T0 @X0 0 e ]
+"25
+[; ;./initialization.h: 25: void __attribute__((picinterrupt(("irq(61),base(0x4008)")))) INT2_ISR(void)
+[v _INT2_ISR `(v ~T2 @X0 1 ef ]
+"26
+[; ;./initialization.h: 26: {
 {
 [e :U _INT2_ISR ]
 [f ]
-"24
-[; ;interrupts.c: 24:     count++;
-[e ++ _count -> 1 `i ]
-"25
-[; ;interrupts.c: 25:     if(count > 99){
-[e $ ! > _count -> 99 `i 2245  ]
-{
-"26
-[; ;interrupts.c: 26:         count = 0;
-[e = _count -> 0 `i ]
 "27
-[; ;interrupts.c: 27:     }
-}
-[e :U 2245 ]
+[; ;./initialization.h: 27:     PORTAbits.RA0 = 1;
+[e = . . _PORTAbits 0 0 -> -> 1 `i `uc ]
+"28
+[; ;./initialization.h: 28:     _delay((unsigned long)((500)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"29
+[; ;./initialization.h: 29:     PORTAbits.RA0 = 0;
+[e = . . _PORTAbits 0 0 -> -> 0 `i `uc ]
+"30
+[; ;./initialization.h: 30:     _delay((unsigned long)((500)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
 "31
-[; ;interrupts.c: 31:     PIR7bits.INT2IF = 0;
-[e = . . _PIR7bits 0 5 -> -> 0 `i `uc ]
+[; ;./initialization.h: 31:     PORTAbits.RA0 = 1;
+[e = . . _PORTAbits 0 0 -> -> 1 `i `uc ]
 "32
-[; ;interrupts.c: 32: }
-[e :UE 2244 ]
-}
+[; ;./initialization.h: 32:     _delay((unsigned long)((1000)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"33
+[; ;./initialization.h: 33:     PORTAbits.RA0 = 0;
+[e = . . _PORTAbits 0 0 -> -> 0 `i `uc ]
 "34
-[; ;interrupts.c: 34: void INTERRUPT_Initialize (void)
-[v _INTERRUPT_Initialize `(v ~T0 @X0 1 ef ]
+[; ;./initialization.h: 34:     _delay((unsigned long)((1000)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
 "35
-[; ;interrupts.c: 35: {
+[; ;./initialization.h: 35:     PORTAbits.RA0 = 1;
+[e = . . _PORTAbits 0 0 -> -> 1 `i `uc ]
+"36
+[; ;./initialization.h: 36:     _delay((unsigned long)((1500)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1500 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"37
+[; ;./initialization.h: 37:     PORTAbits.RA0 = 0;
+[e = . . _PORTAbits 0 0 -> -> 0 `i `uc ]
+"38
+[; ;./initialization.h: 38:     _delay((unsigned long)((500)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"39
+[; ;./initialization.h: 39:     PORTAbits.RA0 = 1;
+[e = . . _PORTAbits 0 0 -> -> 1 `i `uc ]
+"40
+[; ;./initialization.h: 40:     _delay((unsigned long)((250)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 250 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"41
+[; ;./initialization.h: 41:     PORTAbits.RA0 = 0;
+[e = . . _PORTAbits 0 0 -> -> 0 `i `uc ]
+"43
+[; ;./initialization.h: 43:     PIR7bits.INT2IF = 0;
+[e = . . _PIR7bits 0 5 -> -> 0 `i `uc ]
+"44
+[; ;./initialization.h: 44: }
+[e :UE 2245 ]
+}
+"46
+[; ;./initialization.h: 46: void INTERRUPT_Initialize (void)
+[v _INTERRUPT_Initialize `(v ~T0 @X0 1 ef ]
+"47
+[; ;./initialization.h: 47: {
 {
 [e :U _INTERRUPT_Initialize ]
 [f ]
-"37
-[; ;interrupts.c: 37:     INTCON0bits.IPEN = 1;
-[e = . . _INTCON0bits 0 4 -> -> 1 `i `uc ]
-"39
-[; ;interrupts.c: 39:     INTCON0bits.GIEH = 1;
-[e = . . _INTCON0bits 1 1 -> -> 1 `i `uc ]
-"41
-[; ;interrupts.c: 41:     INTCON0bits.GIEL = 1;
-[e = . . _INTCON0bits 0 5 -> -> 1 `i `uc ]
-"43
-[; ;interrupts.c: 43:     INTCON0bits.INT2EDG = 1;
-[e = . . _INTCON0bits 0 2 -> -> 1 `i `uc ]
-"45
-[; ;interrupts.c: 45:     IPR7bits.INT2IP = 1;
-[e = . . _IPR7bits 0 5 -> -> 1 `i `uc ]
-"47
-[; ;interrupts.c: 47:     PIE7bits.INT2IE = 1;
-[e = . . _PIE7bits 0 5 -> -> 1 `i `uc ]
 "49
-[; ;interrupts.c: 49:     PIR7bits.INT2IF = 0;
-[e = . . _PIR7bits 0 5 -> -> 0 `i `uc ]
+[; ;./initialization.h: 49:     INTCON0bits.IPEN = 1;
+[e = . . _INTCON0bits 0 4 -> -> 1 `i `uc ]
+"51
+[; ;./initialization.h: 51:     INTCON0bits.GIEH = 1;
+[e = . . _INTCON0bits 1 1 -> -> 1 `i `uc ]
 "53
-[; ;interrupts.c: 53:     IVTBASEU = 0x00;
-[e = _IVTBASEU -> -> 0 `i `uc ]
+[; ;./initialization.h: 53:     INTCON0bits.GIEL = 1;
+[e = . . _INTCON0bits 0 5 -> -> 1 `i `uc ]
 "55
-[; ;interrupts.c: 55:     IVTBASEH = 0x40;
-[e = _IVTBASEH -> -> 64 `i `uc ]
+[; ;./initialization.h: 55:     INTCON0bits.INT2EDG = 1;
+[e = . . _INTCON0bits 0 2 -> -> 1 `i `uc ]
 "57
-[; ;interrupts.c: 57:     IVTBASEL = 0x08;
+[; ;./initialization.h: 57:     IPR7bits.INT2IP = 1;
+[e = . . _IPR7bits 0 5 -> -> 1 `i `uc ]
+"59
+[; ;./initialization.h: 59:     PIE7bits.INT2IE = 1;
+[e = . . _PIE7bits 0 5 -> -> 1 `i `uc ]
+"61
+[; ;./initialization.h: 61:     PIR7bits.INT2IF = 0;
+[e = . . _PIR7bits 0 5 -> -> 0 `i `uc ]
+"65
+[; ;./initialization.h: 65:     IVTBASEU = 0x00;
+[e = _IVTBASEU -> -> 0 `i `uc ]
+"67
+[; ;./initialization.h: 67:     IVTBASEH = 0x40;
+[e = _IVTBASEH -> -> 64 `i `uc ]
+"69
+[; ;./initialization.h: 69:     IVTBASEL = 0x08;
 [e = _IVTBASEL -> -> 8 `i `uc ]
-"58
-[; ;interrupts.c: 58: }
+"70
+[; ;./initialization.h: 70: }
 [e :UE 2246 ]
 }
-[v $root$_main `(v ~T0 @X0 0 e ]
-"71
-[; ;interrupts.c: 71: void main(void) {
-[v _main `(v ~T0 @X0 1 ef ]
-{
-[e :U _main ]
-[f ]
-"74
-[; ;interrupts.c: 74:     intializePorts();
-[e ( _intializePorts ..  ]
-"75
-[; ;interrupts.c: 75:     INTERRUPT_Initialize();
-[e ( _INTERRUPT_Initialize ..  ]
-"77
-[; ;interrupts.c: 77:     while(1){
-[e :U 2249 ]
-{
-"79
-[; ;interrupts.c: 79:         dispConvNumber(count);
-[e ( _dispConvNumber (1 _count ]
-"80
-[; ;interrupts.c: 80:         ledBCD(count);
-[e ( _ledBCD (1 _count ]
-"81
-[; ;interrupts.c: 81:     }
-}
-[e :U 2248 ]
-[e $U 2249  ]
-[e :U 2250 ]
-"83
-[; ;interrupts.c: 83: }
-[e :UE 2247 ]
-}
-"85
-[; ;interrupts.c: 85: void intializePorts(){
+"72
+[; ;./initialization.h: 72: void intializePorts(){
 [v _intializePorts `(v ~T0 @X0 1 ef ]
 {
 [e :U _intializePorts ]
 [f ]
-"86
-[; ;interrupts.c: 86:     initializePORTA();
+"73
+[; ;./initialization.h: 73:     initializePORTA();
 [e ( _initializePORTA ..  ]
-"87
-[; ;interrupts.c: 87:     initializePORTB();
+"74
+[; ;./initialization.h: 74:     initializePORTB();
 [e ( _initializePORTB ..  ]
-"88
-[; ;interrupts.c: 88:     initializePORTD();
+"75
+[; ;./initialization.h: 75:     initializePORTD();
 [e ( _initializePORTD ..  ]
-"89
-[; ;interrupts.c: 89:     initializePORTC();
+"76
+[; ;./initialization.h: 76:     initializePORTC();
 [e ( _initializePORTC ..  ]
-"90
-[; ;interrupts.c: 90: }
-[e :UE 2251 ]
+"77
+[; ;./initialization.h: 77: }
+[e :UE 2247 ]
 }
-"91
-[; ;interrupts.c: 91: void initializePORTA(){
+"78
+[; ;./initialization.h: 78: void initializePORTA(){
 [v _initializePORTA `(v ~T0 @X0 1 ef ]
 {
 [e :U _initializePORTA ]
 [f ]
-"92
-[; ;interrupts.c: 92:     PORTA = 0;
+"79
+[; ;./initialization.h: 79:     PORTA = 0;
 [e = _PORTA -> -> 0 `i `uc ]
-"93
-[; ;interrupts.c: 93:     TRISA = 0;
+"80
+[; ;./initialization.h: 80:     TRISA = 0;
 [e = _TRISA -> -> 0 `i `uc ]
-"94
-[; ;interrupts.c: 94:     LATA = 0;
+"81
+[; ;./initialization.h: 81:     LATA = 0;
 [e = _LATA -> -> 0 `i `uc ]
-"95
-[; ;interrupts.c: 95:     ANSELA = 0;
+"82
+[; ;./initialization.h: 82:     ANSELA = 0;
 [e = _ANSELA -> -> 0 `i `uc ]
-"96
-[; ;interrupts.c: 96: }
-[e :UE 2252 ]
+"83
+[; ;./initialization.h: 83: }
+[e :UE 2248 ]
 }
-"97
-[; ;interrupts.c: 97: void initializePORTB(){
+"84
+[; ;./initialization.h: 84: void initializePORTB(){
 [v _initializePORTB `(v ~T0 @X0 1 ef ]
 {
 [e :U _initializePORTB ]
 [f ]
-"98
-[; ;interrupts.c: 98:     PORTB = 0;
+"85
+[; ;./initialization.h: 85:     PORTB = 0;
 [e = _PORTB -> -> 0 `i `uc ]
-"99
-[; ;interrupts.c: 99:     TRISB = 0b00000100;
-[e = _TRISB -> -> 4 `i `uc ]
-"100
-[; ;interrupts.c: 100:     LATB = 0;
+"86
+[; ;./initialization.h: 86:     TRISB = 0b00000111;
+[e = _TRISB -> -> 7 `i `uc ]
+"87
+[; ;./initialization.h: 87:     LATB = 0;
 [e = _LATB -> -> 0 `i `uc ]
-"101
-[; ;interrupts.c: 101:     ANSELB = 0;
+"88
+[; ;./initialization.h: 88:     ANSELB = 0;
 [e = _ANSELB -> -> 0 `i `uc ]
-"102
-[; ;interrupts.c: 102:     WPUB = 1;
-[e = _WPUB -> -> 1 `i `uc ]
-"103
-[; ;interrupts.c: 103: }
-[e :UE 2253 ]
+"89
+[; ;./initialization.h: 89:     WPUB = 0b00000100;
+[e = _WPUB -> -> 4 `i `uc ]
+"90
+[; ;./initialization.h: 90: }
+[e :UE 2249 ]
 }
-"104
-[; ;interrupts.c: 104: void initializePORTD(){
+"91
+[; ;./initialization.h: 91: void initializePORTD(){
 [v _initializePORTD `(v ~T0 @X0 1 ef ]
 {
 [e :U _initializePORTD ]
 [f ]
-"105
-[; ;interrupts.c: 105:     PORTD = 0;
+"92
+[; ;./initialization.h: 92:     PORTD = 0;
 [e = _PORTD -> -> 0 `i `uc ]
-"106
-[; ;interrupts.c: 106:     TRISD = 0;
+"93
+[; ;./initialization.h: 93:     TRISD = 0;
 [e = _TRISD -> -> 0 `i `uc ]
-"107
-[; ;interrupts.c: 107:     LATD = 0;
+"94
+[; ;./initialization.h: 94:     LATD = 0;
 [e = _LATD -> -> 0 `i `uc ]
-"108
-[; ;interrupts.c: 108:     ANSELD = 0;
+"95
+[; ;./initialization.h: 95:     ANSELD = 0;
 [e = _ANSELD -> -> 0 `i `uc ]
-"109
-[; ;interrupts.c: 109: }
-[e :UE 2254 ]
+"96
+[; ;./initialization.h: 96: }
+[e :UE 2250 ]
 }
-"110
-[; ;interrupts.c: 110: void initializePORTC(){
+"97
+[; ;./initialization.h: 97: void initializePORTC(){
 [v _initializePORTC `(v ~T0 @X0 1 ef ]
 {
 [e :U _initializePORTC ]
 [f ]
-"111
-[; ;interrupts.c: 111:     PORTC = 0;
+"98
+[; ;./initialization.h: 98:     PORTC = 0;
 [e = _PORTC -> -> 0 `i `uc ]
-"112
-[; ;interrupts.c: 112:     LATC = 0;
+"99
+[; ;./initialization.h: 99:     LATC = 0;
 [e = _LATC -> -> 0 `i `uc ]
-"113
-[; ;interrupts.c: 113:     ANSELC = 0;
+"100
+[; ;./initialization.h: 100:     ANSELC = 0;
 [e = _ANSELC -> -> 0 `i `uc ]
-"114
-[; ;interrupts.c: 114:     TRISC = 0;
-[e = _TRISC -> -> 0 `i `uc ]
-"115
-[; ;interrupts.c: 115: }
-[e :UE 2255 ]
+"101
+[; ;./initialization.h: 101:     TRISC = 0b00000100;
+[e = _TRISC -> -> 4 `i `uc ]
+"102
+[; ;./initialization.h: 102: }
+[e :UE 2251 ]
 }
-"116
-[; ;interrupts.c: 116: void dispConvNumber(int decimalValue){
-[v _dispConvNumber `(v ~T0 @X0 1 ef1`i ]
+"10 ./functions.h
+[; ;./functions.h: 10: void sevenSeg(int index, unsigned char isSecond){
+[v _sevenSeg `(v ~T0 @X0 1 ef2`i`uc ]
 {
-[e :U _dispConvNumber ]
-[v _decimalValue `i ~T0 @X0 1 r1 ]
+[e :U _sevenSeg ]
+[v _index `i ~T0 @X0 1 r1 ]
+[v _isSecond `uc ~T0 @X0 1 r2 ]
 [f ]
-"117
-[; ;interrupts.c: 117:     if(decimalValue >= 0 && decimalValue <= 99){
-[e $ ! && >= _decimalValue -> 0 `i <= _decimalValue -> 99 `i 2257  ]
+"11
+[; ;./functions.h: 11:     if(index < 0 || index > 9){
+[e $ ! || < _index -> 0 `i > _index -> 9 `i 2253  ]
 {
-"118
-[; ;interrupts.c: 118:         if(decimalValue < 10){
-[e $ ! < _decimalValue -> 10 `i 2258  ]
+"12
+[; ;./functions.h: 12:         index = 10;
+[e = _index -> 10 `i ]
+"13
+[; ;./functions.h: 13:     }
+}
+[e :U 2253 ]
+"15
+[; ;./functions.h: 15:     PORTD = sevenSegValues[index];
+[e = _PORTD *U + &U _sevenSegValues * -> -> _index `ui `ux -> -> # *U &U _sevenSegValues `ui `ux ]
+"16
+[; ;./functions.h: 16:     if(isSecond == 1){
+[e $ ! == -> _isSecond `i -> 1 `i 2254  ]
 {
-"119
-[; ;interrupts.c: 119:             rhsSevenSeg(decimalValue);
-[e ( _rhsSevenSeg (1 _decimalValue ]
-"120
-[; ;interrupts.c: 120:         }else{
+"17
+[; ;./functions.h: 17:         PORTD += 0b10000000;
+[e =+ _PORTD -> -> 128 `i `Vuc ]
+"18
+[; ;./functions.h: 18:     }
 }
-[e $U 2259  ]
-[e :U 2258 ]
+[e :U 2254 ]
+"20
+[; ;./functions.h: 20: }
+[e :UE 2252 ]
+}
+"21
+[; ;./functions.h: 21: void setSecretCode(){
+[v _setSecretCode `(v ~T0 @X0 1 ef ]
 {
-"121
-[; ;interrupts.c: 121:             updateSevenSeg(decimalValue/10,decimalValue%10);
-[e ( _updateSevenSeg (2 , / _decimalValue -> 10 `i % _decimalValue -> 10 `i ]
-"122
-[; ;interrupts.c: 122:         }
-}
-[e :U 2259 ]
-"123
-[; ;interrupts.c: 123:     }else if(decimalValue < -99 || decimalValue > 99){
-}
-[e $U 2260  ]
+[e :U _setSecretCode ]
+[f ]
+"22
+[; ;./functions.h: 22:     pr1Count = 0;
+[e = _pr1Count -> 0 `i ]
+"23
+[; ;./functions.h: 23:     pr2Count = 0;
+[e = _pr2Count -> 0 `i ]
+"24
+[; ;./functions.h: 24:     done = 0;
+[e = _done -> -> 0 `i `uc ]
+"25
+[; ;./functions.h: 25:     sevenSeg(pr1Count,0);
+[e ( _sevenSeg (2 , _pr1Count -> -> 0 `i `uc ]
+"26
+[; ;./functions.h: 26:     while(done != 1){
+[e $U 2256  ]
 [e :U 2257 ]
-[e $ ! || < _decimalValue -U -> 99 `i > _decimalValue -> 99 `i 2261  ]
 {
-"125
-[; ;interrupts.c: 125:         updateSevenSeg(11,11);
-[e ( _updateSevenSeg (2 , -> 11 `i -> 11 `i ]
-"126
-[; ;interrupts.c: 126:     }else{
-}
-[e $U 2262  ]
+"27
+[; ;./functions.h: 27:         if(PORTBbits.RB0 == 1){
+[e $ ! == -> . . _PORTBbits 0 0 `i -> 1 `i 2259  ]
+{
+"28
+[; ;./functions.h: 28:             _delay((unsigned long)((1000)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"29
+[; ;./functions.h: 29:             while(PORTBbits.RB0 == 1){
+[e $U 2260  ]
 [e :U 2261 ]
 {
-"130
-[; ;interrupts.c: 130:     }
+"30
+[; ;./functions.h: 30:                 if(PORTBbits.RB1 == 1){
+[e $ ! == -> . . _PORTBbits 0 1 `i -> 1 `i 2263  ]
+{
+"32
+[; ;./functions.h: 32:                     done = 1;
+[e = _done -> -> 1 `i `uc ]
+"33
+[; ;./functions.h: 33:                     _delay((unsigned long)((1000)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"34
+[; ;./functions.h: 34:                 }
 }
-[e :U 2262 ]
+[e :U 2263 ]
+"35
+[; ;./functions.h: 35:             }
+}
 [e :U 2260 ]
-"132
-[; ;interrupts.c: 132: }
-[e :UE 2256 ]
+"29
+[; ;./functions.h: 29:             while(PORTBbits.RB0 == 1){
+[e $ == -> . . _PORTBbits 0 0 `i -> 1 `i 2261  ]
+[e :U 2262 ]
+"36
+[; ;./functions.h: 36:             if(done == 0){
+[e $ ! == -> _done `i -> 0 `i 2264  ]
+{
+"37
+[; ;./functions.h: 37:                 pr1Count++;
+[e ++ _pr1Count -> 1 `i ]
+"38
+[; ;./functions.h: 38:                 sevenSeg(pr1Count,0);
+[e ( _sevenSeg (2 , _pr1Count -> -> 0 `i `uc ]
+"39
+[; ;./functions.h: 39:             }
 }
-"134
-[; ;interrupts.c: 134: void updateSevenSeg(int lhsIndex, int rhsIndex){
-[v _updateSevenSeg `(v ~T0 @X0 1 ef2`i`i ]
-{
-[e :U _updateSevenSeg ]
-[v _lhsIndex `i ~T0 @X0 1 r1 ]
-[v _rhsIndex `i ~T0 @X0 1 r2 ]
-[f ]
-"135
-[; ;interrupts.c: 135:     rhsSevenSeg(rhsIndex);
-[e ( _rhsSevenSeg (1 _rhsIndex ]
-"136
-[; ;interrupts.c: 136:     _delay((unsigned long)((1)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"137
-[; ;interrupts.c: 137:     lhsSevenSeg(lhsIndex);
-[e ( _lhsSevenSeg (1 _lhsIndex ]
-"138
-[; ;interrupts.c: 138:     _delay((unsigned long)((1)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"139
-[; ;interrupts.c: 139: }
-[e :UE 2263 ]
+[e :U 2264 ]
+"40
+[; ;./functions.h: 40:         }
 }
-"141
-[; ;interrupts.c: 141: void rhsSevenSeg(int index){
-[v _rhsSevenSeg `(v ~T0 @X0 1 ef1`i ]
+[e :U 2259 ]
+"41
+[; ;./functions.h: 41:     }
+}
+[e :U 2256 ]
+"26
+[; ;./functions.h: 26:     while(done != 1){
+[e $ != -> _done `i -> 1 `i 2257  ]
+[e :U 2258 ]
+"42
+[; ;./functions.h: 42:     done = 0;
+[e = _done -> -> 0 `i `uc ]
+"43
+[; ;./functions.h: 43:     sevenSeg(pr2Count,1);
+[e ( _sevenSeg (2 , _pr2Count -> -> 1 `i `uc ]
+"44
+[; ;./functions.h: 44:     while(done != 1){
+[e $U 2265  ]
+[e :U 2266 ]
 {
-[e :U _rhsSevenSeg ]
-[v _index `i ~T0 @X0 1 r1 ]
-[f ]
-"142
-[; ;interrupts.c: 142:     if(index < 0 || index > 9){
-[e $ ! || < _index -> 0 `i > _index -> 9 `i 2265  ]
+"45
+[; ;./functions.h: 45:         if(PORTBbits.RB1 == 1){
+[e $ ! == -> . . _PORTBbits 0 1 `i -> 1 `i 2268  ]
 {
-"143
-[; ;interrupts.c: 143:         index = 10;
-[e = _index -> 10 `i ]
-"144
-[; ;interrupts.c: 144:     }
+"46
+[; ;./functions.h: 46:             _delay((unsigned long)((1000)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"47
+[; ;./functions.h: 47:             while(PORTBbits.RB1 == 1){
+[e $U 2269  ]
+[e :U 2270 ]
+{
+"48
+[; ;./functions.h: 48:                 if(PORTBbits.RB0 == 1){
+[e $ ! == -> . . _PORTBbits 0 0 `i -> 1 `i 2272  ]
+{
+"50
+[; ;./functions.h: 50:                     done = 1;
+[e = _done -> -> 1 `i `uc ]
+"51
+[; ;./functions.h: 51:                     _delay((unsigned long)((1000)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"52
+[; ;./functions.h: 52:                 }
+}
+[e :U 2272 ]
+"53
+[; ;./functions.h: 53:             }
+}
+[e :U 2269 ]
+"47
+[; ;./functions.h: 47:             while(PORTBbits.RB1 == 1){
+[e $ == -> . . _PORTBbits 0 1 `i -> 1 `i 2270  ]
+[e :U 2271 ]
+"54
+[; ;./functions.h: 54:             if(done == 0){
+[e $ ! == -> _done `i -> 0 `i 2273  ]
+{
+"55
+[; ;./functions.h: 55:                 pr2Count++;
+[e ++ _pr2Count -> 1 `i ]
+"56
+[; ;./functions.h: 56:                 sevenSeg(pr2Count,1);
+[e ( _sevenSeg (2 , _pr2Count -> -> 1 `i `uc ]
+"57
+[; ;./functions.h: 57:             }
+}
+[e :U 2273 ]
+"58
+[; ;./functions.h: 58:         }
+}
+[e :U 2268 ]
+"59
+[; ;./functions.h: 59:     }
 }
 [e :U 2265 ]
-"145
-[; ;interrupts.c: 145:     PORTC = 0b00000100;
-[e = _PORTC -> -> 4 `i `uc ]
-"146
-[; ;interrupts.c: 146:     PORTD = sevenSegValues[index];
-[e = _PORTD *U + &U _sevenSegValues * -> -> _index `ui `ux -> -> # *U &U _sevenSegValues `ui `ux ]
-"147
-[; ;interrupts.c: 147:     _delay((unsigned long)((5)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"148
-[; ;interrupts.c: 148: }
-[e :UE 2264 ]
-}
-"150
-[; ;interrupts.c: 150: void lhsSevenSeg(int index){
-[v _lhsSevenSeg `(v ~T0 @X0 1 ef1`i ]
-{
-[e :U _lhsSevenSeg ]
-[v _index `i ~T0 @X0 1 r1 ]
-[f ]
-"151
-[; ;interrupts.c: 151:     if(index < 0){
-[e $ ! < _index -> 0 `i 2267  ]
-{
-"152
-[; ;interrupts.c: 152:         index = 10;
-[e = _index -> 10 `i ]
-"153
-[; ;interrupts.c: 153:     }
-}
+"44
+[; ;./functions.h: 44:     while(done != 1){
+[e $ != -> _done `i -> 1 `i 2266  ]
 [e :U 2267 ]
-"154
-[; ;interrupts.c: 154:     PORTC = 0b00001000;
-[e = _PORTC -> -> 8 `i `uc ]
-"155
-[; ;interrupts.c: 155:     PORTD = sevenSegValues[index];
-[e = _PORTD *U + &U _sevenSegValues * -> -> _index `ui `ux -> -> # *U &U _sevenSegValues `ui `ux ]
-"156
-[; ;interrupts.c: 156:     _delay((unsigned long)((5)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"157
-[; ;interrupts.c: 157: }
-[e :UE 2266 ]
+"60
+[; ;./functions.h: 60:     PORTAbits.RA2 = 1;
+[e = . . _PORTAbits 0 2 -> -> 1 `i `uc ]
+"61
+[; ;./functions.h: 61:     PORTD = 0;
+[e = _PORTD -> -> 0 `i `uc ]
+"62
+[; ;./functions.h: 62:     SECRET_CODE = (pr2Count * 16) | (pr1Count);
+[e = _SECRET_CODE | * _pr2Count -> 16 `i _pr1Count ]
+"63
+[; ;./functions.h: 63: }
+[e :UE 2255 ]
 }
-"158
-[; ;interrupts.c: 158: void ledBCD(int decimalValue){
-[v _ledBCD `(v ~T0 @X0 1 ef1`i ]
+"64
+[; ;./functions.h: 64: void getUserGuess(){
+[v _getUserGuess `(v ~T0 @X0 1 ef ]
 {
-[e :U _ledBCD ]
-[v _decimalValue `i ~T0 @X0 1 r1 ]
+[e :U _getUserGuess ]
 [f ]
-"160
-[; ;interrupts.c: 160:     PORTA = decimalValue%10;
-[e = _PORTA -> % _decimalValue -> 10 `i `uc ]
-"161
-[; ;interrupts.c: 161:     int temp = decimalValue/10;
-[v _temp `i ~T0 @X0 1 a ]
-[e = _temp / _decimalValue -> 10 `i ]
-"162
-[; ;interrupts.c: 162:     temp <<= 4;
-[e =<< _temp -> 4 `i ]
-"163
-[; ;interrupts.c: 163:     PORTA = PORTA + temp;
-[e = _PORTA -> + -> _PORTA `i _temp `uc ]
-"164
-[; ;interrupts.c: 164: }
-[e :UE 2268 ]
+"65
+[; ;./functions.h: 65:     pr1Count = 0;
+[e = _pr1Count -> 0 `i ]
+"66
+[; ;./functions.h: 66:     pr2Count = 0;
+[e = _pr2Count -> 0 `i ]
+"67
+[; ;./functions.h: 67:     done = 0;
+[e = _done -> -> 0 `i `uc ]
+"68
+[; ;./functions.h: 68:     sevenSeg(pr1Count,0);
+[e ( _sevenSeg (2 , _pr1Count -> -> 0 `i `uc ]
+"69
+[; ;./functions.h: 69:     while(done != 1){
+[e $U 2275  ]
+[e :U 2276 ]
+{
+"70
+[; ;./functions.h: 70:         if(PORTBbits.RB0 == 1){
+[e $ ! == -> . . _PORTBbits 0 0 `i -> 1 `i 2278  ]
+{
+"71
+[; ;./functions.h: 71:             _delay((unsigned long)((1000)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"72
+[; ;./functions.h: 72:             while(PORTBbits.RB0 == 1){
+[e $U 2279  ]
+[e :U 2280 ]
+{
+"73
+[; ;./functions.h: 73:                 if(PORTBbits.RB1 == 1){
+[e $ ! == -> . . _PORTBbits 0 1 `i -> 1 `i 2282  ]
+{
+"75
+[; ;./functions.h: 75:                     done = 1;
+[e = _done -> -> 1 `i `uc ]
+"76
+[; ;./functions.h: 76:                     _delay((unsigned long)((1000)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"77
+[; ;./functions.h: 77:                 }
+}
+[e :U 2282 ]
+"78
+[; ;./functions.h: 78:             }
+}
+[e :U 2279 ]
+"72
+[; ;./functions.h: 72:             while(PORTBbits.RB0 == 1){
+[e $ == -> . . _PORTBbits 0 0 `i -> 1 `i 2280  ]
+[e :U 2281 ]
+"79
+[; ;./functions.h: 79:             if(done == 0){
+[e $ ! == -> _done `i -> 0 `i 2283  ]
+{
+"80
+[; ;./functions.h: 80:                 pr1Count++;
+[e ++ _pr1Count -> 1 `i ]
+"81
+[; ;./functions.h: 81:                 sevenSeg(pr1Count,0);
+[e ( _sevenSeg (2 , _pr1Count -> -> 0 `i `uc ]
+"82
+[; ;./functions.h: 82:             }
+}
+[e :U 2283 ]
+"83
+[; ;./functions.h: 83:         }
+}
+[e :U 2278 ]
+"84
+[; ;./functions.h: 84:     }
+}
+[e :U 2275 ]
+"69
+[; ;./functions.h: 69:     while(done != 1){
+[e $ != -> _done `i -> 1 `i 2276  ]
+[e :U 2277 ]
+"85
+[; ;./functions.h: 85:     done = 0;
+[e = _done -> -> 0 `i `uc ]
+"86
+[; ;./functions.h: 86:     sevenSeg(pr2Count,1);
+[e ( _sevenSeg (2 , _pr2Count -> -> 1 `i `uc ]
+"87
+[; ;./functions.h: 87:     while(done != 1){
+[e $U 2284  ]
+[e :U 2285 ]
+{
+"88
+[; ;./functions.h: 88:         if(PORTBbits.RB1 == 1){
+[e $ ! == -> . . _PORTBbits 0 1 `i -> 1 `i 2287  ]
+{
+"89
+[; ;./functions.h: 89:             _delay((unsigned long)((1000)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"90
+[; ;./functions.h: 90:             while(PORTBbits.RB1 == 1){
+[e $U 2288  ]
+[e :U 2289 ]
+{
+"91
+[; ;./functions.h: 91:                 if(PORTBbits.RB0 == 1){
+[e $ ! == -> . . _PORTBbits 0 0 `i -> 1 `i 2291  ]
+{
+"93
+[; ;./functions.h: 93:                     done = 1;
+[e = _done -> -> 1 `i `uc ]
+"94
+[; ;./functions.h: 94:                     _delay((unsigned long)((1000)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"95
+[; ;./functions.h: 95:                 }
+}
+[e :U 2291 ]
+"96
+[; ;./functions.h: 96:             }
+}
+[e :U 2288 ]
+"90
+[; ;./functions.h: 90:             while(PORTBbits.RB1 == 1){
+[e $ == -> . . _PORTBbits 0 1 `i -> 1 `i 2289  ]
+[e :U 2290 ]
+"97
+[; ;./functions.h: 97:             if(done == 0){
+[e $ ! == -> _done `i -> 0 `i 2292  ]
+{
+"98
+[; ;./functions.h: 98:                 pr2Count++;
+[e ++ _pr2Count -> 1 `i ]
+"99
+[; ;./functions.h: 99:                 sevenSeg(pr2Count,1);
+[e ( _sevenSeg (2 , _pr2Count -> -> 1 `i `uc ]
+"100
+[; ;./functions.h: 100:             }
+}
+[e :U 2292 ]
+"101
+[; ;./functions.h: 101:         }
+}
+[e :U 2287 ]
+"102
+[; ;./functions.h: 102:     }
+}
+[e :U 2284 ]
+"87
+[; ;./functions.h: 87:     while(done != 1){
+[e $ != -> _done `i -> 1 `i 2285  ]
+[e :U 2286 ]
+"103
+[; ;./functions.h: 103:     PORTD = 0;
+[e = _PORTD -> -> 0 `i `uc ]
+"104
+[; ;./functions.h: 104:     _delay((unsigned long)((500)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"105
+[; ;./functions.h: 105:     PORTD = 0xFF;
+[e = _PORTD -> -> 255 `i `uc ]
+"106
+[; ;./functions.h: 106:     _delay((unsigned long)((500)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"107
+[; ;./functions.h: 107:     PORTD = 0;
+[e = _PORTD -> -> 0 `i `uc ]
+"108
+[; ;./functions.h: 108:     USER_GUESS = (pr2Count * 16) | (pr1Count);
+[e = _USER_GUESS | * _pr2Count -> 16 `i _pr1Count ]
+"109
+[; ;./functions.h: 109: }
+[e :UE 2274 ]
+}
+"110
+[; ;./functions.h: 110: void handleGuess(){
+[v _handleGuess `(v ~T0 @X0 1 ef ]
+{
+[e :U _handleGuess ]
+[f ]
+"111
+[; ;./functions.h: 111:     if(SECRET_CODE != USER_GUESS){
+[e $ ! != _SECRET_CODE _USER_GUESS 2294  ]
+{
+"112
+[; ;./functions.h: 112:         PORTAbits.RA0 = 1;
+[e = . . _PORTAbits 0 0 -> -> 1 `i `uc ]
+"113
+[; ;./functions.h: 113:         _delay((unsigned long)((5000)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 5000 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"114
+[; ;./functions.h: 114:         PORTAbits.RA0 = 0;
+[e = . . _PORTAbits 0 0 -> -> 0 `i `uc ]
+"115
+[; ;./functions.h: 115:     }else{
+}
+[e $U 2295  ]
+[e :U 2294 ]
+{
+"116
+[; ;./functions.h: 116:         PORTAbits.RA3 = 1;
+[e = . . _PORTAbits 0 3 -> -> 1 `i `uc ]
+"117
+[; ;./functions.h: 117:         _delay((unsigned long)((5000)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 5000 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"118
+[; ;./functions.h: 118:         PORTAbits.RA3 = 0;
+[e = . . _PORTAbits 0 3 -> -> 0 `i `uc ]
+"119
+[; ;./functions.h: 119:     }
+}
+[e :U 2295 ]
+"120
+[; ;./functions.h: 120:     USER_GUESS = 0;
+[e = _USER_GUESS -> 0 `i ]
+"121
+[; ;./functions.h: 121: }
+[e :UE 2293 ]
+}
+[v $root$_main `(v ~T0 @X0 0 e ]
+"18 interrupts.c
+[; ;interrupts.c: 18: void main(void) {
+[v _main `(v ~T0 @X0 1 ef ]
+{
+[e :U _main ]
+[f ]
+"22
+[; ;interrupts.c: 22:     initializeALL();
+[e ( _initializeALL ..  ]
+"23
+[; ;interrupts.c: 23:     setSecretCode();
+[e ( _setSecretCode ..  ]
+"25
+[; ;interrupts.c: 25:     while(1){
+[e :U 2298 ]
+{
+"26
+[; ;interrupts.c: 26:         getUserGuess();
+[e ( _getUserGuess ..  ]
+"27
+[; ;interrupts.c: 27:         handleGuess();
+[e ( _handleGuess ..  ]
+"28
+[; ;interrupts.c: 28:     }
+}
+[e :U 2297 ]
+[e $U 2298  ]
+[e :U 2299 ]
+"30
+[; ;interrupts.c: 30: }
+[e :UE 2296 ]
 }

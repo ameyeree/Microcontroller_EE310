@@ -26931,27 +26931,49 @@ unsigned char __t3rd16on(void);
 #pragma config CP = OFF
 # 10 "interrupts.c" 2
 
-# 1 "C:/Program Files/Microchip/xc8/v2.46/pic/include/proc/pic18f47k42.h" 1
-# 11 "interrupts.c" 2
+# 1 "./functions.h" 1
+# 1 "./initialization.h" 1
 
-
-
-
-
-
-
-
-int count = 0;
 unsigned char sevenSegValues[] = {0x3F,0x06,0x5B,0x4F,0x66,0x6D,0x7D,0x07,0x7F,0x67,0x00,0x79};
+int count = 0;
+int pr1Count = 0;
+unsigned char done = 0;
+int pr2Count = 0;
+int SECRET_CODE = 0x00;
+int USER_GUESS = 0x00;
 
+void initializeALL();
+void __attribute__((picinterrupt(("irq(61),base(0x4008)")))) INT2_ISR(void);
+void INTERRUPT_Initialize (void);
+void intializePorts();
+void initializePORTA();
+void initializePORTB();
+void initializePORTD();
+void initializePORTC();
+
+
+void initializeALL(){
+    intializePorts();
+    INTERRUPT_Initialize();
+    PORTAbits.RA1 = 1;
+}
 void __attribute__((picinterrupt(("irq(61),base(0x4008)")))) INT2_ISR(void)
 {
-    count++;
-    if(count > 99){
-        count = 0;
-    }
-
-
+    PORTAbits.RA0 = 1;
+    _delay((unsigned long)((500)*(4000000/4000.0)));
+    PORTAbits.RA0 = 0;
+    _delay((unsigned long)((500)*(4000000/4000.0)));
+    PORTAbits.RA0 = 1;
+    _delay((unsigned long)((1000)*(4000000/4000.0)));
+    PORTAbits.RA0 = 0;
+    _delay((unsigned long)((1000)*(4000000/4000.0)));
+    PORTAbits.RA0 = 1;
+    _delay((unsigned long)((1500)*(4000000/4000.0)));
+    PORTAbits.RA0 = 0;
+    _delay((unsigned long)((500)*(4000000/4000.0)));
+    PORTAbits.RA0 = 1;
+    _delay((unsigned long)((250)*(4000000/4000.0)));
+    PORTAbits.RA0 = 0;
 
     PIR7bits.INT2IF = 0;
 }
@@ -26981,31 +27003,6 @@ void INTERRUPT_Initialize (void)
 
     IVTBASEL = 0x08;
 }
-void intializePorts();
-void initializePORTA();
-void initializePORTB();
-void initializePORTD();
-void initializePORTC();
-void dispConvNumber(int decimalValue);
-void updateSevenSeg(int lhsIndex, int rhsIndex);
-void lhsSevenSeg(int index);
-void rhsSevenSeg(int index);
-void ledBCD(int decimalValue);
-
-
-void main(void) {
-
-
-    intializePorts();
-    INTERRUPT_Initialize();
-
-    while(1){
-
-        dispConvNumber(count);
-        ledBCD(count);
-    }
-
-}
 
 void intializePorts(){
     initializePORTA();
@@ -27021,10 +27018,10 @@ void initializePORTA(){
 }
 void initializePORTB(){
     PORTB = 0;
-    TRISB = 0b00000100;
+    TRISB = 0b00000111;
     LATB = 0;
     ANSELB = 0;
-    WPUB = 1;
+    WPUB = 0b00000100;
 }
 void initializePORTD(){
     PORTD = 0;
@@ -27036,54 +27033,150 @@ void initializePORTC(){
     PORTC = 0;
     LATC = 0;
     ANSELC = 0;
-    TRISC = 0;
+    TRISC = 0b00000100;
 }
-void dispConvNumber(int decimalValue){
-    if(decimalValue >= 0 && decimalValue <= 99){
-        if(decimalValue < 10){
-            rhsSevenSeg(decimalValue);
-        }else{
-            updateSevenSeg(decimalValue/10,decimalValue%10);
-        }
-    }else if(decimalValue < -99 || decimalValue > 99){
-
-        updateSevenSeg(11,11);
-    }else{
+# 1 "./functions.h" 2
 
 
 
-    }
 
-}
+void sevenSeg(int index, unsigned char isSecond);
+void setSecretCode();
+void getUserGuess();
+void handleGuess();
 
-void updateSevenSeg(int lhsIndex, int rhsIndex){
-    rhsSevenSeg(rhsIndex);
-    _delay((unsigned long)((1)*(4000000/4000.0)));
-    lhsSevenSeg(lhsIndex);
-    _delay((unsigned long)((1)*(4000000/4000.0)));
-}
-
-void rhsSevenSeg(int index){
+void sevenSeg(int index, unsigned char isSecond){
     if(index < 0 || index > 9){
         index = 10;
     }
-    PORTC = 0b00000100;
-    PORTD = sevenSegValues[index];
-    _delay((unsigned long)((5)*(4000000/4000.0)));
-}
 
-void lhsSevenSeg(int index){
-    if(index < 0){
-        index = 10;
+    PORTD = sevenSegValues[index];
+    if(isSecond == 1){
+        PORTD += 0b10000000;
     }
-    PORTC = 0b00001000;
-    PORTD = sevenSegValues[index];
-    _delay((unsigned long)((5)*(4000000/4000.0)));
-}
-void ledBCD(int decimalValue){
 
-    PORTA = decimalValue%10;
-    int temp = decimalValue/10;
-    temp <<= 4;
-    PORTA = PORTA + temp;
+}
+void setSecretCode(){
+    pr1Count = 0;
+    pr2Count = 0;
+    done = 0;
+    sevenSeg(pr1Count,0);
+    while(done != 1){
+        if(PORTBbits.RB0 == 1){
+            _delay((unsigned long)((1000)*(4000000/4000.0)));
+            while(PORTBbits.RB0 == 1){
+                if(PORTBbits.RB1 == 1){
+
+                    done = 1;
+                    _delay((unsigned long)((1000)*(4000000/4000.0)));
+                }
+            }
+            if(done == 0){
+                pr1Count++;
+                sevenSeg(pr1Count,0);
+            }
+        }
+    }
+    done = 0;
+    sevenSeg(pr2Count,1);
+    while(done != 1){
+        if(PORTBbits.RB1 == 1){
+            _delay((unsigned long)((1000)*(4000000/4000.0)));
+            while(PORTBbits.RB1 == 1){
+                if(PORTBbits.RB0 == 1){
+
+                    done = 1;
+                    _delay((unsigned long)((1000)*(4000000/4000.0)));
+                }
+            }
+            if(done == 0){
+                pr2Count++;
+                sevenSeg(pr2Count,1);
+            }
+        }
+    }
+    PORTAbits.RA2 = 1;
+    PORTD = 0;
+    SECRET_CODE = (pr2Count * 16) | (pr1Count);
+}
+void getUserGuess(){
+    pr1Count = 0;
+    pr2Count = 0;
+    done = 0;
+    sevenSeg(pr1Count,0);
+    while(done != 1){
+        if(PORTBbits.RB0 == 1){
+            _delay((unsigned long)((1000)*(4000000/4000.0)));
+            while(PORTBbits.RB0 == 1){
+                if(PORTBbits.RB1 == 1){
+
+                    done = 1;
+                    _delay((unsigned long)((1000)*(4000000/4000.0)));
+                }
+            }
+            if(done == 0){
+                pr1Count++;
+                sevenSeg(pr1Count,0);
+            }
+        }
+    }
+    done = 0;
+    sevenSeg(pr2Count,1);
+    while(done != 1){
+        if(PORTBbits.RB1 == 1){
+            _delay((unsigned long)((1000)*(4000000/4000.0)));
+            while(PORTBbits.RB1 == 1){
+                if(PORTBbits.RB0 == 1){
+
+                    done = 1;
+                    _delay((unsigned long)((1000)*(4000000/4000.0)));
+                }
+            }
+            if(done == 0){
+                pr2Count++;
+                sevenSeg(pr2Count,1);
+            }
+        }
+    }
+    PORTD = 0;
+    _delay((unsigned long)((500)*(4000000/4000.0)));
+    PORTD = 0xFF;
+    _delay((unsigned long)((500)*(4000000/4000.0)));
+    PORTD = 0;
+    USER_GUESS = (pr2Count * 16) | (pr1Count);
+}
+void handleGuess(){
+    if(SECRET_CODE != USER_GUESS){
+        PORTAbits.RA0 = 1;
+        _delay((unsigned long)((5000)*(4000000/4000.0)));
+        PORTAbits.RA0 = 0;
+    }else{
+        PORTAbits.RA3 = 1;
+        _delay((unsigned long)((5000)*(4000000/4000.0)));
+        PORTAbits.RA3 = 0;
+    }
+    USER_GUESS = 0;
+}
+# 11 "interrupts.c" 2
+
+
+# 1 "C:/Program Files/Microchip/xc8/v2.46/pic/include/proc/pic18f47k42.h" 1
+# 13 "interrupts.c" 2
+
+
+
+
+
+void main(void) {
+
+
+
+    initializeALL();
+    setSecretCode();
+
+    while(1){
+        getUserGuess();
+        handleGuess();
+    }
+
 }
