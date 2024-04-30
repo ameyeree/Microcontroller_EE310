@@ -1,9 +1,8 @@
 /*
- * The purpose of this program is demonstrate How ADC operates. 
- * Conenct your input to RA0. 
- * Complete the code by modifying all the places identified by "DO:"
- * Use a port to represent the input voltage in binary.  
- * Author: Farid Farahmand
+ * The purpose of this program is to demonstrate how a 20x2 LCD can be interfaced with a PIC processor. 
+ * Refer to the lecture slides for more details on the physical connections.
+ * You may want to consider changing this code, as needed, depending on your hardware. 
+ * Author: Farid Farahmand 
  */
 
 
@@ -63,92 +62,126 @@
 
 #include <xc.h> // must have this
 #include "C:/Program Files/Microchip/xc8/v2.46/pic/include/proc/pic18f47k42.h"
-//#include "C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic18f46k42"
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-
 
 #define _XTAL_FREQ 4000000                 // Fosc  frequency for _delay()  library
 #define FCY    _XTAL_FREQ/4
 
-#define Vref 5.0 // voltage reference 
-int digital; // holds the digital value 
-float voltage; // hold the analog value (volt))
-char data[10];
-// DO: Declare void ADC_Init
-void ADC_Init(void);
-void initialize_PORTD();
-void initialize_PORTB();
+#define RS PORTBbits.RB0                   /* PORTD 0 pin is used for Register Select */
+#define EN PORTBbits.RB1                   /* PORTD 1 pin is used for Enable */
+#define ldata PORTD                 /* PORTB is used for transmitting data to LCD */
 
-/*This code block configures the ADC
-for polling, VDD and VSS references, ADCRC
-oscillator and AN0 input.
-Conversion start & polling for completion
-are included.
- */
-void main() {
-    //ADC Initialization
-    //DO: CALL ADC_Init function defined below;
-    ADC_Init();
-    initialize_PORTD();
-    initialize_PORTB();
-  
-    while (1) {
-        //DO: Set ADCON0 Go to start conversion
-        ADCON0bits.GO = 1;
-        while (ADCON0bits.GO); //Wait for conversion done
-        digital = (ADRESH*256) | (ADRESL);/*Combine 8-bit LSB and 2-bit MSB*/
-        // DO: define voltage = Vref/4096 (note that voltage is float type
-        voltage = digital*( (float)Vref / (float)4096 );
-        // DO: Write a code to translate the values from ADRESH:ADRESL register 
-        //         pair to IO Port. In this case we can connect ADRESL to Port D
-        PORTD = ADRESL;
-        PORTB = ADRESH;
-        __delay_ms(2000);
-        /*This is used to convert integer value to ASCII string*/
-        sprintf(data,"%.2f",voltage);
-        strcat(data," V");	/*Concatenate result and unit to print*/
-    }
-}
+//#define LCD_Port TRISB              
+//#define LCD_Control TRISD
 
-void ADC_Init(void)
-{
-       //Setup ADC
-    //DO: using ADCON0 set right justify
-    ADCON0bits.FM = 1;
-    //DO: Using ADCON0 set ADCRC Clock
-    ADCON0bits.CS = 1;
-    //DO: Using ADPCH register set RA0 as Analog channel
-    ADPCHbits.PCH = 0x000000;
-    //DO: Set RA0 to input
-    TRISAbits.TRISA0 = 1;
-    //DO: Set RA0 to analog
-    ANSELAbits.ANSELA0 = 1;
-    //DO: Turn ADC On on register ADCON0
-    ADCON0bits.ON = 1;   
-    //DO: set ADC CLOCK Selection register to zero
-    ADCLKbits.CS = 0x0;
-    //DO: Clear ADC Result registers
-    ADRESL = 0x0;
-    ADRESH = 0x0;
-   //DO: set precharge select to 0 in register ADPERL & ADPERH
-    ADPREL = 0;
-    ADPREH = 0;
-    //DO: set acquisition low and high byte to zero 
-    ADACQL = 0;
-    ADACQL = 0;
-   
-}
-void initialize_PORTB(){
+void LCD_Init();
+void LCD_Command(char );
+void LCD_Char(char x);
+void LCD_String(const char *);
+void LCD_String_xy(char ,char ,const char*);
+void MSdelay(unsigned int );
+void lcd_set_cursor(char col, char line);
+
+/*****************************Main Program*******************************/
+
+void main(void)
+{      
     PORTB = 0;
     TRISB = 0;
     LATB = 0;
     ANSELB = 0;
-}
-void initialize_PORTD(){
+    
     PORTD = 0;
     TRISD = 0;
     LATD = 0;
     ANSELD = 0;
+    //OSCCON=0x72;                   /* Use Internal Oscillator with Frequency 8MHZ */ 
+    LCD_Init();                    /* Initialize 16x2 LCD */
+    LCD_String("Hello World");
+    lcd_set_cursor(3,2);
+    LCD_String("Second line");
+    //LCD_String_xy(1,0,"Anthony Meyer");    /* Display string at location(row,location). */
+                                   /* This function passes string to display */
+    //LCD_String_xy(2,0,"Row");   /*Display string at location(row,location). */
+                                   /* This function passes string to display */    
+    
+    while(1);           
+}
+
+/****************************Functions********************************/
+void LCD_Init()
+{
+    __delay_ms(1000); //MSdelay(15);           /* 15ms,16x2 LCD Power on delay */
+//    LCD_Port = 0x00;       /* Set PORTB as output PORT for LCD data(D0-D7) pins */
+//    LCD_Control = 0x00;    /* Set PORTD as output PORT LCD Control(RS,EN) Pins */
+    
+    LCD_Command(0b00111100);     /* clear display screen */
+    LCD_Command(0b00001100);     /* uses 2 line and initialize 5*7 matrix of LCD */
+    LCD_Command(0b00000110);     /* display on cursor off */
+    //LCD_Command(0x06);     /* increment cursor (shift cursor to right) */
+}
+
+void LCD_Clear()
+{
+        LCD_Command(0x01); /* clear display screen */
+}
+
+void LCD_Command(char cmd )
+{
+    PORTD = cmd;            /* Send data to PORT as a command for LCD */   
+    RS = 0;                /* Command Register is selected */
+    EN = 1;                /* High-to-Low pulse on Enable pin to latch data */ 
+    NOP();
+    EN = 0;
+    __delay_ms(15);//MSdelay(3); 
+}
+
+void LCD_Char(char dat)
+{
+    PORTD = dat;            /* Send data to LCD */  
+    RS = 1;                /* Data Register is selected */
+    EN=1;                  /* High-to-Low pulse on Enable pin to latch data */   
+    NOP();
+    EN=0;
+    __delay_ms(15);//MSdelay(1);
+}
+
+
+void LCD_String(const char *msg)
+{
+    while((*msg)!=0)
+    {       
+      LCD_Char(*msg);
+      msg++;    
+    }
+}
+
+void LCD_String_xy(char row,char pos,const char *msg)
+{
+    char location=0;
+    if(row<=1)
+    {
+        location=(0x80) | ((pos) & 0x0f); /*Print message on 1st row and desired location*/
+        LCD_Command(location);
+    }
+    else
+    {
+        location=(0xC0) | ((pos) & 0x0f); /*Print message on 2nd row and desired location*/
+        LCD_Command(location);    
+    }  
+    LCD_String(msg);
+
+}
+void lcd_set_cursor(char col, char line){
+    if (line == 1){
+        LCD_Command(0b10000000 | col);
+    }else if(line == 2){
+        LCD_Command(0b11000000 | col);
+    }
+}
+/*********************************Delay Function********************************/
+void MSdelay(unsigned int val)
+{
+     unsigned int i,j;
+        for(i=0;i<val;i++)
+            for(j=0;j<165;j++);      /*This count Provide delay of 1 ms for 8MHz Frequency */
 }
