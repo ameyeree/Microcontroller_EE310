@@ -140,74 +140,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "36 C:\Program Files\Microchip\xc8\v2.46\pic\include\c99\string.h
 [; ;C:\Program Files\Microchip\xc8\v2.46\pic\include\c99\string.h: 36: char *strcat (char *restrict, const char *restrict);
 [v _strcat `(*uc ~T0 @X0 0 ef2`*uc`*Cuc ]
-[v F205 `(v ~T0 @X0 1 tf1`ul ]
-"20 C:\Program Files\Microchip\xc8\v2.46\pic\include\builtins.h
-[v __delay `JF205 ~T0 @X0 0 e ]
-[p i __delay ]
-"14 main.c
-[p x FEXTOSC  =  LP      ]
-"15
-[p x RSTOSC  =  EXTOSC   ]
-"18
-[p x CLKOUTEN  =  OFF    ]
-"19
-[p x PR1WAY  =  ON       ]
-"20
-[p x CSWEN  =  ON        ]
-"21
-[p x FCMEN  =  ON        ]
-"24
-[p x MCLRE  =  EXTMCLR   ]
-"25
-[p x PWRTS  =  PWRT_OFF  ]
-"26
-[p x MVECEN  =  ON       ]
-"27
-[p x IVT1WAY  =  ON      ]
-"28
-[p x LPBOREN  =  OFF     ]
-"29
-[p x BOREN  =  SBORDIS   ]
-"32
-[p x BORV  =  VBOR_2P45  ]
-"33
-[p x ZCD  =  OFF         ]
-"34
-[p x PPS1WAY  =  ON      ]
-"35
-[p x STVREN  =  ON       ]
-"36
-[p x DEBUG  =  OFF       ]
-"37
-[p x XINST  =  OFF       ]
-"40
-[p x WDTCPS  =  WDTCPS_31 ]
-"41
-[p x WDTE  =  OFF        ]
-"44
-[p x WDTCWS  =  WDTCWS_7 ]
-"45
-[p x WDTCCS  =  SC       ]
-"48
-[p x BBSIZE  =  BBSIZE_512 ]
-"49
-[p x BBEN  =  OFF        ]
-"50
-[p x SAFEN  =  OFF       ]
-"51
-[p x WRTAPP  =  OFF      ]
-"54
-[p x WRTB  =  OFF        ]
-"55
-[p x WRTC  =  OFF        ]
-"56
-[p x WRTD  =  OFF        ]
-"57
-[p x WRTSAF  =  OFF      ]
-"58
-[p x LVP  =  ON          ]
-"61
-[p x CP  =  OFF          ]
 "250 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f47k42.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f47k42.h: 250: __asm("STATUS_CSHAD equ 03880h");
 [; <" STATUS_CSHAD equ 03880h ;# ">
@@ -2742,48 +2674,112 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./ADC_Functions.h: 30: }
 [e :UE 2266 ]
 }
-"78 main.c
-[; ;main.c: 78: int digital;
+"2 ./cnfg.h
+[p x FEXTOSC  =  LP      ]
+"3
+[p x RSTOSC  =  EXTOSC   ]
+"6
+[p x CLKOUTEN  =  OFF    ]
+"7
+[p x PR1WAY  =  ON       ]
+"8
+[p x CSWEN  =  ON        ]
+"9
+[p x FCMEN  =  ON        ]
+"12
+[p x MCLRE  =  EXTMCLR   ]
+"13
+[p x PWRTS  =  PWRT_OFF  ]
+"14
+[p x MVECEN  =  ON       ]
+"15
+[p x IVT1WAY  =  ON      ]
+"16
+[p x LPBOREN  =  OFF     ]
+"17
+[p x BOREN  =  SBORDIS   ]
+"20
+[p x BORV  =  VBOR_2P45  ]
+"21
+[p x ZCD  =  OFF         ]
+"22
+[p x PPS1WAY  =  ON      ]
+"23
+[p x STVREN  =  ON       ]
+"24
+[p x DEBUG  =  OFF       ]
+"25
+[p x XINST  =  OFF       ]
+"28
+[p x WDTCPS  =  WDTCPS_31 ]
+"29
+[p x WDTE  =  OFF        ]
+"32
+[p x WDTCWS  =  WDTCWS_7 ]
+"33
+[p x WDTCCS  =  SC       ]
+"36
+[p x BBSIZE  =  BBSIZE_512 ]
+"37
+[p x BBEN  =  OFF        ]
+"38
+[p x SAFEN  =  OFF       ]
+"39
+[p x WRTAPP  =  OFF      ]
+"42
+[p x WRTB  =  OFF        ]
+"43
+[p x WRTC  =  OFF        ]
+"44
+[p x WRTD  =  OFF        ]
+"45
+[p x WRTSAF  =  OFF      ]
+"46
+[p x LVP  =  ON          ]
+"49
+[p x CP  =  OFF          ]
+"47 main.c
+[; ;main.c: 47: int digital;
 [v _digital `i ~T0 @X0 1 e ]
-"79
-[; ;main.c: 79: float voltage;
+"48
+[; ;main.c: 48: float voltage;
 [v _voltage `f ~T0 @X0 1 e ]
-"80
-[; ;main.c: 80: int lumens;
+"49
+[; ;main.c: 49: int lumens;
 [v _lumens `i ~T0 @X0 1 e ]
-"81
-[; ;main.c: 81: char data[10];
+"50
+[; ;main.c: 50: char data[10];
 [v _data `uc ~T0 @X0 -> 10 `i e ]
-"82
-[; ;main.c: 82: double avg;
+"51
+[; ;main.c: 51: double avg;
 [v _avg `d ~T0 @X0 1 e ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"87
-[; ;main.c: 87: void main(void)
+"54
+[; ;main.c: 54: void main(void)
 [v _main `(v ~T0 @X0 1 ef ]
-"88
-[; ;main.c: 88: {
+"55
+[; ;main.c: 55: {
 {
 [e :U _main ]
 [f ]
-"89
-[; ;main.c: 89:     LCD_Init();
+"56
+[; ;main.c: 56:     LCD_Init();
 [e ( _LCD_Init ..  ]
-"90
-[; ;main.c: 90:     ADC_Init();
+"57
+[; ;main.c: 57:     ADC_Init();
 [e ( _ADC_Init ..  ]
-"92
-[; ;main.c: 92:     LCD_String_xy(1,0,"The Input Light:");
+"58
+[; ;main.c: 58:     LCD_String_xy(1,0,"Input Voltage:");
 [e ( _LCD_String_xy (3 , , -> -> 1 `i `uc -> -> 0 `i `uc :s 1C ]
-"93
-[; ;main.c: 93:     while(1){
+"60
+[; ;main.c: 60:     while(1){
 [e :U 2269 ]
 {
-"95
-[; ;main.c: 95:         avg = 0;
+"62
+[; ;main.c: 62:         avg = 0;
 [e = _avg -> -> 0 `i `d ]
-"99
-[; ;main.c: 99:         for(int i = 0; i < 50; i++){
+"64
+[; ;main.c: 64:         for(int i = 0; i < 50; i++){
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
@@ -2791,102 +2787,55 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $U 2272  ]
 [e :U 2271 ]
 {
-"100
-[; ;main.c: 100:             ADCON0bits.GO = 1;
+"65
+[; ;main.c: 65:             ADCON0bits.GO = 1;
 [e = . . _ADCON0bits 0 0 -> -> 1 `i `uc ]
-"102
-[; ;main.c: 102:             while (ADCON0bits.GO);
+"67
+[; ;main.c: 67:             while (ADCON0bits.GO);
 [e $U 2274  ]
 [e :U 2275 ]
 [e :U 2274 ]
 [e $ != -> . . _ADCON0bits 0 0 `i -> 0 `i 2275  ]
 [e :U 2276 ]
-"103
-[; ;main.c: 103:             digital = (ADRESH*256) | (ADRESL);
+"68
+[; ;main.c: 68:             digital = (ADRESH*256) | (ADRESL);
 [e = _digital | * -> _ADRESH `i -> 256 `i -> _ADRESL `i ]
-"105
-[; ;main.c: 105:             voltage = digital*( (float)5.0 / (float)4096 );
+"70
+[; ;main.c: 70:             voltage = digital*( (float)5.0 / (float)4096 );
 [e = _voltage * -> _digital `f / -> .5.0 `f -> -> 4096 `i `f ]
-"106
-[; ;main.c: 106:             avg = avg + voltage;
+"71
+[; ;main.c: 71:             avg = avg + voltage;
 [e = _avg + _avg -> _voltage `d ]
-"107
-[; ;main.c: 107:         }
+"72
+[; ;main.c: 72:         }
 }
 [e ++ _i -> 1 `i ]
 [e $ < _i -> 50 `i 2271  ]
 [e :U 2272 ]
 }
-"108
-[; ;main.c: 108:         voltage = avg/50.0;
+"73
+[; ;main.c: 73:         voltage = avg/50.0;
 [e = _voltage -> / _avg .50.0 `f ]
-"109
-[; ;main.c: 109:         if(voltage >=0 && voltage <= 2){
-[e $ ! && >= _voltage -> -> 0 `i `f <= _voltage -> -> 2 `i `f 2277  ]
-{
-"110
-[; ;main.c: 110:             lumens = 79*voltage;
-[e = _lumens -> * -> -> 79 `i `f _voltage `i ]
-"111
-[; ;main.c: 111:         }else if(voltage > 2 && voltage <= 3.15){
-}
-[e $U 2278  ]
-[e :U 2277 ]
-[e $ ! && > _voltage -> -> 2 `i `f <= -> _voltage `d .3.15 2279  ]
-{
-"112
-[; ;main.c: 112:             lumens = 540*voltage - 1000;
-[e = _lumens -> - * -> -> 540 `i `f _voltage -> -> 1000 `i `f `i ]
-"113
-[; ;main.c: 113:         }else if(voltage > 3.15 && voltage <= 3.75){
-}
-[e $U 2280  ]
-[e :U 2279 ]
-[e $ ! && > -> _voltage `d .3.15 <= -> _voltage `d .3.75 2281  ]
-{
-"114
-[; ;main.c: 114:             lumens = 1111*voltage-2735;
-[e = _lumens -> - * -> -> 1111 `i `f _voltage -> -> 2735 `i `f `i ]
-"115
-[; ;main.c: 115:         }else if(voltage > 3.75){
-}
-[e $U 2282  ]
-[e :U 2281 ]
-[e $ ! > -> _voltage `d .3.75 2283  ]
-{
-"116
-[; ;main.c: 116:             lumens = 3750*voltage- 12700;
-[e = _lumens -> - * -> -> 3750 `i `f _voltage -> -> 12700 `i `f `i ]
-"117
-[; ;main.c: 117:         }
-}
-[e :U 2283 ]
-[e :U 2282 ]
-[e :U 2280 ]
-[e :U 2278 ]
-"119
-[; ;main.c: 119:         sprintf(data,"%d",lumens);
-[e ( _sprintf (1 , (. , &U _data :s 2C _lumens ]
-"120
-[; ;main.c: 120:         strcat(data," Lux     ");
+"93
+[; ;main.c: 93:         sprintf(data,"%.2f",voltage);
+[e ( _sprintf (1 , (. , &U _data :s 2C -> _voltage `d ]
+"94
+[; ;main.c: 94:         strcat(data," V");
 [e ( _strcat (2 , &U _data :s 3C ]
-"124
-[; ;main.c: 124:         LCD_String_xy(2,2,data);
+"95
+[; ;main.c: 95:         LCD_String_xy(2,2,data);
 [e ( _LCD_String_xy (3 , , -> -> 2 `i `uc -> -> 2 `i `uc -> &U _data `*Cuc ]
-"125
-[; ;main.c: 125:         _delay((unsigned long)((1000)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"126
-[; ;main.c: 126:     }
+"97
+[; ;main.c: 97:     }
 }
 [e :U 2268 ]
 [e $U 2269  ]
 [e :U 2270 ]
-"127
-[; ;main.c: 127: }
+"98
+[; ;main.c: 98: }
 [e :UE 2267 ]
 }
-[p f _sprintf 8388736 ]
-[a 2C 37 100 0 ]
-[a 1C 84 104 101 32 73 110 112 117 116 32 76 105 103 104 116 58 0 ]
-[a 3C 32 76 117 120 32 32 32 32 32 0 ]
+[p f _sprintf 8462336 ]
+[a 2C 37 46 50 102 0 ]
+[a 3C 32 86 0 ]
+[a 1C 73 110 112 117 116 32 86 111 108 116 97 103 101 58 0 ]

@@ -55,8 +55,8 @@ void main(void)
 {       
     LCD_Init();                    /* Initialize 16x2 LCD */
     ADC_Init();
-    //LCD_String_xy(1,0,"Input Voltage:"); 
-    LCD_String_xy(1,0,"The Input Light:");
+    LCD_String_xy(1,0,"Input Voltage:"); 
+    //LCD_String_xy(1,0,"The Input Light:");
     while(1){
         
         avg = 0;
@@ -71,29 +71,29 @@ void main(void)
             avg = avg + voltage;
         }
         voltage = avg/50.0;
-        if(voltage >=0 && voltage <= 2){
-            lumens = 79 * voltage;
-        }else if(voltage > 2 && voltage <= 3.15){
-            lumens = 540 * voltage - 1000;
-        }else if(voltage > 3.15 && voltage <= 3.75){
-            lumens = 1111 * voltage - 2735;
-        }else if(voltage > 3.75){
-            lumens = 3750 * voltage - 12700;
-        }
+//        if(voltage >=0 && voltage <= 2){
+//            lumens = 79 * voltage;
+//        }else if(voltage > 2 && voltage <= 3.15){
+//            lumens = 540 * voltage - 1000;
+//        }else if(voltage > 3.15 && voltage <= 3.75){
+//            lumens = 1111 * voltage - 2735;
+//        }else if(voltage > 3.75){
+//            lumens = 3750 * voltage - 12700;
+//        }
         /*This is used to convert integer value to ASCII string*/
         /**********************************
          * For Lumens use below code
          **********************************/
-        sprintf(data,"%d",lumens);
-        strcat(data," LUX     ");
+//        sprintf(data,"%d",lumens);
+//        strcat(data," LUX     ");
         
         /**********************************
          * For voltage use below code
          **********************************/
-        //sprintf(data,"%.2f",voltage);
-        //strcat(data," V");	/*Concatenate result and unit to print*/
+        sprintf(data,"%.2f",voltage);
+        strcat(data," V");	/*Concatenate result and unit to print*/
         LCD_String_xy(2,2,data); 
-        __delay_ms(1000);
+//        __delay_ms(1000);
     }             
 }
 

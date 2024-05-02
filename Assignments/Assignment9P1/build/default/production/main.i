@@ -7,57 +7,7 @@
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "main.c" 2
-# 14 "main.c"
-#pragma config FEXTOSC = LP
-#pragma config RSTOSC = EXTOSC
-
-
-#pragma config CLKOUTEN = OFF
-#pragma config PR1WAY = ON
-#pragma config CSWEN = ON
-#pragma config FCMEN = ON
-
-
-#pragma config MCLRE = EXTMCLR
-#pragma config PWRTS = PWRT_OFF
-#pragma config MVECEN = ON
-#pragma config IVT1WAY = ON
-#pragma config LPBOREN = OFF
-#pragma config BOREN = SBORDIS
-
-
-#pragma config BORV = VBOR_2P45
-#pragma config ZCD = OFF
-#pragma config PPS1WAY = ON
-#pragma config STVREN = ON
-#pragma config DEBUG = OFF
-#pragma config XINST = OFF
-
-
-#pragma config WDTCPS = WDTCPS_31
-#pragma config WDTE = OFF
-
-
-#pragma config WDTCWS = WDTCWS_7
-#pragma config WDTCCS = SC
-
-
-#pragma config BBSIZE = BBSIZE_512
-#pragma config BBEN = OFF
-#pragma config SAFEN = OFF
-#pragma config WRTAPP = OFF
-
-
-#pragma config WRTB = OFF
-#pragma config WRTC = OFF
-#pragma config WRTD = OFF
-#pragma config WRTSAF = OFF
-#pragma config LVP = ON
-
-
-#pragma config CP = OFF
-
-
+# 31 "main.c"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -26916,7 +26866,7 @@ __attribute__((__unsupported__("The READTIMER" "0" "() macro is not available wi
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 33 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\xc.h" 2 3
-# 63 "main.c" 2
+# 31 "main.c" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\stdio.h" 1 3
 # 24 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\stdio.h" 3
@@ -27070,7 +27020,7 @@ char *ctermid(char *);
 
 
 char *tempnam(const char *, const char *);
-# 64 "main.c" 2
+# 32 "main.c" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\string.h" 1 3
 # 25 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\string.h" 3
@@ -27129,7 +27079,7 @@ size_t strxfrm_l (char *restrict, const char *restrict, size_t, locale_t);
 
 
 void *memccpy (void *restrict, const void *restrict, int, size_t);
-# 65 "main.c" 2
+# 33 "main.c" 2
 
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.46\\pic\\include\\c99\\math.h" 1 3
@@ -27504,7 +27454,7 @@ double jn(int, double);
 double y0(double);
 double y1(double);
 double yn(int, double);
-# 67 "main.c" 2
+# 35 "main.c" 2
 
 # 1 "./LCD_Functions.h" 1
 
@@ -27589,7 +27539,7 @@ void MSdelay(unsigned int val)
         for(i=0;i<val;i++)
             for(j=0;j<165;j++);
 }
-# 68 "main.c" 2
+# 36 "main.c" 2
 
 # 1 "./ADC_Functions.h" 1
 void ADC_Init(void);
@@ -27622,8 +27572,60 @@ void ADC_Init(void)
     ADACQL = 0;
 
 }
-# 69 "main.c" 2
-# 78 "main.c"
+# 37 "main.c" 2
+
+# 1 "./cnfg.h" 1
+
+#pragma config FEXTOSC = LP
+#pragma config RSTOSC = EXTOSC
+
+
+#pragma config CLKOUTEN = OFF
+#pragma config PR1WAY = ON
+#pragma config CSWEN = ON
+#pragma config FCMEN = ON
+
+
+#pragma config MCLRE = EXTMCLR
+#pragma config PWRTS = PWRT_OFF
+#pragma config MVECEN = ON
+#pragma config IVT1WAY = ON
+#pragma config LPBOREN = OFF
+#pragma config BOREN = SBORDIS
+
+
+#pragma config BORV = VBOR_2P45
+#pragma config ZCD = OFF
+#pragma config PPS1WAY = ON
+#pragma config STVREN = ON
+#pragma config DEBUG = OFF
+#pragma config XINST = OFF
+
+
+#pragma config WDTCPS = WDTCPS_31
+#pragma config WDTE = OFF
+
+
+#pragma config WDTCWS = WDTCWS_7
+#pragma config WDTCCS = SC
+
+
+#pragma config BBSIZE = BBSIZE_512
+#pragma config BBEN = OFF
+#pragma config SAFEN = OFF
+#pragma config WRTAPP = OFF
+
+
+#pragma config WRTB = OFF
+#pragma config WRTC = OFF
+#pragma config WRTD = OFF
+#pragma config WRTSAF = OFF
+#pragma config LVP = ON
+
+
+#pragma config CP = OFF
+# 38 "main.c" 2
+# 47 "main.c"
 int digital;
 float voltage;
 int lumens;
@@ -27631,19 +27633,15 @@ char data[10];
 double avg;
 
 
-
-
 void main(void)
 {
     LCD_Init();
     ADC_Init();
+    LCD_String_xy(1,0,"Input Voltage:");
 
-    LCD_String_xy(1,0,"The Input Light:");
     while(1){
 
         avg = 0;
-
-
 
         for(int i = 0; i < 50; i++){
             ADCON0bits.GO = 1;
@@ -27655,22 +27653,10 @@ void main(void)
             avg = avg + voltage;
         }
         voltage = avg/50.0;
-        if(voltage >=0 && voltage <= 2){
-            lumens = 79*voltage;
-        }else if(voltage > 2 && voltage <= 3.15){
-            lumens = 540*voltage - 1000;
-        }else if(voltage > 3.15 && voltage <= 3.75){
-            lumens = 1111*voltage-2735;
-        }else if(voltage > 3.75){
-            lumens = 3750*voltage- 12700;
-        }
-
-        sprintf(data,"%d",lumens);
-        strcat(data," Lux     ");
-
-
-
+# 93 "main.c"
+        sprintf(data,"%.2f",voltage);
+        strcat(data," V");
         LCD_String_xy(2,2,data);
-        _delay((unsigned long)((1000)*(4000000/4000.0)));
+
     }
 }
