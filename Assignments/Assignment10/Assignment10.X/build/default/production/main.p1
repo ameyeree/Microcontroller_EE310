@@ -12,9 +12,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "55 C:\Program Files\Microchip\xc8\v2.46\pic\include\c99\time.h
 [; ;C:\Program Files\Microchip\xc8\v2.46\pic\include\c99\time.h: 55: time_t time (time_t *);
 [v _time `(ul ~T0 @X0 0 ef1`*ul ]
-"117 C:\Program Files\Microchip\xc8\v2.46\pic\include\c99\stdio.h
-[; ;C:\Program Files\Microchip\xc8\v2.46\pic\include\c99\stdio.h: 117: int printf(const char *restrict, ...);
-[v _printf `(i ~T0 @X0 0 ev`*Cuc ]
+"289 ./mcc_generated_files/system/../uart/uart2.h
+[; ;./mcc_generated_files/system/../uart/uart2.h: 289: void UART2_Write(uint8_t txData);
+[v _UART2_Write `(v ~T0 @X0 0 ef1`uc ]
 "39 main.c
 [; ;main.c: 39: int random_number(int min_num,int max_num);
 [v _random_number `(i ~T0 @X0 0 ef2`i`i ]
@@ -2286,89 +2286,79 @@ Version 4.0 HI-TECH Software Intermediate Code
 "59
 [; ;main.c: 59:     {
 {
-"60
-[; ;main.c: 60:         printf("Hello World....\r\n");
-[e ( _printf :s 1C ]
 "61
-[; ;main.c: 61:         printf("Min : 1 Max : 40 %d\r\n", random_number(1,40));
-[e ( _printf , (. :s 2C ( _random_number (2 , -> 1 `i -> 40 `i ]
-"62
-[; ;main.c: 62:         printf("min : 100 Max: 1000 %d\r\n", random_number(100,1000));
-[e ( _printf , (. :s 3C ( _random_number (2 , -> 100 `i -> 1000 `i ]
-"63
-[; ;main.c: 63:         _delay((unsigned long)((500)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+[; ;main.c: 61:         UART2_Write(random_number(1,100));
+[e ( _UART2_Write (1 -> ( _random_number (2 , -> 1 `i -> 100 `i `uc ]
 "64
-[; ;main.c: 64:         PORTBbits.RB1 ^= 1;
-[e =^ . . _PORTBbits 0 1 -> -> 1 `i `Vuc ]
+[; ;main.c: 64:         _delay((unsigned long)((500)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
 "65
-[; ;main.c: 65:     }
+[; ;main.c: 65:         PORTBbits.RB1 ^= 1;
+[e =^ . . _PORTBbits 0 1 -> -> 1 `i `Vuc ]
+"66
+[; ;main.c: 66:     }
 }
 [e :U 2255 ]
 [e $U 2256  ]
 [e :U 2257 ]
-"66
-[; ;main.c: 66: }
+"67
+[; ;main.c: 67: }
 [e :UE 2254 ]
 }
-"68
-[; ;main.c: 68: int random_number(int min_num,int max_num){
+"69
+[; ;main.c: 69: int random_number(int min_num,int max_num){
 [v _random_number `(i ~T0 @X0 1 ef2`i`i ]
 {
 [e :U _random_number ]
 [v _min_num `i ~T0 @X0 1 r1 ]
 [v _max_num `i ~T0 @X0 1 r2 ]
 [f ]
-"69
-[; ;main.c: 69:     int result = 0;
+"70
+[; ;main.c: 70:     int result = 0;
 [v _result `i ~T0 @X0 1 a ]
 [e = _result -> 0 `i ]
-"70
-[; ;main.c: 70:     int low_num = 0;
+"71
+[; ;main.c: 71:     int low_num = 0;
 [v _low_num `i ~T0 @X0 1 a ]
 [e = _low_num -> 0 `i ]
-"71
-[; ;main.c: 71:     int hi_num = 0;
+"72
+[; ;main.c: 72:     int hi_num = 0;
 [v _hi_num `i ~T0 @X0 1 a ]
 [e = _hi_num -> 0 `i ]
-"73
-[; ;main.c: 73:     if(min_num < max_num){
+"74
+[; ;main.c: 74:     if(min_num < max_num){
 [e $ ! < _min_num _max_num 2259  ]
 {
-"74
-[; ;main.c: 74:         low_num = min_num;
-[e = _low_num _min_num ]
 "75
-[; ;main.c: 75:         hi_num = max_num + 1;
-[e = _hi_num + _max_num -> 1 `i ]
+[; ;main.c: 75:         low_num = min_num;
+[e = _low_num _min_num ]
 "76
-[; ;main.c: 76:     }else{
+[; ;main.c: 76:         hi_num = max_num + 1;
+[e = _hi_num + _max_num -> 1 `i ]
+"77
+[; ;main.c: 77:     }else{
 }
 [e $U 2260  ]
 [e :U 2259 ]
 {
-"77
-[; ;main.c: 77:         low_num = max_num + 1;
-[e = _low_num + _max_num -> 1 `i ]
 "78
-[; ;main.c: 78:         hi_num = min_num;
-[e = _hi_num _min_num ]
+[; ;main.c: 78:         low_num = max_num + 1;
+[e = _low_num + _max_num -> 1 `i ]
 "79
-[; ;main.c: 79:     }
+[; ;main.c: 79:         hi_num = min_num;
+[e = _hi_num _min_num ]
+"80
+[; ;main.c: 80:     }
 }
 [e :U 2260 ]
-"81
-[; ;main.c: 81:     result = (rand() % (hi_num - low_num)) + low_num;
-[e = _result + % ( _rand ..  - _hi_num _low_num _low_num ]
 "82
-[; ;main.c: 82:     return result;
+[; ;main.c: 82:     result = (rand() % (hi_num - low_num)) + low_num;
+[e = _result + % ( _rand ..  - _hi_num _low_num _low_num ]
+"83
+[; ;main.c: 83:     return result;
 [e ) _result ]
 [e $UE 2258  ]
-"83
-[; ;main.c: 83: }
+"84
+[; ;main.c: 84: }
 [e :UE 2258 ]
 }
-[p f _printf 8388736 ]
-[a 2C 77 105 110 32 58 32 49 32 77 97 120 32 58 32 52 48 32 37 100 13 10 0 ]
-[a 3C 109 105 110 32 58 32 49 48 48 32 77 97 120 58 32 49 48 48 48 32 37 100 13 10 0 ]
-[a 1C 72 101 108 108 111 32 87 111 114 108 100 46 46 46 46 13 10 0 ]

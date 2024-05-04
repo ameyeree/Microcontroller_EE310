@@ -57,9 +57,10 @@ int main(void)
 
     while(1)
     {
-        printf("Hello World....\r\n");
-        printf("Min : 1 Max : 40 %d\r\n", random_number(1,40));
-        printf("min : 100 Max: 1000 %d\r\n", random_number(100,1000));
+        //printf("Hello World....\r\n");
+        UART2_Write(random_number(1,100));
+        //printf("%d\r\n", random_number(1,100));
+        //printf("min : 100 Max: 1000 %d\r\n", random_number(100,1000));
         __delay_ms(500);
         PORTBbits.RB1 ^= 1;
     }    
