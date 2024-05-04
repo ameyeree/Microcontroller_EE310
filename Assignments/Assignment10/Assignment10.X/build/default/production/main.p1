@@ -6,9 +6,36 @@ Version 4.0 HI-TECH Software Intermediate Code
 "116 ./mcc_generated_files/system/../uart/uart2.h
 [; ;./mcc_generated_files/system/../uart/uart2.h: 116: void UART2_Initialize(void);
 [v _UART2_Initialize `(v ~T0 @X0 0 ef ]
+"56 C:\Program Files\Microchip\xc8\v2.46\pic\include\c99\stdlib.h
+[; ;C:\Program Files\Microchip\xc8\v2.46\pic\include\c99\stdlib.h: 56: void srand (unsigned);
+[v _srand `(v ~T0 @X0 0 ef1`ui ]
+"55 C:\Program Files\Microchip\xc8\v2.46\pic\include\c99\time.h
+[; ;C:\Program Files\Microchip\xc8\v2.46\pic\include\c99\time.h: 55: time_t time (time_t *);
+[v _time `(ul ~T0 @X0 0 ef1`*ul ]
 "117 C:\Program Files\Microchip\xc8\v2.46\pic\include\c99\stdio.h
 [; ;C:\Program Files\Microchip\xc8\v2.46\pic\include\c99\stdio.h: 117: int printf(const char *restrict, ...);
 [v _printf `(i ~T0 @X0 0 ev`*Cuc ]
+"39 main.c
+[; ;main.c: 39: int random_number(int min_num,int max_num);
+[v _random_number `(i ~T0 @X0 0 ef2`i`i ]
+[v F205 `(v ~T0 @X0 1 tf1`ul ]
+"20 C:\Program Files\Microchip\xc8\v2.46\pic\include\builtins.h
+[v __delay `JF205 ~T0 @X0 0 e ]
+[p i __delay ]
+"46824 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f47k42.h
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f47k42.h: 46824:     struct {
+[s S2130 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S2130 . RB0 RB1 RB2 RB3 RB4 RB5 RB6 RB7 ]
+"46823
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f47k42.h: 46823: typedef union {
+[u S2129 `S2130 1 ]
+[n S2129 . . ]
+"46835
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f47k42.h: 46835: extern volatile PORTBbits_t PORTBbits __attribute__((address(0x3FCB)));
+[v _PORTBbits `VS2129 ~T0 @X0 0 e@16331 ]
+"55 C:\Program Files\Microchip\xc8\v2.46\pic\include\c99\stdlib.h
+[; ;C:\Program Files\Microchip\xc8\v2.46\pic\include\c99\stdlib.h: 55: int rand (void);
+[v _rand `(i ~T0 @X0 0 ef ]
 "250 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f47k42.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f47k42.h: 250: __asm("STATUS_CSHAD equ 03880h");
 [; <" STATUS_CSHAD equ 03880h ;# ">
@@ -2236,38 +2263,112 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f47k42.h: 48482: __asm("TOSU equ 03FFFh");
 [; <" TOSU equ 03FFFh ;# ">
 [v $root$_main `(v ~T0 @X0 0 e ]
-"39 main.c
-[; ;main.c: 39: int main(void)
+"41 main.c
+[; ;main.c: 41: int main(void)
 [v _main `(i ~T0 @X0 1 ef ]
-"40
-[; ;main.c: 40: {
+"42
+[; ;main.c: 42: {
 {
 [e :U _main ]
 [f ]
-"41
-[; ;main.c: 41:     SYSTEM_Initialize();
+"43
+[; ;main.c: 43:     SYSTEM_Initialize();
 [e ( _SYSTEM_Initialize ..  ]
-"42
-[; ;main.c: 42:     UART2_Initialize();
+"44
+[; ;main.c: 44:     UART2_Initialize();
 [e ( _UART2_Initialize ..  ]
-"55
-[; ;main.c: 55:     while(1)
-[e :U 2251 ]
-"56
-[; ;main.c: 56:     {
-{
-"57
-[; ;main.c: 57:         printf("Hello\r\n");
-[e ( _printf :s 1C ]
+"45
+[; ;main.c: 45:     srand(time(((void*)0)));
+[e ( _srand (1 -> ( _time (1 -> -> -> 0 `i `*v `*ul `ui ]
 "58
-[; ;main.c: 58:     }
-}
-[e :U 2250 ]
-[e $U 2251  ]
-[e :U 2252 ]
+[; ;main.c: 58:     while(1)
+[e :U 2256 ]
 "59
-[; ;main.c: 59: }
-[e :UE 2249 ]
+[; ;main.c: 59:     {
+{
+"60
+[; ;main.c: 60:         printf("Hello World....\r\n");
+[e ( _printf :s 1C ]
+"61
+[; ;main.c: 61:         printf("Min : 1 Max : 40 %d\r\n", random_number(1,40));
+[e ( _printf , (. :s 2C ( _random_number (2 , -> 1 `i -> 40 `i ]
+"62
+[; ;main.c: 62:         printf("min : 100 Max: 1000 %d\r\n", random_number(100,1000));
+[e ( _printf , (. :s 3C ( _random_number (2 , -> 100 `i -> 1000 `i ]
+"63
+[; ;main.c: 63:         _delay((unsigned long)((500)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+"64
+[; ;main.c: 64:         PORTBbits.RB1 ^= 1;
+[e =^ . . _PORTBbits 0 1 -> -> 1 `i `Vuc ]
+"65
+[; ;main.c: 65:     }
 }
-[p f _printf 8388608 ]
-[a 1C 72 101 108 108 111 13 10 0 ]
+[e :U 2255 ]
+[e $U 2256  ]
+[e :U 2257 ]
+"66
+[; ;main.c: 66: }
+[e :UE 2254 ]
+}
+"68
+[; ;main.c: 68: int random_number(int min_num,int max_num){
+[v _random_number `(i ~T0 @X0 1 ef2`i`i ]
+{
+[e :U _random_number ]
+[v _min_num `i ~T0 @X0 1 r1 ]
+[v _max_num `i ~T0 @X0 1 r2 ]
+[f ]
+"69
+[; ;main.c: 69:     int result = 0;
+[v _result `i ~T0 @X0 1 a ]
+[e = _result -> 0 `i ]
+"70
+[; ;main.c: 70:     int low_num = 0;
+[v _low_num `i ~T0 @X0 1 a ]
+[e = _low_num -> 0 `i ]
+"71
+[; ;main.c: 71:     int hi_num = 0;
+[v _hi_num `i ~T0 @X0 1 a ]
+[e = _hi_num -> 0 `i ]
+"73
+[; ;main.c: 73:     if(min_num < max_num){
+[e $ ! < _min_num _max_num 2259  ]
+{
+"74
+[; ;main.c: 74:         low_num = min_num;
+[e = _low_num _min_num ]
+"75
+[; ;main.c: 75:         hi_num = max_num + 1;
+[e = _hi_num + _max_num -> 1 `i ]
+"76
+[; ;main.c: 76:     }else{
+}
+[e $U 2260  ]
+[e :U 2259 ]
+{
+"77
+[; ;main.c: 77:         low_num = max_num + 1;
+[e = _low_num + _max_num -> 1 `i ]
+"78
+[; ;main.c: 78:         hi_num = min_num;
+[e = _hi_num _min_num ]
+"79
+[; ;main.c: 79:     }
+}
+[e :U 2260 ]
+"81
+[; ;main.c: 81:     result = (rand() % (hi_num - low_num)) + low_num;
+[e = _result + % ( _rand ..  - _hi_num _low_num _low_num ]
+"82
+[; ;main.c: 82:     return result;
+[e ) _result ]
+[e $UE 2258  ]
+"83
+[; ;main.c: 83: }
+[e :UE 2258 ]
+}
+[p f _printf 8388736 ]
+[a 2C 77 105 110 32 58 32 49 32 77 97 120 32 58 32 52 48 32 37 100 13 10 0 ]
+[a 3C 109 105 110 32 58 32 49 48 48 32 77 97 120 58 32 49 48 48 48 32 37 100 13 10 0 ]
+[a 1C 72 101 108 108 111 32 87 111 114 108 100 46 46 46 46 13 10 0 ]

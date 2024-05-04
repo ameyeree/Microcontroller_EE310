@@ -26883,7 +26883,7 @@ void CLOCK_Initialize(void);
 # 41 "mcc_generated_files/system/src/../system.h" 2
 
 # 1 "mcc_generated_files/system/src/../../system/pins.h" 1
-# 98 "mcc_generated_files/system/src/../../system/pins.h"
+# 118 "mcc_generated_files/system/src/../../system/pins.h"
 void PIN_MANAGER_Initialize (void);
 
 
