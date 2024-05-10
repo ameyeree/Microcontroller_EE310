@@ -2411,8 +2411,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./PWM.h: 41:     T2RST = 0x00;
 [e = _T2RST -> -> 0 `i `uc ]
 "44
-[; ;./PWM.h: 44:     T2PR = 0xFF;
-[e = _T2PR -> -> 255 `i `uc ]
+[; ;./PWM.h: 44:     T2PR = 0x9D;
+[e = _T2PR -> -> 157 `i `uc ]
 "47
 [; ;./PWM.h: 47:     T2TMR = 0x08;
 [e = _T2TMR -> -> 8 `i `uc ]
@@ -2420,8 +2420,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./PWM.h: 50:     PIR4bits.TMR2IF = 0;
 [e = . . _PIR4bits 0 2 -> -> 0 `i `uc ]
 "53
-[; ;./PWM.h: 53:     T2CON = 0xB0;
-[e = _T2CON -> -> 176 `i `uc ]
+[; ;./PWM.h: 53:     T2CON = 0xF0;
+[e = _T2CON -> -> 240 `i `uc ]
 "54
 [; ;./PWM.h: 54: }
 [e :UE 2244 ]
@@ -2764,6 +2764,70 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./PWM.h: 209: }
 [e :UE 2261 ]
 }
+"14 ./config.h
+[p x FEXTOSC  =  LP      ]
+"15
+[p x RSTOSC  =  EXTOSC   ]
+"18
+[p x CLKOUTEN  =  OFF    ]
+"19
+[p x PR1WAY  =  ON       ]
+"20
+[p x CSWEN  =  ON        ]
+"21
+[p x FCMEN  =  ON        ]
+"24
+[p x MCLRE  =  EXTMCLR   ]
+"25
+[p x PWRTS  =  PWRT_OFF  ]
+"26
+[p x MVECEN  =  ON       ]
+"27
+[p x IVT1WAY  =  ON      ]
+"28
+[p x LPBOREN  =  OFF     ]
+"29
+[p x BOREN  =  SBORDIS   ]
+"32
+[p x BORV  =  VBOR_2P45  ]
+"33
+[p x ZCD  =  OFF         ]
+"34
+[p x PPS1WAY  =  ON      ]
+"35
+[p x STVREN  =  ON       ]
+"36
+[p x DEBUG  =  OFF       ]
+"37
+[p x XINST  =  OFF       ]
+"40
+[p x WDTCPS  =  WDTCPS_31 ]
+"41
+[p x WDTE  =  OFF        ]
+"44
+[p x WDTCWS  =  WDTCWS_7 ]
+"45
+[p x WDTCCS  =  SC       ]
+"48
+[p x BBSIZE  =  BBSIZE_512 ]
+"49
+[p x BBEN  =  OFF        ]
+"50
+[p x SAFEN  =  OFF       ]
+"51
+[p x WRTAPP  =  OFF      ]
+"54
+[p x WRTB  =  OFF        ]
+"55
+[p x WRTC  =  OFF        ]
+"56
+[p x WRTD  =  OFF        ]
+"57
+[p x WRTSAF  =  OFF      ]
+"58
+[p x LVP  =  ON          ]
+"61
+[p x CP  =  OFF          ]
 "39 newmain.c
 [; ;newmain.c: 39: uint16_t checkdutyCycle;
 [v _checkdutyCycle `us ~T0 @X0 1 e ]
@@ -2808,11 +2872,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;newmain.c: 54:     PWM2_Initialize();
 [e ( _PWM2_Initialize ..  ]
 "55
-[; ;newmain.c: 55:     PWM2_LoadDutyValue(409 );
-[e ( _PWM2_LoadDutyValue (1 -> -> 409 `i `us ]
+[; ;newmain.c: 55:     PWM2_LoadDutyValue(31 );
+[e ( _PWM2_LoadDutyValue (1 -> -> 31 `i `us ]
 "60
-[; ;newmain.c: 60:     checkdutyCycle =(uint16_t)((100UL*409)/(4*(T2PR+1)));
-[e = _checkdutyCycle -> / * -> 100 `ul -> -> -> 409 `i `l `ul -> -> * -> 4 `i + -> _T2PR `i -> 1 `i `l `ul `us ]
+[; ;newmain.c: 60:     checkdutyCycle =(uint16_t)((100UL*31)/(4*(T2PR+1)));
+[e = _checkdutyCycle -> / * -> 100 `ul -> -> -> 31 `i `l `ul -> -> * -> 4 `i + -> _T2PR `i -> 1 `i `l `ul `us ]
 "62
 [; ;newmain.c: 62:     preScale = ((T2CON >> 4) & (0x0F));
 [e = _preScale -> & >> -> _T2CON `i -> 4 `i -> 15 `i `uc ]

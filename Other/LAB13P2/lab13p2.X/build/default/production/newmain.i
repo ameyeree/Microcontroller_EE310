@@ -26884,7 +26884,7 @@ void TMR2_Initialize(void)
     T2RST = 0x00;
 
 
-    T2PR = 0xFF;
+    T2PR = 0x9D;
 
 
     T2TMR = 0x08;
@@ -26893,7 +26893,7 @@ void TMR2_Initialize(void)
     PIR4bits.TMR2IF = 0;
 
 
-    T2CON = 0xB0;
+    T2CON = 0xF0;
 }
 # 68 "./PWM.h"
 void TMR2_Start(void)
@@ -27023,6 +27023,57 @@ void PWM2_LoadDutyValue(uint16_t dutyValue)
 }
 # 27 "newmain.c" 2
 
+# 1 "./config.h" 1
+# 14 "./config.h"
+#pragma config FEXTOSC = LP
+#pragma config RSTOSC = EXTOSC
+
+
+#pragma config CLKOUTEN = OFF
+#pragma config PR1WAY = ON
+#pragma config CSWEN = ON
+#pragma config FCMEN = ON
+
+
+#pragma config MCLRE = EXTMCLR
+#pragma config PWRTS = PWRT_OFF
+#pragma config MVECEN = ON
+#pragma config IVT1WAY = ON
+#pragma config LPBOREN = OFF
+#pragma config BOREN = SBORDIS
+
+
+#pragma config BORV = VBOR_2P45
+#pragma config ZCD = OFF
+#pragma config PPS1WAY = ON
+#pragma config STVREN = ON
+#pragma config DEBUG = OFF
+#pragma config XINST = OFF
+
+
+#pragma config WDTCPS = WDTCPS_31
+#pragma config WDTE = OFF
+
+
+#pragma config WDTCWS = WDTCWS_7
+#pragma config WDTCCS = SC
+
+
+#pragma config BBSIZE = BBSIZE_512
+#pragma config BBEN = OFF
+#pragma config SAFEN = OFF
+#pragma config WRTAPP = OFF
+
+
+#pragma config WRTB = OFF
+#pragma config WRTC = OFF
+#pragma config WRTD = OFF
+#pragma config WRTSAF = OFF
+#pragma config LVP = ON
+
+
+#pragma config CP = OFF
+# 28 "newmain.c" 2
 
 # 1 "C:/Program Files/Microchip/xc8/v2.46/pic/include/proc/pic18f47k42.h" 1
 # 29 "newmain.c" 2
@@ -27043,12 +27094,12 @@ void main (void) {
 
     PWM_Output_D8_Enable();
     PWM2_Initialize();
-    PWM2_LoadDutyValue(409 );
+    PWM2_LoadDutyValue(31 );
 
 
 
 
-    checkdutyCycle =(uint16_t)((100UL*409)/(4*(T2PR+1)));
+    checkdutyCycle =(uint16_t)((100UL*31)/(4*(T2PR+1)));
 
     preScale = ((T2CON >> 4) & (0x0F));
 

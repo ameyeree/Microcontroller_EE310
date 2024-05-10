@@ -27397,10 +27397,10 @@ int main(void)
     while(1)
     {
 
-        UART2_Write(random_number(1,100));
 
+        printf("%d\r\n", random_number(1,100));
 
-        _delay((unsigned long)((500)*(64000000/4000.0)));
+        _delay((unsigned long)((1000)*(64000000/4000.0)));
         PORTBbits.RB1 ^= 1;
     }
 }

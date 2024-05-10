@@ -41,7 +41,7 @@ void TMR2_Initialize(void)
     T2RST = 0x00;
 
     // PR2 255; 
-    T2PR = 0xFF;
+    T2PR = 0x9D;
 
     // TMR2 0; 
     T2TMR = 0x08;
@@ -50,7 +50,7 @@ void TMR2_Initialize(void)
     PIR4bits.TMR2IF = 0;
 
     // T2CKPS 1:1; T2OUTPS 1:1; TMR2ON on; 
-    T2CON = 0xB0;
+    T2CON = 0xF0;
 }
 
 //void TMR2_ModeSet(TMR2_HLT_MODE mode)

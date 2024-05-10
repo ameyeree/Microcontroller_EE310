@@ -25,7 +25,7 @@
 
 #include <xc.h> // must have this
 #include "PWM.h" // must have this
-//#include "configwords.h" // must have this -  XC8_ConfigFile.h
+#include "config.h" // must have this -  XC8_ConfigFile.h
 #include "C:/Program Files/Microchip/xc8/v2.46/pic/include/proc/pic18f47k42.h"
 //#include "C:\Program Files\Microchip\xc8\v2.40\pic\include\proc\pic18f46k42"
 
@@ -34,7 +34,7 @@
 #define FCY    _XTAL_FREQ/4     // system clock is 1 usec
 
 #define myLED  PORTBbits.RB0
-#define PWM2_INITIALIZE_DUTY_VALUE 409
+#define PWM2_INITIALIZE_DUTY_VALUE 31
 
 uint16_t checkdutyCycle;
 char preScale;

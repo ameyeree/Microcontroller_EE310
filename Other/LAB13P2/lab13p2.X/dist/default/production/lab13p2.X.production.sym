@@ -20,9 +20,9 @@ _T2CON 3FAC 0 ABS 0
 _T2HLT 3FAD 0 ABS 0
 _T2TMR 3FAA 0 ABS 0
 _T2RST 3FAF 0 ABS 0
-__end_of_PWM2_Initialize 21D4 0 CODE 0
-__Hconfig 0 0 ABS 0
-__Lconfig 0 0 ABS 0
+__end_of_PWM2_Initialize 21D6 0 CODE 0
+__Hconfig 30000A 0 CONFIG 4
+__Lconfig 0 0 CONFIG 4
 ___inthi_stack_hi 0 0 STACK 2
 __Hbigram 0 0 ABS 0
 __Lbigram 0 0 ABS 0
@@ -40,8 +40,8 @@ ___param_bank 0 0 ABS 0
 __Hnvrram 0 0 COMRAM 1
 __Lnvrram 0 0 COMRAM 1
 ___intlo_stack_hi 0 0 STACK 2
-__end_of_TMR2_Initialize 21A0 0 CODE 0
-__end_of_TMR2_Start 2200 0 CODE 0
+__end_of_TMR2_Initialize 21A2 0 CODE 0
+__end_of_TMR2_Start 2202 0 CODE 0
 __Hbigsfr 0 0 ABS 0
 __Lbigsfr 0 0 ABS 0
 __Heeprom_data 0 0 EEDATA 0
@@ -53,7 +53,7 @@ __Lintsave_regs 0 0 BIGRAM 1
 _CCPR2L 3F78 0 ABS 0
 _ANSELB 3A50 0 ABS 0
 ?___lldiv 1 0 COMRAM 1
-_PWM2_OutputStatusGet 21D4 0 CODE 0
+_PWM2_OutputStatusGet 21D6 0 CODE 0
 __Hbigbss 0 0 BIGRAM 1
 __Lbigbss 0 0 BIGRAM 1
 __Hramtop 2000 0 RAM 0
@@ -96,12 +96,12 @@ __Lrbss 0 0 COMRAM 1
 __Htext 0 0 ABS 0
 __Ltext 0 0 ABS 0
 ___heap_lo 0 0 ABS 0
-end_of_initialization 21F0 0 CODE 0
-_TMR2_StartTimer 21F6 0 CODE 0
+end_of_initialization 21F2 0 CODE 0
+_TMR2_StartTimer 21F8 0 CODE 0
 _TRISBbits 3FC3 0 ABS 0
 _PORTBbits 3FCB 0 ABS 0
 _T2CONbits 3FAC 0 ABS 0
-__end_of_PWM_Output_D8_Enable 21BC 0 CODE 0
+__end_of_PWM_Output_D8_Enable 21BE 0 CODE 0
 __Hibigdata 0 0 CODE 0
 __Libigdata 0 0 CODE 0
 _PPSLOCK 3ABF 0 ABS 0
@@ -140,38 +140,38 @@ __Ltext2 0 0 ABS 0
 __ptext1 20B0 0 CODE 0
 __Htext3 0 0 ABS 0
 __Ltext3 0 0 ABS 0
-__ptext2 21F6 0 CODE 0
+__ptext2 21F8 0 CODE 0
 __Htext4 0 0 ABS 0
 __Ltext4 0 0 ABS 0
-__ptext3 21FC 0 CODE 0
+__ptext3 21FE 0 CODE 0
 ___stack_hi 0 0 STACK 2
 __Htext5 0 0 ABS 0
 __Ltext5 0 0 ABS 0
 __ptext4 2184 0 CODE 0
 __Htext6 0 0 ABS 0
 __Ltext6 0 0 ABS 0
-__ptext5 21A0 0 CODE 0
+__ptext5 21A2 0 CODE 0
 _pwmStatus 12 0 COMRAM 1
 __Htext7 0 0 ABS 0
 __Ltext7 0 0 ABS 0
-__ptext6 21D4 0 CODE 0
+__ptext6 21D6 0 CODE 0
 __HbssCOMRAM 0 0 ABS 0
 __LbssCOMRAM 0 0 ABS 0
 __Htext8 0 0 ABS 0
 __Ltext8 0 0 ABS 0
 __ptext7 2154 0 CODE 0
 __pbssCOMRAM 10 0 COMRAM 1
-__ptext8 21BC 0 CODE 0
+__ptext8 21BE 0 CODE 0
 __Hclrtext 0 0 ABS 0
 __Lclrtext 0 0 ABS 0
 _PPSLOCKbits 3ABF 0 ABS 0
-__end_of__initialization 21F0 0 CODE 0
+__end_of__initialization 21F2 0 CODE 0
 _CCP2CONbits 3F7A 0 ABS 0
 ___rparam_used 1 0 ABS 0
 _OSCSTATbits 39DC 0 ABS 0
 __H__absolute__ 0 0 ABS 0
 __L__absolute__ 0 0 ABS 0
-_PWM2_Initialize 21BC 0 CODE 0
+_PWM2_Initialize 21BE 0 CODE 0
 _TMR2_Initialize 2184 0 CODE 0
 __Hidata 0 0 CODE 0
 __Lidata 0 0 CODE 0
@@ -201,12 +201,12 @@ __Lnvbit 0 0 COMRAM 1
 __Hcinit 0 0 ABS 0
 __Lcinit 0 0 ABS 0
 ___lldiv 20B0 0 CODE 0
-__pcinit 21E8 0 CODE 0
+__pcinit 21EA 0 CODE 0
 __ramtop 2000 0 RAM 0
 __mediumconst 0 0 MEDIUMCONST 0
 __Hconst 0 0 CONST 0
 __Lconst 0 0 CONST 0
-__Hspace_4 0 0 ABS 0
+__Hspace_4 60000A 0 ABS 0
 __Lspace_4 0 0 ABS 0
 ___stack_lo 0 0 STACK 2
 __Hbank10 0 0 ABS 0
@@ -245,22 +245,22 @@ __Hbank17 0 0 ABS 0
 __Lbank17 0 0 ABS 0
 __Hbank27 0 0 ABS 0
 __Lbank27 0 0 ABS 0
-__end_of_PWM2_OutputStatusGet 21E8 0 CODE 0
+__end_of_PWM2_OutputStatusGet 21EA 0 CODE 0
 __Hbank18 0 0 ABS 0
 __Lbank18 0 0 ABS 0
 __Hbank28 0 0 ABS 0
 __Lbank28 0 0 ABS 0
-_PWM_Output_D8_Enable 21A0 0 CODE 0
+_PWM_Output_D8_Enable 21A2 0 CODE 0
 _PWM2_LoadDutyValue 2154 0 CODE 0
 __Hbank19 0 0 ABS 0
 __Lbank19 0 0 ABS 0
 __Hbank29 0 0 ABS 0
 __Lbank29 0 0 ABS 0
 ___inthi_sp 0 0 STACK 2
-__end_of_TMR2_StartTimer 21FC 0 CODE 0
+__end_of_TMR2_StartTimer 21FE 0 CODE 0
 ___intlo_sp 0 0 STACK 2
 ___lldiv@divisor 5 0 COMRAM 1
-_TMR2_Start 21FC 0 CODE 0
+_TMR2_Start 21FE 0 CODE 0
 __smallconst 2000 0 SMALLCONST 0
 __end_of_PWM2_LoadDutyValue 2184 0 CODE 0
 __Hreset_vec 4 0 CODE 0
@@ -273,10 +273,10 @@ intlevel2 0 0 CODE 0
 intlevel3 0 0 CODE 0
 ___inthi_stack_lo 0 0 STACK 2
 _CCPTMRS0bits 3F5E 0 ABS 0
-start_initialization 21E8 0 CODE 0
+start_initialization 21EA 0 CODE 0
 ___lldiv@quotient 9 0 COMRAM 1
 ___intlo_stack_lo 0 0 STACK 2
-__initialization 21E8 0 CODE 0
+__initialization 21EA 0 CODE 0
 __activetblptr 0 0 ABS 0
 _checkdutyCycle 10 0 COMRAM 1
 ___lldiv@dividend 1 0 COMRAM 1
@@ -285,20 +285,20 @@ reset_vec 0 3 CODE 0 0
 init 1FFFC 1FFFF CODE 1FFFC 0
 smallconst 2000 2001 SMALLCONST 2000 0
 cstackCOMRAM 1 13 COMRAM 1 1
-text0 2002 21FF CODE 2002 0
+text0 2002 2201 CODE 2002 0
 %locals
-dist/default/debug\lab13p2.X.debug.o
-C:\Users\James\AppData\Local\Temp\xcAs8oc.\driver_tmp_1.s
-1665 21E8 0 CODE 0
-1667 21E8 0 CODE 0
-1670 21E8 0 CODE 0
-1688 21E8 0 CODE 0
-1689 21EA 0 CODE 0
-1690 21EC 0 CODE 0
-1691 21EE 0 CODE 0
-1697 21F0 0 CODE 0
-1699 21F0 0 CODE 0
-1700 21F2 0 CODE 0
+dist/default/production\lab13p2.X.production.o
+C:\Users\James\AppData\Local\Temp\xcAs50o.\driver_tmp_1.s
+1697 21EA 0 CODE 0
+1699 21EA 0 CODE 0
+1702 21EA 0 CODE 0
+1720 21EA 0 CODE 0
+1721 21EC 0 CODE 0
+1722 21EE 0 CODE 0
+1723 21F0 0 CODE 0
+1729 21F2 0 CODE 0
+1731 21F2 0 CODE 0
+1732 21F4 0 CODE 0
 newmain.c
 43 2002 0 CODE 0
 44 2002 0 CODE 0
@@ -337,37 +337,37 @@ C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\__lldiv.c
 29 2142 0 CODE 0
 30 2152 0 CODE 0
 ./PWM.h
-74 21F6 0 CODE 0
-76 21F6 0 CODE 0
-77 21FA 0 CODE 0
+74 21F8 0 CODE 0
+76 21F8 0 CODE 0
+77 21FC 0 CODE 0
 ./PWM.h
-68 21FC 0 CODE 0
-71 21FC 0 CODE 0
-72 21FE 0 CODE 0
+68 21FE 0 CODE 0
+71 21FE 0 CODE 0
+72 2200 0 CODE 0
 ./PWM.h
 30 2184 0 CODE 0
 35 2184 0 CODE 0
 38 2188 0 CODE 0
 41 218C 0 CODE 0
 44 2190 0 CODE 0
-47 2192 0 CODE 0
-50 2196 0 CODE 0
-53 219A 0 CODE 0
-54 219E 0 CODE 0
+47 2194 0 CODE 0
+50 2198 0 CODE 0
+53 219C 0 CODE 0
+54 21A0 0 CODE 0
 ./PWM.h
-142 21A0 0 CODE 0
-143 21A0 0 CODE 0
-144 21A6 0 CODE 0
-145 21AA 0 CODE 0
-148 21AC 0 CODE 0
-150 21B0 0 CODE 0
-151 21B4 0 CODE 0
-152 21B8 0 CODE 0
-153 21BA 0 CODE 0
+142 21A2 0 CODE 0
+143 21A2 0 CODE 0
+144 21A8 0 CODE 0
+145 21AC 0 CODE 0
+148 21AE 0 CODE 0
+150 21B2 0 CODE 0
+151 21B6 0 CODE 0
+152 21BA 0 CODE 0
+153 21BC 0 CODE 0
 ./PWM.h
-205 21D4 0 CODE 0
-208 21D4 0 CODE 0
-209 21E6 0 CODE 0
+205 21D6 0 CODE 0
+208 21D6 0 CODE 0
+209 21E8 0 CODE 0
 ./PWM.h
 187 2154 0 CODE 0
 189 2154 0 CODE 0
@@ -377,9 +377,9 @@ C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\__lldiv.c
 196 217C 0 CODE 0
 203 2182 0 CODE 0
 ./PWM.h
-170 21BC 0 CODE 0
-175 21BC 0 CODE 0
-178 21C0 0 CODE 0
-181 21C4 0 CODE 0
-184 21C8 0 CODE 0
-186 21D2 0 CODE 0
+170 21BE 0 CODE 0
+175 21BE 0 CODE 0
+178 21C2 0 CODE 0
+181 21C6 0 CODE 0
+184 21CA 0 CODE 0
+186 21D4 0 CODE 0

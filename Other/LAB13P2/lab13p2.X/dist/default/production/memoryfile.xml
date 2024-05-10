@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
-  <executable name="dist/default/debug\lab13p2.X.debug.hex">
+  <executable name="dist/default/production\lab13p2.X.production.hex">
     <memory name="program">
       <units>bytes</units>
       <length>131072</length>
-      <used>520</used>
-      <free>130552</free>
+      <used>522</used>
+      <free>130550</free>
     </memory>
     <memory name="data">
       <units>bytes</units>

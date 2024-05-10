@@ -12,9 +12,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "55 C:\Program Files\Microchip\xc8\v2.46\pic\include\c99\time.h
 [; ;C:\Program Files\Microchip\xc8\v2.46\pic\include\c99\time.h: 55: time_t time (time_t *);
 [v _time `(ul ~T0 @X0 0 ef1`*ul ]
-"289 ./mcc_generated_files/system/../uart/uart2.h
-[; ;./mcc_generated_files/system/../uart/uart2.h: 289: void UART2_Write(uint8_t txData);
-[v _UART2_Write `(v ~T0 @X0 0 ef1`uc ]
+"117 C:\Program Files\Microchip\xc8\v2.46\pic\include\c99\stdio.h
+[; ;C:\Program Files\Microchip\xc8\v2.46\pic\include\c99\stdio.h: 117: int printf(const char *restrict, ...);
+[v _printf `(i ~T0 @X0 0 ev`*Cuc ]
 "39 main.c
 [; ;main.c: 39: int random_number(int min_num,int max_num);
 [v _random_number `(i ~T0 @X0 0 ef2`i`i ]
@@ -2286,12 +2286,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 "59
 [; ;main.c: 59:     {
 {
-"61
-[; ;main.c: 61:         UART2_Write(random_number(1,100));
-[e ( _UART2_Write (1 -> ( _random_number (2 , -> 1 `i -> 100 `i `uc ]
+"62
+[; ;main.c: 62:         printf("%d\r\n", random_number(1,100));
+[e ( _printf , (. :s 1C ( _random_number (2 , -> 1 `i -> 100 `i ]
 "64
-[; ;main.c: 64:         _delay((unsigned long)((500)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+[; ;main.c: 64:         _delay((unsigned long)((1000)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
 "65
 [; ;main.c: 65:         PORTBbits.RB1 ^= 1;
 [e =^ . . _PORTBbits 0 1 -> -> 1 `i `Vuc ]
@@ -2362,3 +2362,5 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 84: }
 [e :UE 2258 ]
 }
+[p f _printf 8388736 ]
+[a 1C 37 100 13 10 0 ]
