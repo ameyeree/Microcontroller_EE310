@@ -1,28 +1,35 @@
 
+int password;
 
 void __interrupt(irq(IRQ_INT0),base(0x4008)) INT0_ISR(void)
 {
         // Check if interrupt flag for INT0 is set to 1 - (note INT0 is your input)
             // if so, do something
-                // e.g,blink an LED connected to  PORTDbits.RD0 for 10 times with a delay of __delay_ms(250)
    
     if(PORTBbits.RB0 == 1){
-        PORTDbits.RD1 = 0;
-        for(int i = 0; i < 10; i++){
-            PORTDbits.RD0 = 1;
-            __delay_ms(500);
-            PORTDbits.RD0 = 0;
-            __delay_ms(500);
-        }
+        LCD_Clear();
+        LCD_String_xy(1, 0, "New Password:");
+        
+        password = getValue();
+        __delay_ms(3000);
+        LCD_Clear();
+        LCD_String_xy(1, 1, "Password Reset");
+        LCD_String_xy(2, 0, "****************");
+        __delay_ms(3000);
+        LCD_Clear();
+        RESET();
     }    
     // always clear the interrupt flag for INT0 when done
     PIR1bits.INT0IF = 0;
-    PORTDbits.RD0 = 0;
-        // turn off the led on PORTDbits.RD0 
+
 }
 
 void INTERRUPT_Initialize (void)
 {
+    PORTB = 0;
+    TRISB = 0b11111111;
+    LATB = 0;
+    ANSELB = 0;
     // Enable interrupt priority bit in INTCON0 (check INTCON0 register and find the bit)
     INTCON0bits.IPEN = 1;
     // Enable high priority interrupts using bits in INTCON0
@@ -45,4 +52,51 @@ void INTERRUPT_Initialize (void)
     IVTBASEH = 0x40;
     // Set IVTBASEL to 0x08;
     IVTBASEL = 0x08;   
+}
+
+uint8_t eepromRead(uint8_t address){
+    //Setup EEPROM access
+    NVMCON1 = 0;
+    
+    //Setup address
+    NVMADRL = address;
+    
+    //Set to read mode, and wait for data to be read and
+    // put in register to access it
+    NVMCON1bits.RD = 1;
+    while(NVMCON1bits.RD);
+    
+    //Return data
+    return NVMDAT;
+}
+
+uint8_t eepromWrite(uint8_t address, uint8_t data){
+    //Setup EEPROM access
+    NVMCON1 = 0;
+    
+    //Setup address
+    NVMADRL = address;
+    
+    //Put data memory in write register
+    NVMDAT = data;
+    
+    //Enable writes
+    NVMCON1bits.WREN = 1;
+    
+    //Disable interrupts temporarily
+    INTCON0bits.GIE = 0;
+    
+    //Unlock sequence to allow writing to address
+    NVMCON2 = 0x55;
+    NVMCON2 = 0xAA;
+    
+    //Enable write mode
+    NVMCON1bits.WR = 1;
+    while(NVMCON1bits.WR);
+    
+    //Re-enable interrupts
+    INTCON0bits.GIE = 1;
+    
+    //Disable writes
+    NVMCON1bits.WREN = 0;
 }

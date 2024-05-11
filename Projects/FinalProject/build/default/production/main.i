@@ -27320,13 +27320,117 @@ int getValue(){
 }
 # 9 "main.c" 2
 
+# 1 "./interrupt.h" 1
+
+int password;
+
+void __attribute__((picinterrupt(("irq(8),base(0x4008)")))) INT0_ISR(void)
+{
+
+
+
+    if(PORTBbits.RB0 == 1){
+        LCD_Clear();
+        LCD_String_xy(1, 0, "New Password:");
+
+        password = getValue();
+        _delay((unsigned long)((3000)*(4000000/4000.0)));
+        LCD_Clear();
+        LCD_String_xy(1, 1, "Password Reset");
+        LCD_String_xy(2, 0, "****************");
+        _delay((unsigned long)((3000)*(4000000/4000.0)));
+        LCD_Clear();
+        __asm("reset");
+    }
+
+    PIR1bits.INT0IF = 0;
+
+}
+
+void INTERRUPT_Initialize (void)
+{
+    PORTB = 0;
+    TRISB = 0b11111111;
+    LATB = 0;
+    ANSELB = 0;
+
+    INTCON0bits.IPEN = 1;
+
+    INTCON0bits.GIEH = 1;
+
+    INTCON0bits.GIEL = 1;
+
+    INTCON0bits.INT0EDG = 1;
+
+    IPR1bits.INT0IP = 1;
+
+    PIE1bits.INT0IE = 1;
+
+    PIR1bits.INT0IF = 0;
+
+
+
+    IVTBASEU = 0x00;
+
+    IVTBASEH = 0x40;
+
+    IVTBASEL = 0x08;
+}
+
+uint8_t eepromRead(uint8_t address){
+
+    NVMCON1 = 0;
+
+
+    NVMADRL = address;
+
+
+
+    NVMCON1bits.RD = 1;
+    while(NVMCON1bits.RD);
+
+
+    return NVMDAT;
+}
+
+uint8_t eepromWrite(uint8_t address, uint8_t data){
+
+    NVMCON1 = 0;
+
+
+    NVMADRL = address;
+
+
+    NVMDAT = data;
+
+
+    NVMCON1bits.WREN = 1;
+
+
+    INTCON0bits.GIE = 0;
+
+
+    NVMCON2 = 0x55;
+    NVMCON2 = 0xAA;
+
+
+    NVMCON1bits.WR = 1;
+    while(NVMCON1bits.WR);
+
+
+    INTCON0bits.GIE = 1;
+
+
+    NVMCON1bits.WREN = 0;
+}
+# 10 "main.c" 2
 
 int userGuess = 0;
-int password;
+
 void main(void) {
     initializeKeypad();
     LCD_Init();
-
+    INTERRUPT_Initialize();
 
     LCD_String_xy(1,0,"Testing Keypad: ");
     userGuess = getValue();
