@@ -27323,7 +27323,7 @@ int getValue(){
 # 1 "./interrupt.h" 1
 
 int password;
-
+void eepromWrite(uint8_t address, uint8_t data);
 void __attribute__((picinterrupt(("irq(8),base(0x4008)")))) INT0_ISR(void)
 {
 
@@ -27340,6 +27340,8 @@ void __attribute__((picinterrupt(("irq(8),base(0x4008)")))) INT0_ISR(void)
         LCD_String_xy(2, 0, "****************");
         _delay((unsigned long)((3000)*(4000000/4000.0)));
         LCD_Clear();
+        eepromWrite(0,password/100);
+        eepromWrite(2,password%100);
         __asm("reset");
     }
 
@@ -27393,7 +27395,7 @@ uint8_t eepromRead(uint8_t address){
     return NVMDAT;
 }
 
-uint8_t eepromWrite(uint8_t address, uint8_t data){
+void eepromWrite(uint8_t address, uint8_t data){
 
     NVMCON1 = 0;
 
@@ -27425,16 +27427,229 @@ uint8_t eepromWrite(uint8_t address, uint8_t data){
 }
 # 10 "main.c" 2
 
-int userGuess = 0;
+# 1 "./servo.h" 1
+# 23 "./servo.h"
+void PWM2_LoadDutyValue(uint16_t dutyValue);
+_Bool PWM2_OutputStatusGet(void);
 
+void openBox(){
+    _Bool pwmStatus;
+    PWM2_LoadDutyValue( 31 );
+
+
+    for(int i = 0;i < 100;i++)
+        for(int j = 0;j < 165;j++){
+            pwmStatus = PWM2_OutputStatusGet();
+            PORTCbits.RC5 = pwmStatus;
+        }
+}
+
+void closeBox(){
+    _Bool pwmStatus;
+    PWM2_LoadDutyValue( 67 );
+
+
+    for(int i = 0;i < 100;i++)
+        for(int j = 0;j < 165;j++){
+            pwmStatus = PWM2_OutputStatusGet();
+            PORTCbits.RC5 = pwmStatus;
+        }
+}
+
+
+
+
+
+
+void TMR2_Initialize(void)
+{
+
+
+
+    T2CLKCON = 0x01;
+
+
+    T2HLT = 0x00;
+
+
+    T2RST = 0x00;
+
+
+    T2PR = 0x9D;
+
+
+    T2TMR = 0x08;
+
+
+    PIR4bits.TMR2IF = 0;
+
+
+    T2CON = 0xF0;
+}
+# 93 "./servo.h"
+void TMR2_Start(void)
+{
+
+    T2CONbits.TMR2ON = 1;
+}
+
+void TMR2_StartTimer(void)
+{
+    TMR2_Start();
+}
+
+void TMR2_Stop(void)
+{
+
+    T2CONbits.TMR2ON = 0;
+}
+
+void TMR2_StopTimer(void)
+{
+    TMR2_Stop();
+}
+
+uint8_t TMR2_Counter8BitGet(void)
+{
+    uint8_t readVal;
+
+    readVal = TMR2;
+
+    return readVal;
+}
+
+uint8_t TMR2_ReadTimer(void)
+{
+    return TMR2_Counter8BitGet();
+}
+
+void TMR2_Counter8BitSet(uint8_t timerVal)
+{
+
+    TMR2 = timerVal;
+}
+
+void TMR2_WriteTimer(uint8_t timerVal)
+{
+    TMR2_Counter8BitSet(timerVal);
+}
+
+void TMR2_Period8BitSet(uint8_t periodVal)
+{
+   PR2 = periodVal;
+}
+
+void TMR2_LoadPeriodRegister(uint8_t periodVal)
+{
+   TMR2_Period8BitSet(periodVal);
+}
+# 167 "./servo.h"
+void PWM_Output_D8_Enable (void){
+    PPSLOCK = 0x55;
+    PPSLOCK = 0xAA;
+    PPSLOCKbits.PPSLOCKED = 0x00;
+
+
+    RB3PPS = 0x0A;
+
+    PPSLOCK = 0x55;
+    PPSLOCK = 0xAA;
+    PPSLOCKbits.PPSLOCKED = 0x01;
+}
+
+void PWM_Output_D8_Disable (void){
+    PPSLOCK = 0x55;
+    PPSLOCK = 0xAA;
+    PPSLOCKbits.PPSLOCKED = 0x00;
+
+
+    RB3PPS = 0x00;
+
+    PPSLOCK = 0x55;
+    PPSLOCK = 0xAA;
+    PPSLOCKbits.PPSLOCKED = 0x01;
+
+    TRISBbits.TRISB3 = 0;
+}
+
+void PWM2_Initialize(void)
+{
+
+    PORTCbits.RC5 = 0;
+    LATCbits.LATC5 = 0;
+    ANSELCbits.ANSELC5 = 0;
+    TRISCbits.TRISC5 = 0;
+
+
+
+ CCP2CON = 0x8C;
+
+
+ CCPR2H = 0x1;
+
+
+ CCPR2L = 0x99;
+
+
+ CCPTMRS0bits.C2TSEL = 0x1;
+
+}
+void PWM2_LoadDutyValue(uint16_t dutyValue)
+{
+    dutyValue &= 0x03FF;
+
+
+    if(CCP2CONbits.FMT)
+    {
+        dutyValue <<= 6;
+        CCPR2H = dutyValue >> 8;
+        CCPR2L = dutyValue;
+    }
+    else
+    {
+        CCPR2H = dutyValue >> 8;
+        CCPR2L = dutyValue;
+    }
+}
+
+_Bool PWM2_OutputStatusGet(void)
+{
+
+    return(CCP2CONbits.OUT);
+}
+# 11 "main.c" 2
+
+
+int userGuess = 0;
+int pword;
+char d[10];
 void main(void) {
+    OSCSTATbits.HFOR =1;
+    OSCFRQ=0x02;
+
+
     initializeKeypad();
     LCD_Init();
     INTERRUPT_Initialize();
+    TMR2_Initialize();
+    TMR2_StartTimer();
+    PWM_Output_D8_Enable();
+    PWM2_Initialize();
 
-    LCD_String_xy(1,0,"Testing Keypad: ");
-    userGuess = getValue();
 
+    LCD_String_xy(1, 0, "Opening Box...");
+    openBox();
+    for(int i = 0; i < 5 ; i++){
+        sprintf(d,"%d",(6 - (i + 1)));
+        LCD_String_xy(2, 0, d);
+        _delay((unsigned long)((1000)*(4000000/4000.0)));
+    }
+    LCD_String_xy(1, 0, "Closing Box...");
+    LCD_String_xy(2,0," ");
+    closeBox();
+    _delay((unsigned long)((1000)*(4000000/4000.0)));
+    LCD_String_xy(1, 0, "Box closed...");
+# 56 "main.c"
     while(1);
     return;
 }

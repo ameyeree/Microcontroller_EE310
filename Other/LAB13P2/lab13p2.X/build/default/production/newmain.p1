@@ -147,26 +147,26 @@ Version 4.0 HI-TECH Software Intermediate Code
 "5405
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f47k42.h: 5405: extern volatile unsigned char OSCFRQ __attribute__((address(0x39DF)));
 [v _OSCFRQ `Vuc ~T0 @X0 0 e@14815 ]
-"8513
-[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f47k42.h: 8513: extern volatile unsigned char ANSELB __attribute__((address(0x3A50)));
-[v _ANSELB `Vuc ~T0 @X0 0 e@14928 ]
-"46538
-[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f47k42.h: 46538: extern volatile unsigned char TRISB __attribute__((address(0x3FC3)));
-[v _TRISB `Vuc ~T0 @X0 0 e@16323 ]
-"46818
-[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f47k42.h: 46818: extern volatile unsigned char PORTB __attribute__((address(0x3FCB)));
-[v _PORTB `Vuc ~T0 @X0 0 e@16331 ]
-"46824
-[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f47k42.h: 46824:     struct {
-[s S2130 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S2130 . RB0 RB1 RB2 RB3 RB4 RB5 RB6 RB7 ]
-"46823
-[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f47k42.h: 46823: typedef union {
-[u S2129 `S2130 1 ]
-[n S2129 . . ]
-"46835
-[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f47k42.h: 46835: extern volatile PORTBbits_t PORTBbits __attribute__((address(0x3FCB)));
-[v _PORTBbits `VS2129 ~T0 @X0 0 e@16331 ]
+"9225
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f47k42.h: 9225: extern volatile unsigned char ANSELC __attribute__((address(0x3A60)));
+[v _ANSELC `Vuc ~T0 @X0 0 e@14944 ]
+"46600
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f47k42.h: 46600: extern volatile unsigned char TRISC __attribute__((address(0x3FC4)));
+[v _TRISC `Vuc ~T0 @X0 0 e@16324 ]
+"46880
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f47k42.h: 46880: extern volatile unsigned char PORTC __attribute__((address(0x3FCC)));
+[v _PORTC `Vuc ~T0 @X0 0 e@16332 ]
+"46886
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f47k42.h: 46886:     struct {
+[s S2132 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S2132 . RC0 RC1 RC2 RC3 RC4 RC5 RC6 RC7 ]
+"46885
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f47k42.h: 46885: typedef union {
+[u S2131 `S2132 1 ]
+[n S2131 . . ]
+"46897
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f47k42.h: 46897: extern volatile PORTCbits_t PORTCbits __attribute__((address(0x3FCC)));
+[v _PORTCbits `VS2131 ~T0 @X0 0 e@16332 ]
 "250 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f47k42.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f47k42.h: 250: __asm("STATUS_CSHAD equ 03880h");
 [; <" STATUS_CSHAD equ 03880h ;# ">
@@ -2851,14 +2851,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;newmain.c: 45:     OSCFRQ=0x02;
 [e = _OSCFRQ -> -> 2 `i `uc ]
 "47
-[; ;newmain.c: 47:     ANSELB = 0b00000000;
-[e = _ANSELB -> -> 0 `i `uc ]
+[; ;newmain.c: 47:     ANSELC = 0b00000000;
+[e = _ANSELC -> -> 0 `i `uc ]
 "48
-[; ;newmain.c: 48:     TRISB= 0b00000000;
-[e = _TRISB -> -> 0 `i `uc ]
+[; ;newmain.c: 48:     TRISC= 0b00000000;
+[e = _TRISC -> -> 0 `i `uc ]
 "49
-[; ;newmain.c: 49:     PORTB= 0b00000000;
-[e = _PORTB -> -> 0 `i `uc ]
+[; ;newmain.c: 49:     PORTC= 0b00000000;
+[e = _PORTC -> -> 0 `i `uc ]
 "50
 [; ;newmain.c: 50:     TMR2_Initialize();
 [e ( _TMR2_Initialize ..  ]
@@ -2872,14 +2872,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;newmain.c: 54:     PWM2_Initialize();
 [e ( _PWM2_Initialize ..  ]
 "55
-[; ;newmain.c: 55:     PWM2_LoadDutyValue(31 );
-[e ( _PWM2_LoadDutyValue (1 -> -> 31 `i `us ]
-"60
-[; ;newmain.c: 60:     checkdutyCycle =(uint16_t)((100UL*31)/(4*(T2PR+1)));
-[e = _checkdutyCycle -> / * -> 100 `ul -> -> -> 31 `i `l `ul -> -> * -> 4 `i + -> _T2PR `i -> 1 `i `l `ul `us ]
-"62
-[; ;newmain.c: 62:     preScale = ((T2CON >> 4) & (0x0F));
-[e = _preScale -> & >> -> _T2CON `i -> 4 `i -> 15 `i `uc ]
+[; ;newmain.c: 55:     PWM2_LoadDutyValue(70 );
+[e ( _PWM2_LoadDutyValue (1 -> -> 70 `i `us ]
 "64
 [; ;newmain.c: 64:     while (1) {
 [e :U 2264 ]
@@ -2888,22 +2882,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;newmain.c: 65:         pwmStatus = PWM2_OutputStatusGet();
 [e = _pwmStatus ( _PWM2_OutputStatusGet ..  ]
 "66
-[; ;newmain.c: 66:         PORTBbits.RB2 = pwmStatus;
-[e = . . _PORTBbits 0 2 -> _pwmStatus `uc ]
-"68
-[; ;newmain.c: 68:         if (PIR4bits.TMR2IF == 1) {
-[e $ ! == -> . . _PIR4bits 0 2 `i -> 1 `i 2266  ]
-{
-"69
-[; ;newmain.c: 69:             PIR4bits.TMR2IF = 0;
-[e = . . _PIR4bits 0 2 -> -> 0 `i `uc ]
-"70
-[; ;newmain.c: 70:             PORTBbits.RB0 ^= 1;
-[e =^ . . _PORTBbits 0 0 -> -> 1 `i `Vuc ]
-"71
-[; ;newmain.c: 71:         }
-}
-[e :U 2266 ]
+[; ;newmain.c: 66:         PORTCbits.RC5 = pwmStatus;
+[e = . . _PORTCbits 0 5 -> _pwmStatus `uc ]
 "72
 [; ;newmain.c: 72:     }
 }

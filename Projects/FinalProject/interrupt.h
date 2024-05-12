@@ -1,6 +1,6 @@
 
 int password;
-
+void eepromWrite(uint8_t address, uint8_t data);
 void __interrupt(irq(IRQ_INT0),base(0x4008)) INT0_ISR(void)
 {
         // Check if interrupt flag for INT0 is set to 1 - (note INT0 is your input)
@@ -17,6 +17,8 @@ void __interrupt(irq(IRQ_INT0),base(0x4008)) INT0_ISR(void)
         LCD_String_xy(2, 0, "****************");
         __delay_ms(3000);
         LCD_Clear();
+        eepromWrite(0,password/100);
+        eepromWrite(2,password%100);
         RESET();
     }    
     // always clear the interrupt flag for INT0 when done
@@ -70,7 +72,7 @@ uint8_t eepromRead(uint8_t address){
     return NVMDAT;
 }
 
-uint8_t eepromWrite(uint8_t address, uint8_t data){
+void eepromWrite(uint8_t address, uint8_t data){
     //Setup EEPROM access
     NVMCON1 = 0;
     

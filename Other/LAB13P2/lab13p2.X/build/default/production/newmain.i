@@ -27086,30 +27086,23 @@ void main (void) {
     OSCSTATbits.HFOR =1;
     OSCFRQ=0x02;
 
-    ANSELB = 0b00000000;
-    TRISB= 0b00000000;
-    PORTB= 0b00000000;
+    ANSELC = 0b00000000;
+    TRISC= 0b00000000;
+    PORTC= 0b00000000;
     TMR2_Initialize();
     TMR2_StartTimer();
 
     PWM_Output_D8_Enable();
     PWM2_Initialize();
-    PWM2_LoadDutyValue(31 );
-
-
-
-
-    checkdutyCycle =(uint16_t)((100UL*31)/(4*(T2PR+1)));
-
-    preScale = ((T2CON >> 4) & (0x0F));
-
+    PWM2_LoadDutyValue(70 );
+# 64 "newmain.c"
     while (1) {
         pwmStatus = PWM2_OutputStatusGet();
-        PORTBbits.RB2 = pwmStatus;
+        PORTCbits.RC5 = pwmStatus;
 
-        if (PIR4bits.TMR2IF == 1) {
-            PIR4bits.TMR2IF = 0;
-            PORTBbits.RB0 ^= 1;
-        }
+
+
+
+
     }
 }

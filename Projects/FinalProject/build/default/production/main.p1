@@ -117,6 +117,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "20 C:\Program Files\Microchip\xc8\v2.46\pic\include\builtins.h
 [v __delay `JF205 ~T0 @X0 0 e ]
 [p i __delay ]
+"3 ./interrupt.h
+[; ;./interrupt.h: 3: void eepromWrite(uint8_t address, uint8_t data);
+[v _eepromWrite `(v ~T0 @X0 0 ef2`uc`uc ]
 "3963 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f47k42.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f47k42.h: 3963:     struct {
 [s S174 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -221,7 +224,160 @@ Version 4.0 HI-TECH Software Intermediate Code
 "5887
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f47k42.h: 5887: extern volatile unsigned char NVMCON2 __attribute__((address(0x39E6)));
 [v _NVMCON2 `Vuc ~T0 @X0 0 e@14822 ]
+"23 ./servo.h
+[; ;./servo.h: 23: void PWM2_LoadDutyValue(uint16_t dutyValue);
+[v _PWM2_LoadDutyValue `(v ~T0 @X0 0 ef1`us ]
+"24
+[; ;./servo.h: 24: _Bool PWM2_OutputStatusGet(void);
+[v _PWM2_OutputStatusGet `(a ~T0 @X0 0 ef ]
+"43901 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f47k42.h
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f47k42.h: 43901: extern volatile unsigned char T2CLKCON __attribute__((address(0x3FAE)));
+[v _T2CLKCON `Vuc ~T0 @X0 0 e@16302 ]
+"43773
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f47k42.h: 43773: extern volatile unsigned char T2HLT __attribute__((address(0x3FAD)));
+[v _T2HLT `Vuc ~T0 @X0 0 e@16301 ]
+"44059
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f47k42.h: 44059: extern volatile unsigned char T2RST __attribute__((address(0x3FAF)));
+[v _T2RST `Vuc ~T0 @X0 0 e@16303 ]
+"43589
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f47k42.h: 43589: extern volatile unsigned char T2PR __attribute__((address(0x3FAB)));
+[v _T2PR `Vuc ~T0 @X0 0 e@16299 ]
+"43551
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f47k42.h: 43551: extern volatile unsigned char T2TMR __attribute__((address(0x3FAA)));
+[v _T2TMR `Vuc ~T0 @X0 0 e@16298 ]
+"4149
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f47k42.h: 4149:     struct {
+[s S180 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S180 . TMR1IF TMR1GIF TMR2IF CCP1IF . NCO1IF CWG1IF CLC1IF ]
+"4148
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f47k42.h: 4148: typedef union {
+[u S179 `S180 1 ]
+[n S179 . . ]
+"4160
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f47k42.h: 4160: extern volatile PIR4bits_t PIR4bits __attribute__((address(0x39A4)));
+[v _PIR4bits `VS179 ~T0 @X0 0 e@14756 ]
+"43627
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f47k42.h: 43627: extern volatile unsigned char T2CON __attribute__((address(0x3FAC)));
+[v _T2CON `Vuc ~T0 @X0 0 e@16300 ]
+"43633
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f47k42.h: 43633:     struct {
+[s S1994 :4 `uc 1 :3 `uc 1 :1 `uc 1 ]
+[n S1994 . OUTPS CKPS ON ]
+"43638
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f47k42.h: 43638:     struct {
+[s S1995 :4 `uc 1 :3 `uc 1 :1 `uc 1 ]
+[n S1995 . T2OUTPS T2CKPS T2ON ]
+"43643
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f47k42.h: 43643:     struct {
+[s S1996 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1996 . T2OUTPS0 T2OUTPS1 T2OUTPS2 T2OUTPS3 T2CKPS0 T2CKPS1 T2CKPS2 ]
+"43652
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f47k42.h: 43652:     struct {
+[s S1997 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1997 . OUTPS0 OUTPS1 OUTPS2 OUTPS3 CKPS0 CKPS1 CKPS2 TMR2ON ]
+"43632
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f47k42.h: 43632: typedef union {
+[u S1993 `S1994 1 `S1995 1 `S1996 1 `S1997 1 ]
+[n S1993 . . . . . ]
+"43663
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f47k42.h: 43663: extern volatile T2CONbits_t T2CONbits __attribute__((address(0x3FAC)));
+[v _T2CONbits `VS1993 ~T0 @X0 0 e@16300 ]
+"43556
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f47k42.h: 43556: extern volatile unsigned char TMR2 __attribute__((address(0x3FAA)));
+[v _TMR2 `Vuc ~T0 @X0 0 e@16298 ]
+"43594
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f47k42.h: 43594: extern volatile unsigned char PR2 __attribute__((address(0x3FAB)));
+[v _PR2 `Vuc ~T0 @X0 0 e@16299 ]
+"10698
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f47k42.h: 10698: extern volatile unsigned char PPSLOCK __attribute__((address(0x3ABF)));
+[v _PPSLOCK `Vuc ~T0 @X0 0 e@15039 ]
+"10704
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f47k42.h: 10704:     struct {
+[s S464 :1 `uc 1 ]
+[n S464 . PPSLOCKED ]
+"10703
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f47k42.h: 10703: typedef union {
+[u S463 `S464 1 ]
+[n S463 . . ]
+"10708
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f47k42.h: 10708: extern volatile PPSLOCKbits_t PPSLOCKbits __attribute__((address(0x3ABF)));
+[v _PPSLOCKbits `VS463 ~T0 @X0 0 e@15039 ]
+"6817
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f47k42.h: 6817: extern volatile unsigned char RB3PPS __attribute__((address(0x3A0B)));
+[v _RB3PPS `Vuc ~T0 @X0 0 e@14859 ]
+"46544
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f47k42.h: 46544:     struct {
+[s S2120 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S2120 . TRISB0 TRISB1 TRISB2 TRISB3 TRISB4 TRISB5 TRISB6 TRISB7 ]
+"46543
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f47k42.h: 46543: typedef union {
+[u S2119 `S2120 1 ]
+[n S2119 . . ]
+"46555
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f47k42.h: 46555: extern volatile TRISBbits_t TRISBbits __attribute__((address(0x3FC3)));
+[v _TRISBbits `VS2119 ~T0 @X0 0 e@16323 ]
+"39598
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f47k42.h: 39598: extern volatile unsigned char CCP2CON __attribute__((address(0x3F7A)));
+[v _CCP2CON `Vuc ~T0 @X0 0 e@16250 ]
+"39578
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f47k42.h: 39578: extern volatile unsigned char CCPR2H __attribute__((address(0x3F79)));
+[v _CCPR2H `Vuc ~T0 @X0 0 e@16249 ]
+"39558
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f47k42.h: 39558: extern volatile unsigned char CCPR2L __attribute__((address(0x3F78)));
+[v _CCPR2L `Vuc ~T0 @X0 0 e@16248 ]
+"37719
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f47k42.h: 37719:     struct {
+[s S1690 :2 `uc 1 :2 `uc 1 :2 `uc 1 :2 `uc 1 ]
+[n S1690 . C1TSEL C2TSEL C3TSEL C4TSEL ]
+"37725
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f47k42.h: 37725:     struct {
+[s S1691 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1691 . C1TSEL0 C1TSEL1 C2TSEL0 C2TSEL1 C3TSEL0 C3TSEL1 C4TSEL0 C4TSEL1 ]
+"37718
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f47k42.h: 37718: typedef union {
+[u S1689 `S1690 1 `S1691 1 ]
+[n S1689 . . . ]
+"37736
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f47k42.h: 37736: extern volatile CCPTMRS0bits_t CCPTMRS0bits __attribute__((address(0x3F5E)));
+[v _CCPTMRS0bits `VS1689 ~T0 @X0 0 e@16222 ]
+"39604
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f47k42.h: 39604:     struct {
+[s S1780 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1780 . MODE FMT OUT . EN ]
+"39611
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f47k42.h: 39611:     struct {
+[s S1781 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1781 . MODE0 MODE1 MODE2 MODE3 ]
+"39617
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f47k42.h: 39617:     struct {
+[s S1782 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1782 . CCP2MODE CCP2FMT CCP2OUT . CCP2EN ]
+"39624
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f47k42.h: 39624:     struct {
+[s S1783 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1783 . CCP2MODE0 CCP2MODE1 CCP2MODE2 CCP2MODE3 ]
+"39603
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f47k42.h: 39603: typedef union {
+[u S1779 `S1780 1 `S1781 1 `S1782 1 `S1783 1 ]
+[n S1779 . . . . . ]
+"39631
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f47k42.h: 39631: extern volatile CCP2CONbits_t CCP2CONbits __attribute__((address(0x3F7A)));
+[v _CCP2CONbits `VS1779 ~T0 @X0 0 e@16250 ]
 [p mainexit ]
+"5149
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f47k42.h: 5149:     struct {
+[s S225 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S225 . PLLR . ADOR SOR LFOR MFOR HFOR EXTOR ]
+"5148
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f47k42.h: 5148: typedef union {
+[u S224 `S225 1 ]
+[n S224 . . ]
+"5160
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f47k42.h: 5160: extern volatile OSCSTATbits_t OSCSTATbits __attribute__((address(0x39DC)));
+[v _OSCSTATbits `VS224 ~T0 @X0 0 e@14812 ]
+"5405
+[; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f47k42.h: 5405: extern volatile unsigned char OSCFRQ __attribute__((address(0x39DF)));
+[v _OSCFRQ `Vuc ~T0 @X0 0 e@14815 ]
 "250 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f47k42.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f47k42.h: 250: __asm("STATUS_CSHAD equ 03880h");
 [; <" STATUS_CSHAD equ 03880h ;# ">
@@ -3259,193 +3415,746 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./interrupt.h: 19:         LCD_Clear();
 [e ( _LCD_Clear ..  ]
 "20
-[; ;./interrupt.h: 20:         __asm("reset");
-[; <" reset ;# ">
+[; ;./interrupt.h: 20:         eepromWrite(0,password/100);
+[e ( _eepromWrite (2 , -> -> 0 `i `uc -> / _password -> 100 `i `uc ]
 "21
-[; ;./interrupt.h: 21:     }
+[; ;./interrupt.h: 21:         eepromWrite(2,password%100);
+[e ( _eepromWrite (2 , -> -> 2 `i `uc -> % _password -> 100 `i `uc ]
+"22
+[; ;./interrupt.h: 22:         __asm("reset");
+[; <" reset ;# ">
+"23
+[; ;./interrupt.h: 23:     }
 }
 [e :U 2331 ]
-"23
-[; ;./interrupt.h: 23:     PIR1bits.INT0IF = 0;
-[e = . . _PIR1bits 0 0 -> -> 0 `i `uc ]
 "25
-[; ;./interrupt.h: 25: }
+[; ;./interrupt.h: 25:     PIR1bits.INT0IF = 0;
+[e = . . _PIR1bits 0 0 -> -> 0 `i `uc ]
+"27
+[; ;./interrupt.h: 27: }
 [e :UE 2330 ]
 }
-"27
-[; ;./interrupt.h: 27: void INTERRUPT_Initialize (void)
+"29
+[; ;./interrupt.h: 29: void INTERRUPT_Initialize (void)
 [v _INTERRUPT_Initialize `(v ~T0 @X0 1 ef ]
-"28
-[; ;./interrupt.h: 28: {
+"30
+[; ;./interrupt.h: 30: {
 {
 [e :U _INTERRUPT_Initialize ]
 [f ]
-"29
-[; ;./interrupt.h: 29:     PORTB = 0;
-[e = _PORTB -> -> 0 `i `uc ]
-"30
-[; ;./interrupt.h: 30:     TRISB = 0b11111111;
-[e = _TRISB -> -> 255 `i `uc ]
 "31
-[; ;./interrupt.h: 31:     LATB = 0;
-[e = _LATB -> -> 0 `i `uc ]
+[; ;./interrupt.h: 31:     PORTB = 0;
+[e = _PORTB -> -> 0 `i `uc ]
 "32
-[; ;./interrupt.h: 32:     ANSELB = 0;
-[e = _ANSELB -> -> 0 `i `uc ]
+[; ;./interrupt.h: 32:     TRISB = 0b11111111;
+[e = _TRISB -> -> 255 `i `uc ]
+"33
+[; ;./interrupt.h: 33:     LATB = 0;
+[e = _LATB -> -> 0 `i `uc ]
 "34
-[; ;./interrupt.h: 34:     INTCON0bits.IPEN = 1;
-[e = . . _INTCON0bits 0 4 -> -> 1 `i `uc ]
+[; ;./interrupt.h: 34:     ANSELB = 0;
+[e = _ANSELB -> -> 0 `i `uc ]
 "36
-[; ;./interrupt.h: 36:     INTCON0bits.GIEH = 1;
-[e = . . _INTCON0bits 1 1 -> -> 1 `i `uc ]
+[; ;./interrupt.h: 36:     INTCON0bits.IPEN = 1;
+[e = . . _INTCON0bits 0 4 -> -> 1 `i `uc ]
 "38
-[; ;./interrupt.h: 38:     INTCON0bits.GIEL = 1;
-[e = . . _INTCON0bits 0 5 -> -> 1 `i `uc ]
+[; ;./interrupt.h: 38:     INTCON0bits.GIEH = 1;
+[e = . . _INTCON0bits 1 1 -> -> 1 `i `uc ]
 "40
-[; ;./interrupt.h: 40:     INTCON0bits.INT0EDG = 1;
-[e = . . _INTCON0bits 0 0 -> -> 1 `i `uc ]
+[; ;./interrupt.h: 40:     INTCON0bits.GIEL = 1;
+[e = . . _INTCON0bits 0 5 -> -> 1 `i `uc ]
 "42
-[; ;./interrupt.h: 42:     IPR1bits.INT0IP = 1;
-[e = . . _IPR1bits 0 0 -> -> 1 `i `uc ]
+[; ;./interrupt.h: 42:     INTCON0bits.INT0EDG = 1;
+[e = . . _INTCON0bits 0 0 -> -> 1 `i `uc ]
 "44
-[; ;./interrupt.h: 44:     PIE1bits.INT0IE = 1;
-[e = . . _PIE1bits 0 0 -> -> 1 `i `uc ]
+[; ;./interrupt.h: 44:     IPR1bits.INT0IP = 1;
+[e = . . _IPR1bits 0 0 -> -> 1 `i `uc ]
 "46
-[; ;./interrupt.h: 46:     PIR1bits.INT0IF = 0;
+[; ;./interrupt.h: 46:     PIE1bits.INT0IE = 1;
+[e = . . _PIE1bits 0 0 -> -> 1 `i `uc ]
+"48
+[; ;./interrupt.h: 48:     PIR1bits.INT0IF = 0;
 [e = . . _PIR1bits 0 0 -> -> 0 `i `uc ]
-"50
-[; ;./interrupt.h: 50:     IVTBASEU = 0x00;
-[e = _IVTBASEU -> -> 0 `i `uc ]
 "52
-[; ;./interrupt.h: 52:     IVTBASEH = 0x40;
-[e = _IVTBASEH -> -> 64 `i `uc ]
+[; ;./interrupt.h: 52:     IVTBASEU = 0x00;
+[e = _IVTBASEU -> -> 0 `i `uc ]
 "54
-[; ;./interrupt.h: 54:     IVTBASEL = 0x08;
+[; ;./interrupt.h: 54:     IVTBASEH = 0x40;
+[e = _IVTBASEH -> -> 64 `i `uc ]
+"56
+[; ;./interrupt.h: 56:     IVTBASEL = 0x08;
 [e = _IVTBASEL -> -> 8 `i `uc ]
-"55
-[; ;./interrupt.h: 55: }
+"57
+[; ;./interrupt.h: 57: }
 [e :UE 2332 ]
 }
-"57
-[; ;./interrupt.h: 57: uint8_t eepromRead(uint8_t address){
+"59
+[; ;./interrupt.h: 59: uint8_t eepromRead(uint8_t address){
 [v _eepromRead `(uc ~T0 @X0 1 ef1`uc ]
 {
 [e :U _eepromRead ]
 [v _address `uc ~T0 @X0 1 r1 ]
 [f ]
-"59
-[; ;./interrupt.h: 59:     NVMCON1 = 0;
+"61
+[; ;./interrupt.h: 61:     NVMCON1 = 0;
 [e = _NVMCON1 -> -> 0 `i `uc ]
-"62
-[; ;./interrupt.h: 62:     NVMADRL = address;
+"64
+[; ;./interrupt.h: 64:     NVMADRL = address;
 [e = _NVMADRL _address ]
-"66
-[; ;./interrupt.h: 66:     NVMCON1bits.RD = 1;
+"68
+[; ;./interrupt.h: 68:     NVMCON1bits.RD = 1;
 [e = . . _NVMCON1bits 0 0 -> -> 1 `i `uc ]
-"67
-[; ;./interrupt.h: 67:     while(NVMCON1bits.RD);
+"69
+[; ;./interrupt.h: 69:     while(NVMCON1bits.RD);
 [e $U 2334  ]
 [e :U 2335 ]
 [e :U 2334 ]
 [e $ != -> . . _NVMCON1bits 0 0 `i -> 0 `i 2335  ]
 [e :U 2336 ]
-"70
-[; ;./interrupt.h: 70:     return NVMDAT;
+"72
+[; ;./interrupt.h: 72:     return NVMDAT;
 [e ) _NVMDAT ]
 [e $UE 2333  ]
-"71
-[; ;./interrupt.h: 71: }
+"73
+[; ;./interrupt.h: 73: }
 [e :UE 2333 ]
 }
-"73
-[; ;./interrupt.h: 73: uint8_t eepromWrite(uint8_t address, uint8_t data){
-[v _eepromWrite `(uc ~T0 @X0 1 ef2`uc`uc ]
+"75
+[; ;./interrupt.h: 75: void eepromWrite(uint8_t address, uint8_t data){
+[v _eepromWrite `(v ~T0 @X0 1 ef2`uc`uc ]
 {
 [e :U _eepromWrite ]
 [v _address `uc ~T0 @X0 1 r1 ]
 [v _data `uc ~T0 @X0 1 r2 ]
 [f ]
-"75
-[; ;./interrupt.h: 75:     NVMCON1 = 0;
+"77
+[; ;./interrupt.h: 77:     NVMCON1 = 0;
 [e = _NVMCON1 -> -> 0 `i `uc ]
-"78
-[; ;./interrupt.h: 78:     NVMADRL = address;
+"80
+[; ;./interrupt.h: 80:     NVMADRL = address;
 [e = _NVMADRL _address ]
-"81
-[; ;./interrupt.h: 81:     NVMDAT = data;
+"83
+[; ;./interrupt.h: 83:     NVMDAT = data;
 [e = _NVMDAT _data ]
-"84
-[; ;./interrupt.h: 84:     NVMCON1bits.WREN = 1;
+"86
+[; ;./interrupt.h: 86:     NVMCON1bits.WREN = 1;
 [e = . . _NVMCON1bits 0 2 -> -> 1 `i `uc ]
-"87
-[; ;./interrupt.h: 87:     INTCON0bits.GIE = 0;
+"89
+[; ;./interrupt.h: 89:     INTCON0bits.GIE = 0;
 [e = . . _INTCON0bits 0 6 -> -> 0 `i `uc ]
-"90
-[; ;./interrupt.h: 90:     NVMCON2 = 0x55;
+"92
+[; ;./interrupt.h: 92:     NVMCON2 = 0x55;
 [e = _NVMCON2 -> -> 85 `i `uc ]
-"91
-[; ;./interrupt.h: 91:     NVMCON2 = 0xAA;
+"93
+[; ;./interrupt.h: 93:     NVMCON2 = 0xAA;
 [e = _NVMCON2 -> -> 170 `i `uc ]
-"94
-[; ;./interrupt.h: 94:     NVMCON1bits.WR = 1;
+"96
+[; ;./interrupt.h: 96:     NVMCON1bits.WR = 1;
 [e = . . _NVMCON1bits 0 1 -> -> 1 `i `uc ]
-"95
-[; ;./interrupt.h: 95:     while(NVMCON1bits.WR);
+"97
+[; ;./interrupt.h: 97:     while(NVMCON1bits.WR);
 [e $U 2338  ]
 [e :U 2339 ]
 [e :U 2338 ]
 [e $ != -> . . _NVMCON1bits 0 1 `i -> 0 `i 2339  ]
 [e :U 2340 ]
-"98
-[; ;./interrupt.h: 98:     INTCON0bits.GIE = 1;
+"100
+[; ;./interrupt.h: 100:     INTCON0bits.GIE = 1;
 [e = . . _INTCON0bits 0 6 -> -> 1 `i `uc ]
-"101
-[; ;./interrupt.h: 101:     NVMCON1bits.WREN = 0;
+"103
+[; ;./interrupt.h: 103:     NVMCON1bits.WREN = 0;
 [e = . . _NVMCON1bits 0 2 -> -> 0 `i `uc ]
-"102
-[; ;./interrupt.h: 102: }
+"104
+[; ;./interrupt.h: 104: }
 [e :UE 2337 ]
 }
-"11 main.c
-[; ;main.c: 11: int userGuess = 0;
+"26 ./servo.h
+[; ;./servo.h: 26: void openBox(){
+[v _openBox `(v ~T0 @X0 1 ef ]
+{
+[e :U _openBox ]
+[f ]
+"27
+[; ;./servo.h: 27:     _Bool pwmStatus;
+[v _pwmStatus `a ~T0 @X0 1 a ]
+"28
+[; ;./servo.h: 28:     PWM2_LoadDutyValue( 31 );
+[e ( _PWM2_LoadDutyValue (1 -> -> 31 `i `us ]
+"31
+[; ;./servo.h: 31:     for(int i = 0;i < 100;i++)
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+[e $ < _i -> 100 `i 2342  ]
+[e $U 2343  ]
+[e :U 2342 ]
+"32
+[; ;./servo.h: 32:         for(int j = 0;j < 165;j++){
+{
+[v _j `i ~T0 @X0 1 a ]
+[e = _j -> 0 `i ]
+[e $ < _j -> 165 `i 2345  ]
+[e $U 2346  ]
+[e :U 2345 ]
+{
+"33
+[; ;./servo.h: 33:             pwmStatus = PWM2_OutputStatusGet();
+[e = _pwmStatus ( _PWM2_OutputStatusGet ..  ]
+"34
+[; ;./servo.h: 34:             PORTCbits.RC5 = pwmStatus;
+[e = . . _PORTCbits 0 5 -> _pwmStatus `uc ]
+"35
+[; ;./servo.h: 35:         }
+}
+[e ++ _j -> 1 `i ]
+[e $ < _j -> 165 `i 2345  ]
+[e :U 2346 ]
+}
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 100 `i 2342  ]
+[e :U 2343 ]
+}
+"36
+[; ;./servo.h: 36: }
+[e :UE 2341 ]
+}
+"38
+[; ;./servo.h: 38: void closeBox(){
+[v _closeBox `(v ~T0 @X0 1 ef ]
+{
+[e :U _closeBox ]
+[f ]
+"39
+[; ;./servo.h: 39:     _Bool pwmStatus;
+[v _pwmStatus `a ~T0 @X0 1 a ]
+"40
+[; ;./servo.h: 40:     PWM2_LoadDutyValue( 67 );
+[e ( _PWM2_LoadDutyValue (1 -> -> 67 `i `us ]
+"43
+[; ;./servo.h: 43:     for(int i = 0;i < 100;i++)
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+[e $ < _i -> 100 `i 2349  ]
+[e $U 2350  ]
+[e :U 2349 ]
+"44
+[; ;./servo.h: 44:         for(int j = 0;j < 165;j++){
+{
+[v _j `i ~T0 @X0 1 a ]
+[e = _j -> 0 `i ]
+[e $ < _j -> 165 `i 2352  ]
+[e $U 2353  ]
+[e :U 2352 ]
+{
+"45
+[; ;./servo.h: 45:             pwmStatus = PWM2_OutputStatusGet();
+[e = _pwmStatus ( _PWM2_OutputStatusGet ..  ]
+"46
+[; ;./servo.h: 46:             PORTCbits.RC5 = pwmStatus;
+[e = . . _PORTCbits 0 5 -> _pwmStatus `uc ]
+"47
+[; ;./servo.h: 47:         }
+}
+[e ++ _j -> 1 `i ]
+[e $ < _j -> 165 `i 2352  ]
+[e :U 2353 ]
+}
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 100 `i 2349  ]
+[e :U 2350 ]
+}
+"48
+[; ;./servo.h: 48: }
+[e :UE 2348 ]
+}
+"55
+[; ;./servo.h: 55: void TMR2_Initialize(void)
+[v _TMR2_Initialize `(v ~T0 @X0 1 ef ]
+"56
+[; ;./servo.h: 56: {
+{
+[e :U _TMR2_Initialize ]
+[f ]
+"60
+[; ;./servo.h: 60:     T2CLKCON = 0x01;
+[e = _T2CLKCON -> -> 1 `i `uc ]
+"63
+[; ;./servo.h: 63:     T2HLT = 0x00;
+[e = _T2HLT -> -> 0 `i `uc ]
+"66
+[; ;./servo.h: 66:     T2RST = 0x00;
+[e = _T2RST -> -> 0 `i `uc ]
+"69
+[; ;./servo.h: 69:     T2PR = 0x9D;
+[e = _T2PR -> -> 157 `i `uc ]
+"72
+[; ;./servo.h: 72:     T2TMR = 0x08;
+[e = _T2TMR -> -> 8 `i `uc ]
+"75
+[; ;./servo.h: 75:     PIR4bits.TMR2IF = 0;
+[e = . . _PIR4bits 0 2 -> -> 0 `i `uc ]
+"78
+[; ;./servo.h: 78:     T2CON = 0xF0;
+[e = _T2CON -> -> 240 `i `uc ]
+"79
+[; ;./servo.h: 79: }
+[e :UE 2355 ]
+}
+"93
+[; ;./servo.h: 93: void TMR2_Start(void)
+[v _TMR2_Start `(v ~T0 @X0 1 ef ]
+"94
+[; ;./servo.h: 94: {
+{
+[e :U _TMR2_Start ]
+[f ]
+"96
+[; ;./servo.h: 96:     T2CONbits.TMR2ON = 1;
+[e = . . _T2CONbits 3 7 -> -> 1 `i `uc ]
+"97
+[; ;./servo.h: 97: }
+[e :UE 2356 ]
+}
+"99
+[; ;./servo.h: 99: void TMR2_StartTimer(void)
+[v _TMR2_StartTimer `(v ~T0 @X0 1 ef ]
+"100
+[; ;./servo.h: 100: {
+{
+[e :U _TMR2_StartTimer ]
+[f ]
+"101
+[; ;./servo.h: 101:     TMR2_Start();
+[e ( _TMR2_Start ..  ]
+"102
+[; ;./servo.h: 102: }
+[e :UE 2357 ]
+}
+"104
+[; ;./servo.h: 104: void TMR2_Stop(void)
+[v _TMR2_Stop `(v ~T0 @X0 1 ef ]
+"105
+[; ;./servo.h: 105: {
+{
+[e :U _TMR2_Stop ]
+[f ]
+"107
+[; ;./servo.h: 107:     T2CONbits.TMR2ON = 0;
+[e = . . _T2CONbits 3 7 -> -> 0 `i `uc ]
+"108
+[; ;./servo.h: 108: }
+[e :UE 2358 ]
+}
+"110
+[; ;./servo.h: 110: void TMR2_StopTimer(void)
+[v _TMR2_StopTimer `(v ~T0 @X0 1 ef ]
+"111
+[; ;./servo.h: 111: {
+{
+[e :U _TMR2_StopTimer ]
+[f ]
+"112
+[; ;./servo.h: 112:     TMR2_Stop();
+[e ( _TMR2_Stop ..  ]
+"113
+[; ;./servo.h: 113: }
+[e :UE 2359 ]
+}
+"115
+[; ;./servo.h: 115: uint8_t TMR2_Counter8BitGet(void)
+[v _TMR2_Counter8BitGet `(uc ~T0 @X0 1 ef ]
+"116
+[; ;./servo.h: 116: {
+{
+[e :U _TMR2_Counter8BitGet ]
+[f ]
+"117
+[; ;./servo.h: 117:     uint8_t readVal;
+[v _readVal `uc ~T0 @X0 1 a ]
+"119
+[; ;./servo.h: 119:     readVal = TMR2;
+[e = _readVal _TMR2 ]
+"121
+[; ;./servo.h: 121:     return readVal;
+[e ) _readVal ]
+[e $UE 2360  ]
+"122
+[; ;./servo.h: 122: }
+[e :UE 2360 ]
+}
+"124
+[; ;./servo.h: 124: uint8_t TMR2_ReadTimer(void)
+[v _TMR2_ReadTimer `(uc ~T0 @X0 1 ef ]
+"125
+[; ;./servo.h: 125: {
+{
+[e :U _TMR2_ReadTimer ]
+[f ]
+"126
+[; ;./servo.h: 126:     return TMR2_Counter8BitGet();
+[e ) ( _TMR2_Counter8BitGet ..  ]
+[e $UE 2361  ]
+"127
+[; ;./servo.h: 127: }
+[e :UE 2361 ]
+}
+"129
+[; ;./servo.h: 129: void TMR2_Counter8BitSet(uint8_t timerVal)
+[v _TMR2_Counter8BitSet `(v ~T0 @X0 1 ef1`uc ]
+"130
+[; ;./servo.h: 130: {
+{
+[e :U _TMR2_Counter8BitSet ]
+"129
+[; ;./servo.h: 129: void TMR2_Counter8BitSet(uint8_t timerVal)
+[v _timerVal `uc ~T0 @X0 1 r1 ]
+"130
+[; ;./servo.h: 130: {
+[f ]
+"132
+[; ;./servo.h: 132:     TMR2 = timerVal;
+[e = _TMR2 _timerVal ]
+"133
+[; ;./servo.h: 133: }
+[e :UE 2362 ]
+}
+"135
+[; ;./servo.h: 135: void TMR2_WriteTimer(uint8_t timerVal)
+[v _TMR2_WriteTimer `(v ~T0 @X0 1 ef1`uc ]
+"136
+[; ;./servo.h: 136: {
+{
+[e :U _TMR2_WriteTimer ]
+"135
+[; ;./servo.h: 135: void TMR2_WriteTimer(uint8_t timerVal)
+[v _timerVal `uc ~T0 @X0 1 r1 ]
+"136
+[; ;./servo.h: 136: {
+[f ]
+"137
+[; ;./servo.h: 137:     TMR2_Counter8BitSet(timerVal);
+[e ( _TMR2_Counter8BitSet (1 _timerVal ]
+"138
+[; ;./servo.h: 138: }
+[e :UE 2363 ]
+}
+"140
+[; ;./servo.h: 140: void TMR2_Period8BitSet(uint8_t periodVal)
+[v _TMR2_Period8BitSet `(v ~T0 @X0 1 ef1`uc ]
+"141
+[; ;./servo.h: 141: {
+{
+[e :U _TMR2_Period8BitSet ]
+"140
+[; ;./servo.h: 140: void TMR2_Period8BitSet(uint8_t periodVal)
+[v _periodVal `uc ~T0 @X0 1 r1 ]
+"141
+[; ;./servo.h: 141: {
+[f ]
+"142
+[; ;./servo.h: 142:    PR2 = periodVal;
+[e = _PR2 _periodVal ]
+"143
+[; ;./servo.h: 143: }
+[e :UE 2364 ]
+}
+"145
+[; ;./servo.h: 145: void TMR2_LoadPeriodRegister(uint8_t periodVal)
+[v _TMR2_LoadPeriodRegister `(v ~T0 @X0 1 ef1`uc ]
+"146
+[; ;./servo.h: 146: {
+{
+[e :U _TMR2_LoadPeriodRegister ]
+"145
+[; ;./servo.h: 145: void TMR2_LoadPeriodRegister(uint8_t periodVal)
+[v _periodVal `uc ~T0 @X0 1 r1 ]
+"146
+[; ;./servo.h: 146: {
+[f ]
+"147
+[; ;./servo.h: 147:    TMR2_Period8BitSet(periodVal);
+[e ( _TMR2_Period8BitSet (1 _periodVal ]
+"148
+[; ;./servo.h: 148: }
+[e :UE 2365 ]
+}
+"167
+[; ;./servo.h: 167: void PWM_Output_D8_Enable (void){
+[v _PWM_Output_D8_Enable `(v ~T0 @X0 1 ef ]
+{
+[e :U _PWM_Output_D8_Enable ]
+[f ]
+"168
+[; ;./servo.h: 168:     PPSLOCK = 0x55;
+[e = _PPSLOCK -> -> 85 `i `uc ]
+"169
+[; ;./servo.h: 169:     PPSLOCK = 0xAA;
+[e = _PPSLOCK -> -> 170 `i `uc ]
+"170
+[; ;./servo.h: 170:     PPSLOCKbits.PPSLOCKED = 0x00;
+[e = . . _PPSLOCKbits 0 0 -> -> 0 `i `uc ]
+"173
+[; ;./servo.h: 173:     RB3PPS = 0x0A;
+[e = _RB3PPS -> -> 10 `i `uc ]
+"175
+[; ;./servo.h: 175:     PPSLOCK = 0x55;
+[e = _PPSLOCK -> -> 85 `i `uc ]
+"176
+[; ;./servo.h: 176:     PPSLOCK = 0xAA;
+[e = _PPSLOCK -> -> 170 `i `uc ]
+"177
+[; ;./servo.h: 177:     PPSLOCKbits.PPSLOCKED = 0x01;
+[e = . . _PPSLOCKbits 0 0 -> -> 1 `i `uc ]
+"178
+[; ;./servo.h: 178: }
+[e :UE 2366 ]
+}
+"180
+[; ;./servo.h: 180: void PWM_Output_D8_Disable (void){
+[v _PWM_Output_D8_Disable `(v ~T0 @X0 1 ef ]
+{
+[e :U _PWM_Output_D8_Disable ]
+[f ]
+"181
+[; ;./servo.h: 181:     PPSLOCK = 0x55;
+[e = _PPSLOCK -> -> 85 `i `uc ]
+"182
+[; ;./servo.h: 182:     PPSLOCK = 0xAA;
+[e = _PPSLOCK -> -> 170 `i `uc ]
+"183
+[; ;./servo.h: 183:     PPSLOCKbits.PPSLOCKED = 0x00;
+[e = . . _PPSLOCKbits 0 0 -> -> 0 `i `uc ]
+"186
+[; ;./servo.h: 186:     RB3PPS = 0x00;
+[e = _RB3PPS -> -> 0 `i `uc ]
+"188
+[; ;./servo.h: 188:     PPSLOCK = 0x55;
+[e = _PPSLOCK -> -> 85 `i `uc ]
+"189
+[; ;./servo.h: 189:     PPSLOCK = 0xAA;
+[e = _PPSLOCK -> -> 170 `i `uc ]
+"190
+[; ;./servo.h: 190:     PPSLOCKbits.PPSLOCKED = 0x01;
+[e = . . _PPSLOCKbits 0 0 -> -> 1 `i `uc ]
+"192
+[; ;./servo.h: 192:     TRISBbits.TRISB3 = 0;
+[e = . . _TRISBbits 0 3 -> -> 0 `i `uc ]
+"193
+[; ;./servo.h: 193: }
+[e :UE 2367 ]
+}
+"195
+[; ;./servo.h: 195: void PWM2_Initialize(void)
+[v _PWM2_Initialize `(v ~T0 @X0 1 ef ]
+"196
+[; ;./servo.h: 196: {
+{
+[e :U _PWM2_Initialize ]
+[f ]
+"198
+[; ;./servo.h: 198:     PORTCbits.RC5 = 0;
+[e = . . _PORTCbits 0 5 -> -> 0 `i `uc ]
+"199
+[; ;./servo.h: 199:     LATCbits.LATC5 = 0;
+[e = . . _LATCbits 0 5 -> -> 0 `i `uc ]
+"200
+[; ;./servo.h: 200:     ANSELCbits.ANSELC5 = 0;
+[e = . . _ANSELCbits 0 5 -> -> 0 `i `uc ]
+"201
+[; ;./servo.h: 201:     TRISCbits.TRISC5 = 0;
+[e = . . _TRISCbits 0 5 -> -> 0 `i `uc ]
+"205
+[; ;./servo.h: 205:  CCP2CON = 0x8C;
+[e = _CCP2CON -> -> 140 `i `uc ]
+"208
+[; ;./servo.h: 208:  CCPR2H = 0x1;
+[e = _CCPR2H -> -> 1 `i `uc ]
+"211
+[; ;./servo.h: 211:  CCPR2L = 0x99;
+[e = _CCPR2L -> -> 153 `i `uc ]
+"214
+[; ;./servo.h: 214:  CCPTMRS0bits.C2TSEL = 0x1;
+[e = . . _CCPTMRS0bits 0 1 -> -> 1 `i `uc ]
+"216
+[; ;./servo.h: 216: }
+[e :UE 2368 ]
+}
+"217
+[; ;./servo.h: 217: void PWM2_LoadDutyValue(uint16_t dutyValue)
+[v _PWM2_LoadDutyValue `(v ~T0 @X0 1 ef1`us ]
+"218
+[; ;./servo.h: 218: {
+{
+[e :U _PWM2_LoadDutyValue ]
+"217
+[; ;./servo.h: 217: void PWM2_LoadDutyValue(uint16_t dutyValue)
+[v _dutyValue `us ~T0 @X0 1 r1 ]
+"218
+[; ;./servo.h: 218: {
+[f ]
+"219
+[; ;./servo.h: 219:     dutyValue &= 0x03FF;
+[e =& _dutyValue -> -> 1023 `i `us ]
+"222
+[; ;./servo.h: 222:     if(CCP2CONbits.FMT)
+[e $ ! != -> . . _CCP2CONbits 0 1 `i -> 0 `i 2370  ]
+"223
+[; ;./servo.h: 223:     {
+{
+"224
+[; ;./servo.h: 224:         dutyValue <<= 6;
+[e =<< _dutyValue -> -> 6 `i `us ]
+"225
+[; ;./servo.h: 225:         CCPR2H = dutyValue >> 8;
+[e = _CCPR2H -> >> -> _dutyValue `ui -> 8 `i `uc ]
+"226
+[; ;./servo.h: 226:         CCPR2L = dutyValue;
+[e = _CCPR2L -> _dutyValue `uc ]
+"227
+[; ;./servo.h: 227:     }
+}
+[e $U 2371  ]
+"228
+[; ;./servo.h: 228:     else
+[e :U 2370 ]
+"229
+[; ;./servo.h: 229:     {
+{
+"230
+[; ;./servo.h: 230:         CCPR2H = dutyValue >> 8;
+[e = _CCPR2H -> >> -> _dutyValue `ui -> 8 `i `uc ]
+"231
+[; ;./servo.h: 231:         CCPR2L = dutyValue;
+[e = _CCPR2L -> _dutyValue `uc ]
+"232
+[; ;./servo.h: 232:     }
+}
+[e :U 2371 ]
+"233
+[; ;./servo.h: 233: }
+[e :UE 2369 ]
+}
+"235
+[; ;./servo.h: 235: _Bool PWM2_OutputStatusGet(void)
+[v _PWM2_OutputStatusGet `(a ~T0 @X0 1 ef ]
+"236
+[; ;./servo.h: 236: {
+{
+[e :U _PWM2_OutputStatusGet ]
+[f ]
+"238
+[; ;./servo.h: 238:     return(CCP2CONbits.OUT);
+[e ) -> . . _CCP2CONbits 0 2 `a ]
+[e $UE 2372  ]
+"239
+[; ;./servo.h: 239: }
+[e :UE 2372 ]
+}
+"13 main.c
+[; ;main.c: 13: int userGuess = 0;
 [v _userGuess `i ~T0 @X0 1 e ]
 [i _userGuess
 -> 0 `i
 ]
+"14
+[; ;main.c: 14: int pword;
+[v _pword `i ~T0 @X0 1 e ]
+"15
+[; ;main.c: 15: char d[10];
+[v _d `uc ~T0 @X0 -> 10 `i e ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"13
-[; ;main.c: 13: void main(void) {
+"16
+[; ;main.c: 16: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"14
-[; ;main.c: 14:     initializeKeypad();
-[e ( _initializeKeypad ..  ]
-"15
-[; ;main.c: 15:     LCD_Init();
-[e ( _LCD_Init ..  ]
-"16
-[; ;main.c: 16:     INTERRUPT_Initialize();
-[e ( _INTERRUPT_Initialize ..  ]
+"17
+[; ;main.c: 17:     OSCSTATbits.HFOR =1;
+[e = . . _OSCSTATbits 0 6 -> -> 1 `i `uc ]
 "18
-[; ;main.c: 18:     LCD_String_xy(1,0,"Testing Keypad: ");
-[e ( _LCD_String_xy (3 , , -> -> 1 `i `uc -> -> 0 `i `uc :s 9C ]
-"19
-[; ;main.c: 19:     userGuess = getValue();
-[e = _userGuess ( _getValue ..  ]
+[; ;main.c: 18:     OSCFRQ=0x02;
+[e = _OSCFRQ -> -> 2 `i `uc ]
 "21
-[; ;main.c: 21:     while(1);
-[e :U 2343 ]
-[e :U 2342 ]
-[e $U 2343  ]
-[e :U 2344 ]
+[; ;main.c: 21:     initializeKeypad();
+[e ( _initializeKeypad ..  ]
 "22
-[; ;main.c: 22:     return;
-[e $UE 2341  ]
+[; ;main.c: 22:     LCD_Init();
+[e ( _LCD_Init ..  ]
 "23
-[; ;main.c: 23: }
-[e :UE 2341 ]
+[; ;main.c: 23:     INTERRUPT_Initialize();
+[e ( _INTERRUPT_Initialize ..  ]
+"24
+[; ;main.c: 24:     TMR2_Initialize();
+[e ( _TMR2_Initialize ..  ]
+"25
+[; ;main.c: 25:     TMR2_StartTimer();
+[e ( _TMR2_StartTimer ..  ]
+"26
+[; ;main.c: 26:     PWM_Output_D8_Enable();
+[e ( _PWM_Output_D8_Enable ..  ]
+"27
+[; ;main.c: 27:     PWM2_Initialize();
+[e ( _PWM2_Initialize ..  ]
+"30
+[; ;main.c: 30:     LCD_String_xy(1, 0, "Opening Box...");
+[e ( _LCD_String_xy (3 , , -> -> 1 `i `uc -> -> 0 `i `uc :s 9C ]
+"31
+[; ;main.c: 31:     openBox();
+[e ( _openBox ..  ]
+"32
+[; ;main.c: 32:     for(int i = 0; i < 5 ; i++){
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+[e $ < _i -> 5 `i 2374  ]
+[e $U 2375  ]
+[e :U 2374 ]
+{
+"33
+[; ;main.c: 33:         sprintf(d,"%d",(6 - (i + 1)));
+[e ( _sprintf (1 , (. , &U _d :s 10C - -> 6 `i + _i -> 1 `i ]
+"34
+[; ;main.c: 34:         LCD_String_xy(2, 0, d);
+[e ( _LCD_String_xy (3 , , -> -> 2 `i `uc -> -> 0 `i `uc -> &U _d `*Cuc ]
+"35
+[; ;main.c: 35:         _delay((unsigned long)((1000)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"36
+[; ;main.c: 36:     }
+}
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 5 `i 2374  ]
+[e :U 2375 ]
+}
+"37
+[; ;main.c: 37:     LCD_String_xy(1, 0, "Closing Box...");
+[e ( _LCD_String_xy (3 , , -> -> 1 `i `uc -> -> 0 `i `uc :s 11C ]
+"38
+[; ;main.c: 38:     LCD_String_xy(2,0," ");
+[e ( _LCD_String_xy (3 , , -> -> 2 `i `uc -> -> 0 `i `uc :s 12C ]
+"39
+[; ;main.c: 39:     closeBox();
+[e ( _closeBox ..  ]
+"40
+[; ;main.c: 40:     _delay((unsigned long)((1000)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"41
+[; ;main.c: 41:     LCD_String_xy(1, 0, "Box closed...");
+[e ( _LCD_String_xy (3 , , -> -> 1 `i `uc -> -> 0 `i `uc :s 13C ]
+"56
+[; ;main.c: 56:     while(1);
+[e :U 2378 ]
+[e :U 2377 ]
+[e $U 2378  ]
+[e :U 2379 ]
+"57
+[; ;main.c: 57:     return;
+[e $UE 2373  ]
+"58
+[; ;main.c: 58: }
+[e :UE 2373 ]
 }
 [p f _sprintf 8388736 ]
 [a 7C 80 97 115 115 119 111 114 100 32 82 101 115 101 116 0 ]
@@ -3453,7 +4162,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [a 3C 37 100 0 ]
 [a 4C 37 100 0 ]
 [a 5C 37 100 0 ]
+[a 10C 37 100 0 ]
 [a 1C 95 95 95 95 0 ]
 [a 6C 78 101 119 32 80 97 115 115 119 111 114 100 58 0 ]
+[a 11C 67 108 111 115 105 110 103 32 66 111 120 46 46 46 0 ]
+[a 9C 79 112 101 110 105 110 103 32 66 111 120 46 46 46 0 ]
+[a 13C 66 111 120 32 99 108 111 115 101 100 46 46 46 0 ]
 [a 8C 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 0 ]
-[a 9C 84 101 115 116 105 110 103 32 75 101 121 112 97 100 58 32 0 ]
+[a 12C 32 0 ]

@@ -5,8 +5,10 @@
 [d frameptr 16353 ]
 "4 C:\Users\James\Documents\EE310\Microcontroller_EE310\Projects\FinalProject/interrupt.h
 [v _INT0_ISR INT0_ISR `IIH(v  1 e 1 0 ]
-"27
+"29
 [v _INTERRUPT_Initialize INTERRUPT_Initialize `(v  1 e 1 0 ]
+"75
+[v _eepromWrite eepromWrite `(v  1 e 1 0 ]
 "18 C:\Users\James\Documents\EE310\Microcontroller_EE310\Projects\FinalProject/keypad.h
 [v _initializeKeypad initializeKeypad `(v  1 e 1 0 ]
 "22
@@ -15,10 +17,8 @@
 [v _initializePORTC initializePORTC `(v  1 e 1 0 ]
 "38
 [v _getKeypad getKeypad `(i  1 e 2 0 ]
-[v i2_getKeypad getKeypad `(i  1 e 2 0 ]
 "141
 [v _getValue getValue `(i  1 e 2 0 ]
-[v i2_getValue getValue `(i  1 e 2 0 ]
 "15 C:\Users\James\Documents\EE310\Microcontroller_EE310\Projects\FinalProject/LCD.h
 [v _LCD_Init LCD_Init `(v  1 e 1 0 ]
 "28
@@ -38,6 +38,32 @@
 "80
 [v _MSdelay MSdelay `(v  1 e 1 0 ]
 [v i2_MSdelay MSdelay `(v  1 e 1 0 ]
+"26 C:\Users\James\Documents\EE310\Microcontroller_EE310\Projects\FinalProject/servo.h
+[v _openBox openBox `(v  1 e 1 0 ]
+"38
+[v _closeBox closeBox `(v  1 e 1 0 ]
+"55
+[v _TMR2_Initialize TMR2_Initialize `(v  1 e 1 0 ]
+"93
+[v _TMR2_Start TMR2_Start `(v  1 e 1 0 ]
+"99
+[v _TMR2_StartTimer TMR2_StartTimer `(v  1 e 1 0 ]
+"104
+[v _TMR2_Stop TMR2_Stop `(v  1 e 1 0 ]
+"115
+[v _TMR2_Counter8BitGet TMR2_Counter8BitGet `(uc  1 e 1 0 ]
+"129
+[v _TMR2_Counter8BitSet TMR2_Counter8BitSet `(v  1 e 1 0 ]
+"140
+[v _TMR2_Period8BitSet TMR2_Period8BitSet `(v  1 e 1 0 ]
+"167
+[v _PWM_Output_D8_Enable PWM_Output_D8_Enable `(v  1 e 1 0 ]
+"195
+[v _PWM2_Initialize PWM2_Initialize `(v  1 e 1 0 ]
+"217
+[v _PWM2_LoadDutyValue PWM2_LoadDutyValue `(v  1 e 1 0 ]
+"235
+[v _PWM2_OutputStatusGet PWM2_OutputStatusGet `(a  1 e 1 0 ]
 "1 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\abs.c
 [v _abs abs `(i  1 e 2 0 ]
 [v i2_abs abs `(i  1 e 2 0 ]
@@ -86,16 +112,15 @@
 [v ___flmul __flmul `(d  1 e 4 0 ]
 "15 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\Umul16.c
 [v ___wmul __wmul `(ui  1 e 2 0 ]
-[v i2___wmul __wmul `(ui  1 e 2 0 ]
 "15 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\Umul32.c
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "91 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\Umul64.c
 [v ___omul __omul `(uo  1 e 8 0 ]
-"13 C:\Users\James\Documents\EE310\Microcontroller_EE310\Projects\FinalProject\main.c
+"16 C:\Users\James\Documents\EE310\Microcontroller_EE310\Projects\FinalProject\main.c
 [v _main main `(v  1 e 1 0 ]
 "2 C:\Users\James\Documents\EE310\Microcontroller_EE310\Projects\FinalProject/interrupt.h
 [v _password password `i  1 e 2 0 ]
-[s S262 . 1 `uc 1 INT0IP 1 0 :1:0 
+[s S268 . 1 `uc 1 INT0IP 1 0 :1:0 
 `uc 1 ZCDIP 1 0 :1:1 
 `uc 1 ADIP 1 0 :1:2 
 `uc 1 ADTIP 1 0 :1:3 
@@ -105,9 +130,9 @@
 `uc 1 SMT1PWAIP 1 0 :1:7 
 ]
 "2844 C:/Program Files/Microchip/MPLABX/v6.20/packs/Microchip/PIC18F-K_DFP/1.13.292/xc8\pic\include\proc\pic18f47k42.h
-[u S271 . 1 `S262 1 . 1 0 ]
-[v _IPR1bits IPR1bits `VES271  1 e 1 @14721 ]
-[s S283 . 1 `uc 1 INT0IE 1 0 :1:0 
+[u S277 . 1 `S268 1 . 1 0 ]
+[v _IPR1bits IPR1bits `VES277  1 e 1 @14721 ]
+[s S289 . 1 `uc 1 INT0IE 1 0 :1:0 
 `uc 1 ZCDIE 1 0 :1:1 
 `uc 1 ADIE 1 0 :1:2 
 `uc 1 ADTIE 1 0 :1:3 
@@ -117,9 +142,9 @@
 `uc 1 SMT1PWAIE 1 0 :1:7 
 ]
 "3409
-[u S292 . 1 `S283 1 . 1 0 ]
-[v _PIE1bits PIE1bits `VES292  1 e 1 @14737 ]
-[s S211 . 1 `uc 1 INT0IF 1 0 :1:0 
+[u S298 . 1 `S289 1 . 1 0 ]
+[v _PIE1bits PIE1bits `VES298  1 e 1 @14737 ]
+[s S217 . 1 `uc 1 INT0IF 1 0 :1:0 
 `uc 1 ZCDIF 1 0 :1:1 
 `uc 1 ADIF 1 0 :1:2 
 `uc 1 ADTIF 1 0 :1:3 
@@ -129,15 +154,41 @@
 `uc 1 SMT1PWAIF 1 0 :1:7 
 ]
 "3974
-[u S220 . 1 `S211 1 . 1 0 ]
-[v _PIR1bits PIR1bits `VES220  1 e 1 @14753 ]
+[u S226 . 1 `S217 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES226  1 e 1 @14753 ]
+[s S375 . 1 `uc 1 TMR1IF 1 0 :1:0 
+`uc 1 TMR1GIF 1 0 :1:1 
+`uc 1 TMR2IF 1 0 :1:2 
+`uc 1 CCP1IF 1 0 :1:3 
+`uc 1 . 1 0 :1:4 
+`uc 1 NCO1IF 1 0 :1:5 
+`uc 1 CWG1IF 1 0 :1:6 
+`uc 1 CLC1IF 1 0 :1:7 
+]
+"4160
+[u S384 . 1 `S375 1 . 1 0 ]
+[v _PIR4bits PIR4bits `VES384  1 e 1 @14756 ]
+[s S570 . 1 `uc 1 PLLR 1 0 :1:0 
+`uc 1 . 1 0 :1:1 
+`uc 1 ADOR 1 0 :1:2 
+`uc 1 SOR 1 0 :1:3 
+`uc 1 LFOR 1 0 :1:4 
+`uc 1 MFOR 1 0 :1:5 
+`uc 1 HFOR 1 0 :1:6 
+`uc 1 EXTOR 1 0 :1:7 
+]
+"5160
+[u S579 . 1 `S570 1 . 1 0 ]
+[v _OSCSTATbits OSCSTATbits `VES579  1 e 1 @14812 ]
+"5405
+[v _OSCFRQ OSCFRQ `VEuc  1 e 1 @14815 ]
 "5485
 [v _NVMADRL NVMADRL `VEuc  1 e 1 @14816 ]
 "5669
 [v _NVMDAT NVMDAT `VEuc  1 e 1 @14819 ]
 "5797
 [v _NVMCON1 NVMCON1 `VEuc  1 e 1 @14821 ]
-[s S309 . 1 `uc 1 RD 1 0 :1:0 
+[s S315 . 1 `uc 1 RD 1 0 :1:0 
 `uc 1 WR 1 0 :1:1 
 `uc 1 WREN 1 0 :1:2 
 `uc 1 WRERR 1 0 :1:3 
@@ -146,21 +197,23 @@
 `uc 1 REG 1 0 :2:6 
 ]
 "5827
-[s S317 . 1 `uc 1 . 1 0 :6:0 
+[s S323 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 REG0 1 0 :1:6 
 `uc 1 REG1 1 0 :1:7 
 ]
-[s S321 . 1 `uc 1 . 1 0 :6:0 
+[s S327 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 NVMREG 1 0 :2:6 
 ]
-[s S324 . 1 `uc 1 . 1 0 :6:0 
+[s S330 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 NVMREG0 1 0 :1:6 
 `uc 1 NVMREG1 1 0 :1:7 
 ]
-[u S328 . 1 `S309 1 . 1 0 `S317 1 . 1 0 `S321 1 . 1 0 `S324 1 . 1 0 ]
-[v _NVMCON1bits NVMCON1bits `VES328  1 e 1 @14821 ]
+[u S334 . 1 `S315 1 . 1 0 `S323 1 . 1 0 `S327 1 . 1 0 `S330 1 . 1 0 ]
+[v _NVMCON1bits NVMCON1bits `VES334  1 e 1 @14821 ]
 "5887
 [v _NVMCON2 NVMCON2 `VEuc  1 e 1 @14822 ]
+"6817
+[v _RB3PPS RB3PPS `VEuc  1 e 1 @14859 ]
 "8017
 [v _ANSELA ANSELA `VEuc  1 e 1 @14912 ]
 "8513
@@ -177,6 +230,118 @@
 "9242
 [u S145 . 1 `S136 1 . 1 0 ]
 [v _ANSELCbits ANSELCbits `VES145  1 e 1 @14944 ]
+"10698
+[v _PPSLOCK PPSLOCK `VEuc  1 e 1 @15039 ]
+[s S456 . 1 `uc 1 PPSLOCKED 1 0 :1:0 
+]
+"10708
+[u S458 . 1 `S456 1 . 1 0 ]
+[v _PPSLOCKbits PPSLOCKbits `VES458  1 e 1 @15039 ]
+[s S488 . 1 `uc 1 C1TSEL 1 0 :2:0 
+`uc 1 C2TSEL 1 0 :2:2 
+`uc 1 C3TSEL 1 0 :2:4 
+`uc 1 C4TSEL 1 0 :2:6 
+]
+"37736
+[s S493 . 1 `uc 1 C1TSEL0 1 0 :1:0 
+`uc 1 C1TSEL1 1 0 :1:1 
+`uc 1 C2TSEL0 1 0 :1:2 
+`uc 1 C2TSEL1 1 0 :1:3 
+`uc 1 C3TSEL0 1 0 :1:4 
+`uc 1 C3TSEL1 1 0 :1:5 
+`uc 1 C4TSEL0 1 0 :1:6 
+`uc 1 C4TSEL1 1 0 :1:7 
+]
+"37736
+[u S502 . 1 `S488 1 . 1 0 `S493 1 . 1 0 ]
+"37736
+"37736
+[v _CCPTMRS0bits CCPTMRS0bits `VES502  1 e 1 @16222 ]
+"39558
+[v _CCPR2L CCPR2L `VEuc  1 e 1 @16248 ]
+"39578
+[v _CCPR2H CCPR2H `VEuc  1 e 1 @16249 ]
+"39598
+[v _CCP2CON CCP2CON `VEuc  1 e 1 @16250 ]
+[s S520 . 1 `uc 1 MODE 1 0 :4:0 
+`uc 1 FMT 1 0 :1:4 
+`uc 1 OUT 1 0 :1:5 
+`uc 1 . 1 0 :1:6 
+`uc 1 EN 1 0 :1:7 
+]
+"39631
+[s S526 . 1 `uc 1 MODE0 1 0 :1:0 
+`uc 1 MODE1 1 0 :1:1 
+`uc 1 MODE2 1 0 :1:2 
+`uc 1 MODE3 1 0 :1:3 
+]
+"39631
+[s S531 . 1 `uc 1 CCP2MODE 1 0 :4:0 
+`uc 1 CCP2FMT 1 0 :1:4 
+`uc 1 CCP2OUT 1 0 :1:5 
+`uc 1 . 1 0 :1:6 
+`uc 1 CCP2EN 1 0 :1:7 
+]
+"39631
+[s S537 . 1 `uc 1 CCP2MODE0 1 0 :1:0 
+`uc 1 CCP2MODE1 1 0 :1:1 
+`uc 1 CCP2MODE2 1 0 :1:2 
+`uc 1 CCP2MODE3 1 0 :1:3 
+]
+"39631
+[u S542 . 1 `S520 1 . 1 0 `S526 1 . 1 0 `S531 1 . 1 0 `S537 1 . 1 0 ]
+"39631
+"39631
+[v _CCP2CONbits CCP2CONbits `VES542  1 e 1 @16250 ]
+"43551
+[v _T2TMR T2TMR `VEuc  1 e 1 @16298 ]
+"43556
+[v _TMR2 TMR2 `VEuc  1 e 1 @16298 ]
+"43589
+[v _T2PR T2PR `VEuc  1 e 1 @16299 ]
+"43594
+[v _PR2 PR2 `VEuc  1 e 1 @16299 ]
+"43627
+[v _T2CON T2CON `VEuc  1 e 1 @16300 ]
+[s S397 . 1 `uc 1 OUTPS 1 0 :4:0 
+`uc 1 CKPS 1 0 :3:4 
+`uc 1 ON 1 0 :1:7 
+]
+"43663
+[s S401 . 1 `uc 1 T2OUTPS 1 0 :4:0 
+`uc 1 T2CKPS 1 0 :3:4 
+`uc 1 T2ON 1 0 :1:7 
+]
+"43663
+[s S405 . 1 `uc 1 T2OUTPS0 1 0 :1:0 
+`uc 1 T2OUTPS1 1 0 :1:1 
+`uc 1 T2OUTPS2 1 0 :1:2 
+`uc 1 T2OUTPS3 1 0 :1:3 
+`uc 1 T2CKPS0 1 0 :1:4 
+`uc 1 T2CKPS1 1 0 :1:5 
+`uc 1 T2CKPS2 1 0 :1:6 
+]
+"43663
+[s S413 . 1 `uc 1 OUTPS0 1 0 :1:0 
+`uc 1 OUTPS1 1 0 :1:1 
+`uc 1 OUTPS2 1 0 :1:2 
+`uc 1 OUTPS3 1 0 :1:3 
+`uc 1 CKPS0 1 0 :1:4 
+`uc 1 CKPS1 1 0 :1:5 
+`uc 1 CKPS2 1 0 :1:6 
+`uc 1 TMR2ON 1 0 :1:7 
+]
+"43663
+[u S422 . 1 `S397 1 . 1 0 `S401 1 . 1 0 `S405 1 . 1 0 `S413 1 . 1 0 ]
+"43663
+"43663
+[v _T2CONbits T2CONbits `VES422  1 e 1 @16300 ]
+"43773
+[v _T2HLT T2HLT `VEuc  1 e 1 @16301 ]
+"43901
+[v _T2CLKCON T2CLKCON `VEuc  1 e 1 @16302 ]
+"44059
+[v _T2RST T2RST `VEuc  1 e 1 @16303 ]
 "45976
 [v _LATA LATA `VEuc  1 e 1 @16314 ]
 "46088
@@ -211,6 +376,20 @@
 [v _TRISA TRISA `VEuc  1 e 1 @16322 ]
 "46538
 [v _TRISB TRISB `VEuc  1 e 1 @16323 ]
+[s S464 . 1 `uc 1 TRISB0 1 0 :1:0 
+`uc 1 TRISB1 1 0 :1:1 
+`uc 1 TRISB2 1 0 :1:2 
+`uc 1 TRISB3 1 0 :1:3 
+`uc 1 TRISB4 1 0 :1:4 
+`uc 1 TRISB5 1 0 :1:5 
+`uc 1 TRISB6 1 0 :1:6 
+`uc 1 TRISB7 1 0 :1:7 
+]
+"46555
+[u S473 . 1 `S464 1 . 1 0 ]
+"46555
+"46555
+[v _TRISBbits TRISBbits `VES473  1 e 1 @16323 ]
 [s S30 . 1 `uc 1 TRISC0 1 0 :1:0 
 `uc 1 TRISC1 1 0 :1:1 
 `uc 1 TRISC2 1 0 :1:2 
@@ -273,7 +452,7 @@
 "46897
 "46897
 [v _PORTCbits PORTCbits `VES84  1 e 1 @16332 ]
-[s S236 . 1 `uc 1 INT0EDG 1 0 :1:0 
+[s S242 . 1 `uc 1 INT0EDG 1 0 :1:0 
 `uc 1 INT1EDG 1 0 :1:1 
 `uc 1 INT2EDG 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
@@ -282,14 +461,14 @@
 `uc 1 GIE 1 0 :1:7 
 ]
 "47062
-[s S244 . 1 `uc 1 . 1 0 :7:0 
+[s S250 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 GIEH 1 0 :1:7 
 ]
 "47062
-[u S247 . 1 `S236 1 . 1 0 `S244 1 . 1 0 ]
+[u S253 . 1 `S242 1 . 1 0 `S250 1 . 1 0 ]
 "47062
 "47062
-[v _INTCON0bits INTCON0bits `VES247  1 e 1 @16338 ]
+[v _INTCON0bits INTCON0bits `VES253  1 e 1 @16338 ]
 "47167
 [v _IVTBASEL IVTBASEL `VEuc  1 e 1 @16341 ]
 "47229
@@ -307,52 +486,22 @@
 [v _flags flags `uc  1 s 1 flags ]
 "185
 [v _dbuf dbuf `[32]uc  1 s 32 dbuf ]
-"11 C:\Users\James\Documents\EE310\Microcontroller_EE310\Projects\FinalProject\main.c
-[v _userGuess userGuess `i  1 e 2 0 ]
-"13
+"15 C:\Users\James\Documents\EE310\Microcontroller_EE310\Projects\FinalProject\main.c
+[v _d d `[10]uc  1 e 10 0 ]
+"16
 [v _main main `(v  1 e 1 0 ]
 {
-"23
-} 0
-"18 C:\Users\James\Documents\EE310\Microcontroller_EE310\Projects\FinalProject/keypad.h
-[v _initializeKeypad initializeKeypad `(v  1 e 1 0 ]
-{
-"21
-} 0
-"28
-[v _initializePORTC initializePORTC `(v  1 e 1 0 ]
-{
-"34
-} 0
-"22
-[v _initializePORTA initializePORTA `(v  1 e 1 0 ]
-{
-"27
-} 0
-"141
-[v _getValue getValue `(i  1 e 2 0 ]
-{
-"147
-[v getValue@data data `[10]uc  1 a 10 50 ]
-"145
-[v getValue@value4 value4 `i  1 a 2 68 ]
-"144
-[v getValue@value3 value3 `i  1 a 2 66 ]
-"143
-[v getValue@value2 value2 `i  1 a 2 64 ]
-"142
-[v getValue@value1 value1 `i  1 a 2 62 ]
-"146
-[v getValue@decimalValue decimalValue `i  1 a 2 60 ]
-"177
+"32
+[v main@i i `i  1 a 2 44 ]
+"58
 } 0
 "9 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\nf_sprintf.c
 [v _sprintf sprintf `(i  1 e 2 0 ]
 {
-[u S945 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
+[u S1272 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
 "13
-[s S948 _IO_FILE 12 `S945 1 . 3 0 `i 1 count 2 3 `[3]uc 1 ungetbuf 3 5 `i 1 ungetcnt 2 8 `i 1 limit 2 10 ]
-[v sprintf@f f `S948  1 a 12 30 ]
+[s S1275 _IO_FILE 12 `S1272 1 . 3 0 `i 1 count 2 3 `[3]uc 1 ungetbuf 3 5 `i 1 ungetcnt 2 8 `i 1 limit 2 10 ]
+[v sprintf@f f `S1275  1 a 12 30 ]
 "12
 [v sprintf@ap ap `[1]*.30v  1 a 1 29 ]
 "9
@@ -365,9 +514,9 @@
 {
 "1820
 [v vfprintf@cfmt cfmt `*.31uc  1 a 1 24 ]
-[s S980 _IO_FILE 0 ]
+[s S1307 _IO_FILE 0 ]
 "1817
-[v vfprintf@fp fp `*.30S980  1 p 1 21 ]
+[v vfprintf@fp fp `*.30S1307  1 p 1 21 ]
 [v vfprintf@fmt fmt `*.31Cuc  1 p 1 22 ]
 [v vfprintf@ap ap `*.30*.30v  1 p 1 23 ]
 "1840
@@ -375,17 +524,17 @@
 "1177
 [v _vfpfcnvrt vfpfcnvrt `(v  1 s 1 vfpfcnvrt ]
 {
-[u S993 . 4 `i 1 sint 2 0 `ui 1 uint 2 0 `d 1 f 4 0 ]
+[u S1320 . 4 `i 1 sint 2 0 `ui 1 uint 2 0 `d 1 f 4 0 ]
 "1188
-[v vfpfcnvrt@convarg convarg `S993  1 a 4 16 ]
+[v vfpfcnvrt@convarg convarg `S1320  1 a 4 16 ]
 "1179
 [v vfpfcnvrt@c c `uc  1 a 1 20 ]
 [v vfpfcnvrt@cp cp `*.31uc  1 a 1 15 ]
 "1180
 [v vfpfcnvrt@done done `a  1 a 1 14 ]
-[s S980 _IO_FILE 0 ]
+[s S1307 _IO_FILE 0 ]
 "1177
-[v vfpfcnvrt@fp fp `*.30S980  1 p 1 10 ]
+[v vfpfcnvrt@fp fp `*.30S1307  1 p 1 10 ]
 [v vfpfcnvrt@fmt fmt `*.30*.31uc  1 p 1 11 ]
 [v vfpfcnvrt@ap ap `*.30*.30v  1 p 1 12 ]
 "1814
@@ -394,9 +543,9 @@
 [v _fputc fputc `(i  1 e 2 0 ]
 {
 [v fputc@c c `i  1 p 2 0 ]
-[u S945 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
-[s S948 _IO_FILE 12 `S945 1 . 3 0 `i 1 count 2 3 `[3]uc 1 ungetbuf 3 5 `i 1 ungetcnt 2 8 `i 1 limit 2 10 ]
-[v fputc@fp fp `*.30S948  1 p 1 2 ]
+[u S1272 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
+[s S1275 _IO_FILE 12 `S1272 1 . 3 0 `i 1 count 2 3 `[3]uc 1 ungetbuf 3 5 `i 1 ungetcnt 2 8 `i 1 limit 2 10 ]
+[v fputc@fp fp `*.30S1275  1 p 1 2 ]
 "24
 } 0
 "7 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\putch.c
@@ -434,22 +583,78 @@
 [v ___awdiv@divisor divisor `i  1 p 2 2 ]
 "41
 } 0
-"38 C:\Users\James\Documents\EE310\Microcontroller_EE310\Projects\FinalProject/keypad.h
-[v _getKeypad getKeypad `(i  1 e 2 0 ]
+"26 C:\Users\James\Documents\EE310\Microcontroller_EE310\Projects\FinalProject/servo.h
+[v _openBox openBox `(v  1 e 1 0 ]
 {
-"39
-[v getKeypad@buttonNumber buttonNumber `i  1 a 2 2 ]
-"139
+"32
+[v openBox@j j `i  1 a 2 5 ]
+"31
+[v openBox@i i `i  1 a 2 3 ]
+"27
+[v openBox@pwmStatus pwmStatus `a  1 a 1 2 ]
+"36
 } 0
-"15 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\Umul16.c
-[v ___wmul __wmul `(ui  1 e 2 0 ]
+"18 C:\Users\James\Documents\EE310\Microcontroller_EE310\Projects\FinalProject/keypad.h
+[v _initializeKeypad initializeKeypad `(v  1 e 1 0 ]
 {
-"17
-[v ___wmul@product product `ui  1 a 2 4 ]
-"15
-[v ___wmul@multiplier multiplier `ui  1 p 2 0 ]
-[v ___wmul@multiplicand multiplicand `ui  1 p 2 2 ]
-"53
+"21
+} 0
+"28
+[v _initializePORTC initializePORTC `(v  1 e 1 0 ]
+{
+"34
+} 0
+"22
+[v _initializePORTA initializePORTA `(v  1 e 1 0 ]
+{
+"27
+} 0
+"38 C:\Users\James\Documents\EE310\Microcontroller_EE310\Projects\FinalProject/servo.h
+[v _closeBox closeBox `(v  1 e 1 0 ]
+{
+"44
+[v closeBox@j j `i  1 a 2 5 ]
+"43
+[v closeBox@i i `i  1 a 2 3 ]
+"39
+[v closeBox@pwmStatus pwmStatus `a  1 a 1 2 ]
+"48
+} 0
+"235
+[v _PWM2_OutputStatusGet PWM2_OutputStatusGet `(a  1 e 1 0 ]
+{
+"239
+} 0
+"217
+[v _PWM2_LoadDutyValue PWM2_LoadDutyValue `(v  1 e 1 0 ]
+{
+[v PWM2_LoadDutyValue@dutyValue dutyValue `us  1 p 2 0 ]
+"233
+} 0
+"99
+[v _TMR2_StartTimer TMR2_StartTimer `(v  1 e 1 0 ]
+{
+"102
+} 0
+"93
+[v _TMR2_Start TMR2_Start `(v  1 e 1 0 ]
+{
+"97
+} 0
+"55
+[v _TMR2_Initialize TMR2_Initialize `(v  1 e 1 0 ]
+{
+"79
+} 0
+"167
+[v _PWM_Output_D8_Enable PWM_Output_D8_Enable `(v  1 e 1 0 ]
+{
+"178
+} 0
+"195
+[v _PWM2_Initialize PWM2_Initialize `(v  1 e 1 0 ]
+{
+"216
 } 0
 "63 C:\Users\James\Documents\EE310\Microcontroller_EE310\Projects\FinalProject/LCD.h
 [v _LCD_String_xy LCD_String_xy `(v  1 e 1 0 ]
@@ -503,40 +708,40 @@
 [v MSdelay@val val `ui  1 p 2 0 ]
 "85
 } 0
-"27 C:\Users\James\Documents\EE310\Microcontroller_EE310\Projects\FinalProject/interrupt.h
+"29 C:\Users\James\Documents\EE310\Microcontroller_EE310\Projects\FinalProject/interrupt.h
 [v _INTERRUPT_Initialize INTERRUPT_Initialize `(v  1 e 1 0 ]
 {
-"55
+"57
 } 0
 "4
 [v _INT0_ISR INT0_ISR `IIH(v  1 e 1 0 ]
 {
-"25
+"27
 } 0
 "141 C:\Users\James\Documents\EE310\Microcontroller_EE310\Projects\FinalProject/keypad.h
-[v i2_getValue getValue `(i  1 e 2 0 ]
+[v _getValue getValue `(i  1 e 2 0 ]
 {
 "147
-[v i2getValue@data data `[10]uc  1 a 10 50 ]
+[v getValue@data data `[10]uc  1 a 10 50 ]
 "145
-[v i2getValue@value4 value4 `i  1 a 2 68 ]
+[v getValue@value4 value4 `i  1 a 2 68 ]
 "144
-[v i2getValue@value3 value3 `i  1 a 2 66 ]
+[v getValue@value3 value3 `i  1 a 2 66 ]
 "143
-[v i2getValue@value2 value2 `i  1 a 2 64 ]
+[v getValue@value2 value2 `i  1 a 2 64 ]
 "142
-[v i2getValue@value1 value1 `i  1 a 2 62 ]
+[v getValue@value1 value1 `i  1 a 2 62 ]
 "146
-[v i2getValue@decimalValue decimalValue `i  1 a 2 60 ]
+[v getValue@decimalValue decimalValue `i  1 a 2 60 ]
 "177
 } 0
 "9 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\nf_sprintf.c
 [v i2_sprintf sprintf `(i  1 e 2 0 ]
 {
-[u S945 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
+[u S1272 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
 "13
-[s S948 _IO_FILE 12 `S945 1 . 3 0 `i 1 count 2 3 `[3]uc 1 ungetbuf 3 5 `i 1 ungetcnt 2 8 `i 1 limit 2 10 ]
-[v i2sprintf@f f `S948  1 a 12 30 ]
+[s S1275 _IO_FILE 12 `S1272 1 . 3 0 `i 1 count 2 3 `[3]uc 1 ungetbuf 3 5 `i 1 ungetcnt 2 8 `i 1 limit 2 10 ]
+[v i2sprintf@f f `S1275  1 a 12 30 ]
 "12
 [v i2sprintf@ap ap `[1]*.30v  1 a 1 29 ]
 "9
@@ -549,9 +754,9 @@
 {
 "1820
 [v i2vfprintf@cfmt cfmt `*.31uc  1 a 1 24 ]
-[s S980 _IO_FILE 0 ]
+[s S1307 _IO_FILE 0 ]
 "1817
-[v i2vfprintf@fp fp `*.30S980  1 p 1 21 ]
+[v i2vfprintf@fp fp `*.30S1307  1 p 1 21 ]
 [v i2vfprintf@fmt fmt `*.31Cuc  1 p 1 22 ]
 [v i2vfprintf@ap ap `*.30*.30v  1 p 1 23 ]
 "1840
@@ -559,17 +764,17 @@
 "1177
 [v i2_vfpfcnvrt vfpfcnvrt `(v  1 s 1 i2_vfpfcnvrt ]
 {
-[u S993 . 4 `i 1 sint 2 0 `ui 1 uint 2 0 `d 1 f 4 0 ]
+[u S1320 . 4 `i 1 sint 2 0 `ui 1 uint 2 0 `d 1 f 4 0 ]
 "1188
-[v i2vfpfcnvrt@convarg convarg `S993  1 a 4 16 ]
+[v i2vfpfcnvrt@convarg convarg `S1320  1 a 4 16 ]
 "1179
 [v i2vfpfcnvrt@c c `uc  1 a 1 20 ]
 [v i2vfpfcnvrt@cp cp `*.31uc  1 a 1 15 ]
 "1180
 [v i2vfpfcnvrt@done done `a  1 a 1 14 ]
-[s S980 _IO_FILE 0 ]
+[s S1307 _IO_FILE 0 ]
 "1177
-[v i2vfpfcnvrt@fp fp `*.30S980  1 p 1 10 ]
+[v i2vfpfcnvrt@fp fp `*.30S1307  1 p 1 10 ]
 [v i2vfpfcnvrt@fmt fmt `*.30*.31uc  1 p 1 11 ]
 [v i2vfpfcnvrt@ap ap `*.30*.30v  1 p 1 12 ]
 "1814
@@ -578,9 +783,9 @@
 [v i2_fputc fputc `(i  1 e 2 0 ]
 {
 [v i2fputc@c c `i  1 p 2 0 ]
-[u S945 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
-[s S948 _IO_FILE 12 `S945 1 . 3 0 `i 1 count 2 3 `[3]uc 1 ungetbuf 3 5 `i 1 ungetcnt 2 8 `i 1 limit 2 10 ]
-[v i2fputc@fp fp `*.30S948  1 p 1 2 ]
+[u S1272 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
+[s S1275 _IO_FILE 12 `S1272 1 . 3 0 `i 1 count 2 3 `[3]uc 1 ungetbuf 3 5 `i 1 ungetcnt 2 8 `i 1 limit 2 10 ]
+[v i2fputc@fp fp `*.30S1275  1 p 1 2 ]
 "24
 } 0
 "7 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\putch.c
@@ -618,23 +823,6 @@
 [v i2___awdiv@divisor divisor `i  1 p 2 2 ]
 "41
 } 0
-"38 C:\Users\James\Documents\EE310\Microcontroller_EE310\Projects\FinalProject/keypad.h
-[v i2_getKeypad getKeypad `(i  1 e 2 0 ]
-{
-"39
-[v i2getKeypad@buttonNumber buttonNumber `i  1 a 2 2 ]
-"139
-} 0
-"15 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\Umul16.c
-[v i2___wmul __wmul `(ui  1 e 2 0 ]
-{
-"17
-[v i2___wmul@product product `ui  1 a 2 4 ]
-"15
-[v i2___wmul@multiplier multiplier `ui  1 p 2 0 ]
-[v i2___wmul@multiplicand multiplicand `ui  1 p 2 2 ]
-"53
-} 0
 "63 C:\Users\James\Documents\EE310\Microcontroller_EE310\Projects\FinalProject/LCD.h
 [v i2_LCD_String_xy LCD_String_xy `(v  1 e 1 0 ]
 {
@@ -663,7 +851,34 @@
 [v i2LCD_Char@dat dat `uc  1 a 1 6 ]
 "51
 } 0
-"28
+"38 C:\Users\James\Documents\EE310\Microcontroller_EE310\Projects\FinalProject/keypad.h
+[v _getKeypad getKeypad `(i  1 e 2 0 ]
+{
+"39
+[v getKeypad@buttonNumber buttonNumber `i  1 a 2 2 ]
+"139
+} 0
+"15 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c99\common\Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
+{
+"17
+[v ___wmul@product product `ui  1 a 2 4 ]
+"15
+[v ___wmul@multiplier multiplier `ui  1 p 2 0 ]
+[v ___wmul@multiplicand multiplicand `ui  1 p 2 2 ]
+"53
+} 0
+"75 C:\Users\James\Documents\EE310\Microcontroller_EE310\Projects\FinalProject/interrupt.h
+[v _eepromWrite eepromWrite `(v  1 e 1 0 ]
+{
+[v eepromWrite@address address `uc  1 a 1 wreg ]
+[v eepromWrite@address address `uc  1 a 1 wreg ]
+[v eepromWrite@data data `uc  1 p 1 8 ]
+"77
+[v eepromWrite@address address `uc  1 a 1 9 ]
+"104
+} 0
+"28 C:\Users\James\Documents\EE310\Microcontroller_EE310\Projects\FinalProject/LCD.h
 [v _LCD_Clear LCD_Clear `(v  1 e 1 0 ]
 {
 "31

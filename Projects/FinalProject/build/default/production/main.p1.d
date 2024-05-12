@@ -3,4 +3,5 @@ main.c  \
 config.h  \
 LCD.h  \
 keypad.h  \
-interrupt.h 
+interrupt.h  \
+servo.h 
