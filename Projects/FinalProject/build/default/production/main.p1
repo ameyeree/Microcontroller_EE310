@@ -3578,356 +3578,387 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./servo.h: 27:     _Bool pwmStatus;
 [v _pwmStatus `a ~T0 @X0 1 a ]
 "28
-[; ;./servo.h: 28:     PWM2_LoadDutyValue( 31 );
+[; ;./servo.h: 28:     char d[10];
+[v _d `uc ~T0 @X0 -> 10 `i a ]
+"29
+[; ;./servo.h: 29:     PWM2_LoadDutyValue( 31 );
 [e ( _PWM2_LoadDutyValue (1 -> -> 31 `i `us ]
 "31
-[; ;./servo.h: 31:     for(int i = 0;i < 100;i++)
+[; ;./servo.h: 31:     LCD_Clear();
+[e ( _LCD_Clear ..  ]
+"32
+[; ;./servo.h: 32:     LCD_String_xy(1, 0, "Opening Box in:");
+[e ( _LCD_String_xy (3 , , -> -> 1 `i `uc -> -> 0 `i `uc :s 9C ]
+"33
+[; ;./servo.h: 33:     for(int i = 0; i < 5 ; i++){
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $ < _i -> 100 `i 2342  ]
+[e $ < _i -> 5 `i 2342  ]
 [e $U 2343  ]
 [e :U 2342 ]
-"32
-[; ;./servo.h: 32:         for(int j = 0;j < 165;j++){
+{
+"34
+[; ;./servo.h: 34:         sprintf(d,"%d",(6 - (i + 1)));
+[e ( _sprintf (1 , (. , &U _d :s 10C - -> 6 `i + _i -> 1 `i ]
+"35
+[; ;./servo.h: 35:         LCD_String_xy(2, 0, d);
+[e ( _LCD_String_xy (3 , , -> -> 2 `i `uc -> -> 0 `i `uc -> &U _d `*Cuc ]
+"36
+[; ;./servo.h: 36:         _delay((unsigned long)((1000)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"37
+[; ;./servo.h: 37:     }
+}
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 5 `i 2342  ]
+[e :U 2343 ]
+}
+"38
+[; ;./servo.h: 38:     LCD_Clear();
+[e ( _LCD_Clear ..  ]
+"41
+[; ;./servo.h: 41:     for(int i = 0;i < 100;i++)
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+[e $ < _i -> 100 `i 2345  ]
+[e $U 2346  ]
+[e :U 2345 ]
+"42
+[; ;./servo.h: 42:         for(int j = 0;j < 165;j++){
 {
 [v _j `i ~T0 @X0 1 a ]
 [e = _j -> 0 `i ]
-[e $ < _j -> 165 `i 2345  ]
-[e $U 2346  ]
-[e :U 2345 ]
+[e $ < _j -> 165 `i 2348  ]
+[e $U 2349  ]
+[e :U 2348 ]
 {
-"33
-[; ;./servo.h: 33:             pwmStatus = PWM2_OutputStatusGet();
+"43
+[; ;./servo.h: 43:             pwmStatus = PWM2_OutputStatusGet();
 [e = _pwmStatus ( _PWM2_OutputStatusGet ..  ]
-"34
-[; ;./servo.h: 34:             PORTCbits.RC5 = pwmStatus;
+"44
+[; ;./servo.h: 44:             PORTCbits.RC5 = pwmStatus;
 [e = . . _PORTCbits 0 5 -> _pwmStatus `uc ]
-"35
-[; ;./servo.h: 35:         }
+"45
+[; ;./servo.h: 45:         }
 }
 [e ++ _j -> 1 `i ]
-[e $ < _j -> 165 `i 2345  ]
-[e :U 2346 ]
+[e $ < _j -> 165 `i 2348  ]
+[e :U 2349 ]
 }
 [e ++ _i -> 1 `i ]
-[e $ < _i -> 100 `i 2342  ]
-[e :U 2343 ]
+[e $ < _i -> 100 `i 2345  ]
+[e :U 2346 ]
 }
-"36
-[; ;./servo.h: 36: }
+"46
+[; ;./servo.h: 46: }
 [e :UE 2341 ]
 }
-"38
-[; ;./servo.h: 38: void closeBox(){
+"48
+[; ;./servo.h: 48: void closeBox(){
 [v _closeBox `(v ~T0 @X0 1 ef ]
 {
 [e :U _closeBox ]
 [f ]
-"39
-[; ;./servo.h: 39:     _Bool pwmStatus;
+"49
+[; ;./servo.h: 49:     _Bool pwmStatus;
 [v _pwmStatus `a ~T0 @X0 1 a ]
-"40
-[; ;./servo.h: 40:     PWM2_LoadDutyValue( 67 );
+"50
+[; ;./servo.h: 50:     PWM2_LoadDutyValue( 67 );
 [e ( _PWM2_LoadDutyValue (1 -> -> 67 `i `us ]
-"43
-[; ;./servo.h: 43:     for(int i = 0;i < 100;i++)
+"51
+[; ;./servo.h: 51:     char d[10];
+[v _d `uc ~T0 @X0 -> 10 `i a ]
+"53
+[; ;./servo.h: 53:     LCD_Clear();
+[e ( _LCD_Clear ..  ]
+"54
+[; ;./servo.h: 54:     LCD_String_xy(1, 0, "Closing Box in:");
+[e ( _LCD_String_xy (3 , , -> -> 1 `i `uc -> -> 0 `i `uc :s 11C ]
+"55
+[; ;./servo.h: 55:     for(int i = 0; i < 5 ; i++){
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $ < _i -> 100 `i 2349  ]
-[e $U 2350  ]
-[e :U 2349 ]
-"44
-[; ;./servo.h: 44:         for(int j = 0;j < 165;j++){
-{
-[v _j `i ~T0 @X0 1 a ]
-[e = _j -> 0 `i ]
-[e $ < _j -> 165 `i 2352  ]
+[e $ < _i -> 5 `i 2352  ]
 [e $U 2353  ]
 [e :U 2352 ]
 {
-"45
-[; ;./servo.h: 45:             pwmStatus = PWM2_OutputStatusGet();
-[e = _pwmStatus ( _PWM2_OutputStatusGet ..  ]
-"46
-[; ;./servo.h: 46:             PORTCbits.RC5 = pwmStatus;
-[e = . . _PORTCbits 0 5 -> _pwmStatus `uc ]
-"47
-[; ;./servo.h: 47:         }
-}
-[e ++ _j -> 1 `i ]
-[e $ < _j -> 165 `i 2352  ]
-[e :U 2353 ]
+"56
+[; ;./servo.h: 56:         sprintf(d,"%d",(6 - (i + 1)));
+[e ( _sprintf (1 , (. , &U _d :s 12C - -> 6 `i + _i -> 1 `i ]
+"57
+[; ;./servo.h: 57:         LCD_String_xy(2, 0, d);
+[e ( _LCD_String_xy (3 , , -> -> 2 `i `uc -> -> 0 `i `uc -> &U _d `*Cuc ]
+"58
+[; ;./servo.h: 58:         _delay((unsigned long)((1000)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"59
+[; ;./servo.h: 59:     }
 }
 [e ++ _i -> 1 `i ]
-[e $ < _i -> 100 `i 2349  ]
-[e :U 2350 ]
+[e $ < _i -> 5 `i 2352  ]
+[e :U 2353 ]
 }
-"48
-[; ;./servo.h: 48: }
-[e :UE 2348 ]
+"60
+[; ;./servo.h: 60:     LCD_Clear();
+[e ( _LCD_Clear ..  ]
+"63
+[; ;./servo.h: 63:     for(int i = 0;i < 100;i++)
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+[e $ < _i -> 100 `i 2355  ]
+[e $U 2356  ]
+[e :U 2355 ]
+"64
+[; ;./servo.h: 64:         for(int j = 0;j < 165;j++){
+{
+[v _j `i ~T0 @X0 1 a ]
+[e = _j -> 0 `i ]
+[e $ < _j -> 165 `i 2358  ]
+[e $U 2359  ]
+[e :U 2358 ]
+{
+"65
+[; ;./servo.h: 65:             pwmStatus = PWM2_OutputStatusGet();
+[e = _pwmStatus ( _PWM2_OutputStatusGet ..  ]
+"66
+[; ;./servo.h: 66:             PORTCbits.RC5 = pwmStatus;
+[e = . . _PORTCbits 0 5 -> _pwmStatus `uc ]
+"67
+[; ;./servo.h: 67:         }
 }
-"55
-[; ;./servo.h: 55: void TMR2_Initialize(void)
+[e ++ _j -> 1 `i ]
+[e $ < _j -> 165 `i 2358  ]
+[e :U 2359 ]
+}
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 100 `i 2355  ]
+[e :U 2356 ]
+}
+"68
+[; ;./servo.h: 68: }
+[e :UE 2351 ]
+}
+"75
+[; ;./servo.h: 75: void TMR2_Initialize(void)
 [v _TMR2_Initialize `(v ~T0 @X0 1 ef ]
-"56
-[; ;./servo.h: 56: {
+"76
+[; ;./servo.h: 76: {
 {
 [e :U _TMR2_Initialize ]
 [f ]
-"60
-[; ;./servo.h: 60:     T2CLKCON = 0x01;
+"80
+[; ;./servo.h: 80:     T2CLKCON = 0x01;
 [e = _T2CLKCON -> -> 1 `i `uc ]
-"63
-[; ;./servo.h: 63:     T2HLT = 0x00;
+"83
+[; ;./servo.h: 83:     T2HLT = 0x00;
 [e = _T2HLT -> -> 0 `i `uc ]
-"66
-[; ;./servo.h: 66:     T2RST = 0x00;
+"86
+[; ;./servo.h: 86:     T2RST = 0x00;
 [e = _T2RST -> -> 0 `i `uc ]
-"69
-[; ;./servo.h: 69:     T2PR = 0x9D;
+"89
+[; ;./servo.h: 89:     T2PR = 0x9D;
 [e = _T2PR -> -> 157 `i `uc ]
-"72
-[; ;./servo.h: 72:     T2TMR = 0x08;
+"92
+[; ;./servo.h: 92:     T2TMR = 0x08;
 [e = _T2TMR -> -> 8 `i `uc ]
-"75
-[; ;./servo.h: 75:     PIR4bits.TMR2IF = 0;
+"95
+[; ;./servo.h: 95:     PIR4bits.TMR2IF = 0;
 [e = . . _PIR4bits 0 2 -> -> 0 `i `uc ]
-"78
-[; ;./servo.h: 78:     T2CON = 0xF0;
+"98
+[; ;./servo.h: 98:     T2CON = 0xF0;
 [e = _T2CON -> -> 240 `i `uc ]
-"79
-[; ;./servo.h: 79: }
-[e :UE 2355 ]
+"99
+[; ;./servo.h: 99: }
+[e :UE 2361 ]
 }
-"93
-[; ;./servo.h: 93: void TMR2_Start(void)
+"113
+[; ;./servo.h: 113: void TMR2_Start(void)
 [v _TMR2_Start `(v ~T0 @X0 1 ef ]
-"94
-[; ;./servo.h: 94: {
+"114
+[; ;./servo.h: 114: {
 {
 [e :U _TMR2_Start ]
 [f ]
-"96
-[; ;./servo.h: 96:     T2CONbits.TMR2ON = 1;
+"116
+[; ;./servo.h: 116:     T2CONbits.TMR2ON = 1;
 [e = . . _T2CONbits 3 7 -> -> 1 `i `uc ]
-"97
-[; ;./servo.h: 97: }
-[e :UE 2356 ]
+"117
+[; ;./servo.h: 117: }
+[e :UE 2362 ]
 }
-"99
-[; ;./servo.h: 99: void TMR2_StartTimer(void)
+"119
+[; ;./servo.h: 119: void TMR2_StartTimer(void)
 [v _TMR2_StartTimer `(v ~T0 @X0 1 ef ]
-"100
-[; ;./servo.h: 100: {
+"120
+[; ;./servo.h: 120: {
 {
 [e :U _TMR2_StartTimer ]
 [f ]
-"101
-[; ;./servo.h: 101:     TMR2_Start();
-[e ( _TMR2_Start ..  ]
-"102
-[; ;./servo.h: 102: }
-[e :UE 2357 ]
-}
-"104
-[; ;./servo.h: 104: void TMR2_Stop(void)
-[v _TMR2_Stop `(v ~T0 @X0 1 ef ]
-"105
-[; ;./servo.h: 105: {
-{
-[e :U _TMR2_Stop ]
-[f ]
-"107
-[; ;./servo.h: 107:     T2CONbits.TMR2ON = 0;
-[e = . . _T2CONbits 3 7 -> -> 0 `i `uc ]
-"108
-[; ;./servo.h: 108: }
-[e :UE 2358 ]
-}
-"110
-[; ;./servo.h: 110: void TMR2_StopTimer(void)
-[v _TMR2_StopTimer `(v ~T0 @X0 1 ef ]
-"111
-[; ;./servo.h: 111: {
-{
-[e :U _TMR2_StopTimer ]
-[f ]
-"112
-[; ;./servo.h: 112:     TMR2_Stop();
-[e ( _TMR2_Stop ..  ]
-"113
-[; ;./servo.h: 113: }
-[e :UE 2359 ]
-}
-"115
-[; ;./servo.h: 115: uint8_t TMR2_Counter8BitGet(void)
-[v _TMR2_Counter8BitGet `(uc ~T0 @X0 1 ef ]
-"116
-[; ;./servo.h: 116: {
-{
-[e :U _TMR2_Counter8BitGet ]
-[f ]
-"117
-[; ;./servo.h: 117:     uint8_t readVal;
-[v _readVal `uc ~T0 @X0 1 a ]
-"119
-[; ;./servo.h: 119:     readVal = TMR2;
-[e = _readVal _TMR2 ]
 "121
-[; ;./servo.h: 121:     return readVal;
-[e ) _readVal ]
-[e $UE 2360  ]
+[; ;./servo.h: 121:     TMR2_Start();
+[e ( _TMR2_Start ..  ]
 "122
 [; ;./servo.h: 122: }
-[e :UE 2360 ]
+[e :UE 2363 ]
 }
 "124
-[; ;./servo.h: 124: uint8_t TMR2_ReadTimer(void)
-[v _TMR2_ReadTimer `(uc ~T0 @X0 1 ef ]
+[; ;./servo.h: 124: void TMR2_Stop(void)
+[v _TMR2_Stop `(v ~T0 @X0 1 ef ]
 "125
 [; ;./servo.h: 125: {
 {
-[e :U _TMR2_ReadTimer ]
+[e :U _TMR2_Stop ]
 [f ]
-"126
-[; ;./servo.h: 126:     return TMR2_Counter8BitGet();
-[e ) ( _TMR2_Counter8BitGet ..  ]
-[e $UE 2361  ]
 "127
-[; ;./servo.h: 127: }
-[e :UE 2361 ]
-}
-"129
-[; ;./servo.h: 129: void TMR2_Counter8BitSet(uint8_t timerVal)
-[v _TMR2_Counter8BitSet `(v ~T0 @X0 1 ef1`uc ]
-"130
-[; ;./servo.h: 130: {
-{
-[e :U _TMR2_Counter8BitSet ]
-"129
-[; ;./servo.h: 129: void TMR2_Counter8BitSet(uint8_t timerVal)
-[v _timerVal `uc ~T0 @X0 1 r1 ]
-"130
-[; ;./servo.h: 130: {
-[f ]
-"132
-[; ;./servo.h: 132:     TMR2 = timerVal;
-[e = _TMR2 _timerVal ]
-"133
-[; ;./servo.h: 133: }
-[e :UE 2362 ]
-}
-"135
-[; ;./servo.h: 135: void TMR2_WriteTimer(uint8_t timerVal)
-[v _TMR2_WriteTimer `(v ~T0 @X0 1 ef1`uc ]
-"136
-[; ;./servo.h: 136: {
-{
-[e :U _TMR2_WriteTimer ]
-"135
-[; ;./servo.h: 135: void TMR2_WriteTimer(uint8_t timerVal)
-[v _timerVal `uc ~T0 @X0 1 r1 ]
-"136
-[; ;./servo.h: 136: {
-[f ]
-"137
-[; ;./servo.h: 137:     TMR2_Counter8BitSet(timerVal);
-[e ( _TMR2_Counter8BitSet (1 _timerVal ]
-"138
-[; ;./servo.h: 138: }
-[e :UE 2363 ]
-}
-"140
-[; ;./servo.h: 140: void TMR2_Period8BitSet(uint8_t periodVal)
-[v _TMR2_Period8BitSet `(v ~T0 @X0 1 ef1`uc ]
-"141
-[; ;./servo.h: 141: {
-{
-[e :U _TMR2_Period8BitSet ]
-"140
-[; ;./servo.h: 140: void TMR2_Period8BitSet(uint8_t periodVal)
-[v _periodVal `uc ~T0 @X0 1 r1 ]
-"141
-[; ;./servo.h: 141: {
-[f ]
-"142
-[; ;./servo.h: 142:    PR2 = periodVal;
-[e = _PR2 _periodVal ]
-"143
-[; ;./servo.h: 143: }
+[; ;./servo.h: 127:     T2CONbits.TMR2ON = 0;
+[e = . . _T2CONbits 3 7 -> -> 0 `i `uc ]
+"128
+[; ;./servo.h: 128: }
 [e :UE 2364 ]
 }
-"145
-[; ;./servo.h: 145: void TMR2_LoadPeriodRegister(uint8_t periodVal)
-[v _TMR2_LoadPeriodRegister `(v ~T0 @X0 1 ef1`uc ]
-"146
-[; ;./servo.h: 146: {
+"130
+[; ;./servo.h: 130: void TMR2_StopTimer(void)
+[v _TMR2_StopTimer `(v ~T0 @X0 1 ef ]
+"131
+[; ;./servo.h: 131: {
 {
-[e :U _TMR2_LoadPeriodRegister ]
-"145
-[; ;./servo.h: 145: void TMR2_LoadPeriodRegister(uint8_t periodVal)
-[v _periodVal `uc ~T0 @X0 1 r1 ]
-"146
-[; ;./servo.h: 146: {
+[e :U _TMR2_StopTimer ]
 [f ]
-"147
-[; ;./servo.h: 147:    TMR2_Period8BitSet(periodVal);
-[e ( _TMR2_Period8BitSet (1 _periodVal ]
-"148
-[; ;./servo.h: 148: }
+"132
+[; ;./servo.h: 132:     TMR2_Stop();
+[e ( _TMR2_Stop ..  ]
+"133
+[; ;./servo.h: 133: }
 [e :UE 2365 ]
 }
+"135
+[; ;./servo.h: 135: uint8_t TMR2_Counter8BitGet(void)
+[v _TMR2_Counter8BitGet `(uc ~T0 @X0 1 ef ]
+"136
+[; ;./servo.h: 136: {
+{
+[e :U _TMR2_Counter8BitGet ]
+[f ]
+"137
+[; ;./servo.h: 137:     uint8_t readVal;
+[v _readVal `uc ~T0 @X0 1 a ]
+"139
+[; ;./servo.h: 139:     readVal = TMR2;
+[e = _readVal _TMR2 ]
+"141
+[; ;./servo.h: 141:     return readVal;
+[e ) _readVal ]
+[e $UE 2366  ]
+"142
+[; ;./servo.h: 142: }
+[e :UE 2366 ]
+}
+"144
+[; ;./servo.h: 144: uint8_t TMR2_ReadTimer(void)
+[v _TMR2_ReadTimer `(uc ~T0 @X0 1 ef ]
+"145
+[; ;./servo.h: 145: {
+{
+[e :U _TMR2_ReadTimer ]
+[f ]
+"146
+[; ;./servo.h: 146:     return TMR2_Counter8BitGet();
+[e ) ( _TMR2_Counter8BitGet ..  ]
+[e $UE 2367  ]
+"147
+[; ;./servo.h: 147: }
+[e :UE 2367 ]
+}
+"149
+[; ;./servo.h: 149: void TMR2_Counter8BitSet(uint8_t timerVal)
+[v _TMR2_Counter8BitSet `(v ~T0 @X0 1 ef1`uc ]
+"150
+[; ;./servo.h: 150: {
+{
+[e :U _TMR2_Counter8BitSet ]
+"149
+[; ;./servo.h: 149: void TMR2_Counter8BitSet(uint8_t timerVal)
+[v _timerVal `uc ~T0 @X0 1 r1 ]
+"150
+[; ;./servo.h: 150: {
+[f ]
+"152
+[; ;./servo.h: 152:     TMR2 = timerVal;
+[e = _TMR2 _timerVal ]
+"153
+[; ;./servo.h: 153: }
+[e :UE 2368 ]
+}
+"155
+[; ;./servo.h: 155: void TMR2_WriteTimer(uint8_t timerVal)
+[v _TMR2_WriteTimer `(v ~T0 @X0 1 ef1`uc ]
+"156
+[; ;./servo.h: 156: {
+{
+[e :U _TMR2_WriteTimer ]
+"155
+[; ;./servo.h: 155: void TMR2_WriteTimer(uint8_t timerVal)
+[v _timerVal `uc ~T0 @X0 1 r1 ]
+"156
+[; ;./servo.h: 156: {
+[f ]
+"157
+[; ;./servo.h: 157:     TMR2_Counter8BitSet(timerVal);
+[e ( _TMR2_Counter8BitSet (1 _timerVal ]
+"158
+[; ;./servo.h: 158: }
+[e :UE 2369 ]
+}
+"160
+[; ;./servo.h: 160: void TMR2_Period8BitSet(uint8_t periodVal)
+[v _TMR2_Period8BitSet `(v ~T0 @X0 1 ef1`uc ]
+"161
+[; ;./servo.h: 161: {
+{
+[e :U _TMR2_Period8BitSet ]
+"160
+[; ;./servo.h: 160: void TMR2_Period8BitSet(uint8_t periodVal)
+[v _periodVal `uc ~T0 @X0 1 r1 ]
+"161
+[; ;./servo.h: 161: {
+[f ]
+"162
+[; ;./servo.h: 162:    PR2 = periodVal;
+[e = _PR2 _periodVal ]
+"163
+[; ;./servo.h: 163: }
+[e :UE 2370 ]
+}
+"165
+[; ;./servo.h: 165: void TMR2_LoadPeriodRegister(uint8_t periodVal)
+[v _TMR2_LoadPeriodRegister `(v ~T0 @X0 1 ef1`uc ]
+"166
+[; ;./servo.h: 166: {
+{
+[e :U _TMR2_LoadPeriodRegister ]
+"165
+[; ;./servo.h: 165: void TMR2_LoadPeriodRegister(uint8_t periodVal)
+[v _periodVal `uc ~T0 @X0 1 r1 ]
+"166
+[; ;./servo.h: 166: {
+[f ]
 "167
-[; ;./servo.h: 167: void PWM_Output_D8_Enable (void){
+[; ;./servo.h: 167:    TMR2_Period8BitSet(periodVal);
+[e ( _TMR2_Period8BitSet (1 _periodVal ]
+"168
+[; ;./servo.h: 168: }
+[e :UE 2371 ]
+}
+"187
+[; ;./servo.h: 187: void PWM_Output_D8_Enable (void){
 [v _PWM_Output_D8_Enable `(v ~T0 @X0 1 ef ]
 {
 [e :U _PWM_Output_D8_Enable ]
 [f ]
-"168
-[; ;./servo.h: 168:     PPSLOCK = 0x55;
-[e = _PPSLOCK -> -> 85 `i `uc ]
-"169
-[; ;./servo.h: 169:     PPSLOCK = 0xAA;
-[e = _PPSLOCK -> -> 170 `i `uc ]
-"170
-[; ;./servo.h: 170:     PPSLOCKbits.PPSLOCKED = 0x00;
-[e = . . _PPSLOCKbits 0 0 -> -> 0 `i `uc ]
-"173
-[; ;./servo.h: 173:     RB3PPS = 0x0A;
-[e = _RB3PPS -> -> 10 `i `uc ]
-"175
-[; ;./servo.h: 175:     PPSLOCK = 0x55;
-[e = _PPSLOCK -> -> 85 `i `uc ]
-"176
-[; ;./servo.h: 176:     PPSLOCK = 0xAA;
-[e = _PPSLOCK -> -> 170 `i `uc ]
-"177
-[; ;./servo.h: 177:     PPSLOCKbits.PPSLOCKED = 0x01;
-[e = . . _PPSLOCKbits 0 0 -> -> 1 `i `uc ]
-"178
-[; ;./servo.h: 178: }
-[e :UE 2366 ]
-}
-"180
-[; ;./servo.h: 180: void PWM_Output_D8_Disable (void){
-[v _PWM_Output_D8_Disable `(v ~T0 @X0 1 ef ]
-{
-[e :U _PWM_Output_D8_Disable ]
-[f ]
-"181
-[; ;./servo.h: 181:     PPSLOCK = 0x55;
-[e = _PPSLOCK -> -> 85 `i `uc ]
-"182
-[; ;./servo.h: 182:     PPSLOCK = 0xAA;
-[e = _PPSLOCK -> -> 170 `i `uc ]
-"183
-[; ;./servo.h: 183:     PPSLOCKbits.PPSLOCKED = 0x00;
-[e = . . _PPSLOCKbits 0 0 -> -> 0 `i `uc ]
-"186
-[; ;./servo.h: 186:     RB3PPS = 0x00;
-[e = _RB3PPS -> -> 0 `i `uc ]
 "188
 [; ;./servo.h: 188:     PPSLOCK = 0x55;
 [e = _PPSLOCK -> -> 85 `i `uc ]
@@ -3935,238 +3966,434 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./servo.h: 189:     PPSLOCK = 0xAA;
 [e = _PPSLOCK -> -> 170 `i `uc ]
 "190
-[; ;./servo.h: 190:     PPSLOCKbits.PPSLOCKED = 0x01;
-[e = . . _PPSLOCKbits 0 0 -> -> 1 `i `uc ]
-"192
-[; ;./servo.h: 192:     TRISBbits.TRISB3 = 0;
-[e = . . _TRISBbits 0 3 -> -> 0 `i `uc ]
+[; ;./servo.h: 190:     PPSLOCKbits.PPSLOCKED = 0x00;
+[e = . . _PPSLOCKbits 0 0 -> -> 0 `i `uc ]
 "193
-[; ;./servo.h: 193: }
-[e :UE 2367 ]
-}
+[; ;./servo.h: 193:     RB3PPS = 0x0A;
+[e = _RB3PPS -> -> 10 `i `uc ]
 "195
-[; ;./servo.h: 195: void PWM2_Initialize(void)
-[v _PWM2_Initialize `(v ~T0 @X0 1 ef ]
+[; ;./servo.h: 195:     PPSLOCK = 0x55;
+[e = _PPSLOCK -> -> 85 `i `uc ]
 "196
-[; ;./servo.h: 196: {
+[; ;./servo.h: 196:     PPSLOCK = 0xAA;
+[e = _PPSLOCK -> -> 170 `i `uc ]
+"197
+[; ;./servo.h: 197:     PPSLOCKbits.PPSLOCKED = 0x01;
+[e = . . _PPSLOCKbits 0 0 -> -> 1 `i `uc ]
+"198
+[; ;./servo.h: 198: }
+[e :UE 2372 ]
+}
+"200
+[; ;./servo.h: 200: void PWM_Output_D8_Disable (void){
+[v _PWM_Output_D8_Disable `(v ~T0 @X0 1 ef ]
+{
+[e :U _PWM_Output_D8_Disable ]
+[f ]
+"201
+[; ;./servo.h: 201:     PPSLOCK = 0x55;
+[e = _PPSLOCK -> -> 85 `i `uc ]
+"202
+[; ;./servo.h: 202:     PPSLOCK = 0xAA;
+[e = _PPSLOCK -> -> 170 `i `uc ]
+"203
+[; ;./servo.h: 203:     PPSLOCKbits.PPSLOCKED = 0x00;
+[e = . . _PPSLOCKbits 0 0 -> -> 0 `i `uc ]
+"206
+[; ;./servo.h: 206:     RB3PPS = 0x00;
+[e = _RB3PPS -> -> 0 `i `uc ]
+"208
+[; ;./servo.h: 208:     PPSLOCK = 0x55;
+[e = _PPSLOCK -> -> 85 `i `uc ]
+"209
+[; ;./servo.h: 209:     PPSLOCK = 0xAA;
+[e = _PPSLOCK -> -> 170 `i `uc ]
+"210
+[; ;./servo.h: 210:     PPSLOCKbits.PPSLOCKED = 0x01;
+[e = . . _PPSLOCKbits 0 0 -> -> 1 `i `uc ]
+"212
+[; ;./servo.h: 212:     TRISBbits.TRISB3 = 0;
+[e = . . _TRISBbits 0 3 -> -> 0 `i `uc ]
+"213
+[; ;./servo.h: 213: }
+[e :UE 2373 ]
+}
+"215
+[; ;./servo.h: 215: void PWM2_Initialize(void)
+[v _PWM2_Initialize `(v ~T0 @X0 1 ef ]
+"216
+[; ;./servo.h: 216: {
 {
 [e :U _PWM2_Initialize ]
 [f ]
-"198
-[; ;./servo.h: 198:     PORTCbits.RC5 = 0;
-[e = . . _PORTCbits 0 5 -> -> 0 `i `uc ]
-"199
-[; ;./servo.h: 199:     LATCbits.LATC5 = 0;
-[e = . . _LATCbits 0 5 -> -> 0 `i `uc ]
-"200
-[; ;./servo.h: 200:     ANSELCbits.ANSELC5 = 0;
-[e = . . _ANSELCbits 0 5 -> -> 0 `i `uc ]
-"201
-[; ;./servo.h: 201:     TRISCbits.TRISC5 = 0;
-[e = . . _TRISCbits 0 5 -> -> 0 `i `uc ]
-"205
-[; ;./servo.h: 205:  CCP2CON = 0x8C;
-[e = _CCP2CON -> -> 140 `i `uc ]
-"208
-[; ;./servo.h: 208:  CCPR2H = 0x1;
-[e = _CCPR2H -> -> 1 `i `uc ]
-"211
-[; ;./servo.h: 211:  CCPR2L = 0x99;
-[e = _CCPR2L -> -> 153 `i `uc ]
-"214
-[; ;./servo.h: 214:  CCPTMRS0bits.C2TSEL = 0x1;
-[e = . . _CCPTMRS0bits 0 1 -> -> 1 `i `uc ]
-"216
-[; ;./servo.h: 216: }
-[e :UE 2368 ]
-}
-"217
-[; ;./servo.h: 217: void PWM2_LoadDutyValue(uint16_t dutyValue)
-[v _PWM2_LoadDutyValue `(v ~T0 @X0 1 ef1`us ]
 "218
-[; ;./servo.h: 218: {
+[; ;./servo.h: 218:     PORTCbits.RC5 = 0;
+[e = . . _PORTCbits 0 5 -> -> 0 `i `uc ]
+"219
+[; ;./servo.h: 219:     LATCbits.LATC5 = 0;
+[e = . . _LATCbits 0 5 -> -> 0 `i `uc ]
+"220
+[; ;./servo.h: 220:     ANSELCbits.ANSELC5 = 0;
+[e = . . _ANSELCbits 0 5 -> -> 0 `i `uc ]
+"221
+[; ;./servo.h: 221:     TRISCbits.TRISC5 = 0;
+[e = . . _TRISCbits 0 5 -> -> 0 `i `uc ]
+"225
+[; ;./servo.h: 225:  CCP2CON = 0x8C;
+[e = _CCP2CON -> -> 140 `i `uc ]
+"228
+[; ;./servo.h: 228:  CCPR2H = 0x1;
+[e = _CCPR2H -> -> 1 `i `uc ]
+"231
+[; ;./servo.h: 231:  CCPR2L = 0x99;
+[e = _CCPR2L -> -> 153 `i `uc ]
+"234
+[; ;./servo.h: 234:  CCPTMRS0bits.C2TSEL = 0x1;
+[e = . . _CCPTMRS0bits 0 1 -> -> 1 `i `uc ]
+"236
+[; ;./servo.h: 236: }
+[e :UE 2374 ]
+}
+"237
+[; ;./servo.h: 237: void PWM2_LoadDutyValue(uint16_t dutyValue)
+[v _PWM2_LoadDutyValue `(v ~T0 @X0 1 ef1`us ]
+"238
+[; ;./servo.h: 238: {
 {
 [e :U _PWM2_LoadDutyValue ]
-"217
-[; ;./servo.h: 217: void PWM2_LoadDutyValue(uint16_t dutyValue)
+"237
+[; ;./servo.h: 237: void PWM2_LoadDutyValue(uint16_t dutyValue)
 [v _dutyValue `us ~T0 @X0 1 r1 ]
-"218
-[; ;./servo.h: 218: {
+"238
+[; ;./servo.h: 238: {
 [f ]
-"219
-[; ;./servo.h: 219:     dutyValue &= 0x03FF;
+"239
+[; ;./servo.h: 239:     dutyValue &= 0x03FF;
 [e =& _dutyValue -> -> 1023 `i `us ]
-"222
-[; ;./servo.h: 222:     if(CCP2CONbits.FMT)
-[e $ ! != -> . . _CCP2CONbits 0 1 `i -> 0 `i 2370  ]
-"223
-[; ;./servo.h: 223:     {
+"242
+[; ;./servo.h: 242:     if(CCP2CONbits.FMT)
+[e $ ! != -> . . _CCP2CONbits 0 1 `i -> 0 `i 2376  ]
+"243
+[; ;./servo.h: 243:     {
 {
-"224
-[; ;./servo.h: 224:         dutyValue <<= 6;
+"244
+[; ;./servo.h: 244:         dutyValue <<= 6;
 [e =<< _dutyValue -> -> 6 `i `us ]
-"225
-[; ;./servo.h: 225:         CCPR2H = dutyValue >> 8;
+"245
+[; ;./servo.h: 245:         CCPR2H = dutyValue >> 8;
 [e = _CCPR2H -> >> -> _dutyValue `ui -> 8 `i `uc ]
-"226
-[; ;./servo.h: 226:         CCPR2L = dutyValue;
+"246
+[; ;./servo.h: 246:         CCPR2L = dutyValue;
 [e = _CCPR2L -> _dutyValue `uc ]
-"227
-[; ;./servo.h: 227:     }
+"247
+[; ;./servo.h: 247:     }
 }
-[e $U 2371  ]
-"228
-[; ;./servo.h: 228:     else
-[e :U 2370 ]
-"229
-[; ;./servo.h: 229:     {
+[e $U 2377  ]
+"248
+[; ;./servo.h: 248:     else
+[e :U 2376 ]
+"249
+[; ;./servo.h: 249:     {
 {
-"230
-[; ;./servo.h: 230:         CCPR2H = dutyValue >> 8;
+"250
+[; ;./servo.h: 250:         CCPR2H = dutyValue >> 8;
 [e = _CCPR2H -> >> -> _dutyValue `ui -> 8 `i `uc ]
-"231
-[; ;./servo.h: 231:         CCPR2L = dutyValue;
+"251
+[; ;./servo.h: 251:         CCPR2L = dutyValue;
 [e = _CCPR2L -> _dutyValue `uc ]
-"232
-[; ;./servo.h: 232:     }
+"252
+[; ;./servo.h: 252:     }
 }
-[e :U 2371 ]
-"233
-[; ;./servo.h: 233: }
-[e :UE 2369 ]
+[e :U 2377 ]
+"253
+[; ;./servo.h: 253: }
+[e :UE 2375 ]
 }
-"235
-[; ;./servo.h: 235: _Bool PWM2_OutputStatusGet(void)
+"255
+[; ;./servo.h: 255: _Bool PWM2_OutputStatusGet(void)
 [v _PWM2_OutputStatusGet `(a ~T0 @X0 1 ef ]
-"236
-[; ;./servo.h: 236: {
+"256
+[; ;./servo.h: 256: {
 {
 [e :U _PWM2_OutputStatusGet ]
 [f ]
-"238
-[; ;./servo.h: 238:     return(CCP2CONbits.OUT);
+"258
+[; ;./servo.h: 258:     return(CCP2CONbits.OUT);
 [e ) -> . . _CCP2CONbits 0 2 `a ]
-[e $UE 2372  ]
-"239
-[; ;./servo.h: 239: }
-[e :UE 2372 ]
+[e $UE 2378  ]
+"259
+[; ;./servo.h: 259: }
+[e :UE 2378 ]
 }
-"13 main.c
-[; ;main.c: 13: int userGuess = 0;
+"12 main.c
+[; ;main.c: 12: int userGuess = -1;
 [v _userGuess `i ~T0 @X0 1 e ]
 [i _userGuess
--> 0 `i
+-U -> 1 `i
 ]
-"14
-[; ;main.c: 14: int pword;
+"13
+[; ;main.c: 13: int pword;
 [v _pword `i ~T0 @X0 1 e ]
-"15
-[; ;main.c: 15: char d[10];
+"14
+[; ;main.c: 14: char d[10];
 [v _d `uc ~T0 @X0 -> 10 `i e ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"16
-[; ;main.c: 16: void main(void) {
+"17
+[; ;main.c: 17: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"17
-[; ;main.c: 17:     OSCSTATbits.HFOR =1;
+"19
+[; ;main.c: 19:     OSCSTATbits.HFOR =1;
 [e = . . _OSCSTATbits 0 6 -> -> 1 `i `uc ]
-"18
-[; ;main.c: 18:     OSCFRQ=0x02;
+"20
+[; ;main.c: 20:     OSCFRQ=0x02;
 [e = _OSCFRQ -> -> 2 `i `uc ]
-"21
-[; ;main.c: 21:     initializeKeypad();
-[e ( _initializeKeypad ..  ]
-"22
-[; ;main.c: 22:     LCD_Init();
-[e ( _LCD_Init ..  ]
 "23
-[; ;main.c: 23:     INTERRUPT_Initialize();
-[e ( _INTERRUPT_Initialize ..  ]
+[; ;main.c: 23:     initializeKeypad();
+[e ( _initializeKeypad ..  ]
 "24
-[; ;main.c: 24:     TMR2_Initialize();
-[e ( _TMR2_Initialize ..  ]
+[; ;main.c: 24:     LCD_Init();
+[e ( _LCD_Init ..  ]
 "25
-[; ;main.c: 25:     TMR2_StartTimer();
-[e ( _TMR2_StartTimer ..  ]
+[; ;main.c: 25:     INTERRUPT_Initialize();
+[e ( _INTERRUPT_Initialize ..  ]
 "26
-[; ;main.c: 26:     PWM_Output_D8_Enable();
-[e ( _PWM_Output_D8_Enable ..  ]
+[; ;main.c: 26:     TMR2_Initialize();
+[e ( _TMR2_Initialize ..  ]
 "27
-[; ;main.c: 27:     PWM2_Initialize();
+[; ;main.c: 27:     TMR2_StartTimer();
+[e ( _TMR2_StartTimer ..  ]
+"28
+[; ;main.c: 28:     PWM_Output_D8_Enable();
+[e ( _PWM_Output_D8_Enable ..  ]
+"29
+[; ;main.c: 29:     PWM2_Initialize();
 [e ( _PWM2_Initialize ..  ]
-"30
-[; ;main.c: 30:     LCD_String_xy(1, 0, "Opening Box...");
-[e ( _LCD_String_xy (3 , , -> -> 1 `i `uc -> -> 0 `i `uc :s 9C ]
-"31
-[; ;main.c: 31:     openBox();
-[e ( _openBox ..  ]
 "32
-[; ;main.c: 32:     for(int i = 0; i < 5 ; i++){
+[; ;main.c: 32:     pword = (eepromRead(0) * 100) + eepromRead(2);
+[e = _pword + * -> ( _eepromRead (1 -> -> 0 `i `uc `i -> 100 `i -> ( _eepromRead (1 -> -> 2 `i `uc `i ]
+"35
+[; ;main.c: 35:     LCD_String_xy(1, 0, "Electronic Safe");
+[e ( _LCD_String_xy (3 , , -> -> 1 `i `uc -> -> 0 `i `uc :s 13C ]
+"36
+[; ;main.c: 36:     LCD_String_xy(2, 0, "  Initializing  ");
+[e ( _LCD_String_xy (3 , , -> -> 2 `i `uc -> -> 0 `i `uc :s 14C ]
+"37
+[; ;main.c: 37:     _delay((unsigned long)((1000)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"38
+[; ;main.c: 38:     LCD_Clear();
+[e ( _LCD_Clear ..  ]
+"41
+[; ;main.c: 41:     LCD_String_xy(1, 0, "Checking Passwrd");
+[e ( _LCD_String_xy (3 , , -> -> 1 `i `uc -> -> 0 `i `uc :s 15C ]
+"42
+[; ;main.c: 42:     for(int i = 0; i < 16; i++){
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $ < _i -> 5 `i 2374  ]
-[e $U 2375  ]
-[e :U 2374 ]
+[e $ < _i -> 16 `i 2380  ]
+[e $U 2381  ]
+[e :U 2380 ]
 {
-"33
-[; ;main.c: 33:         sprintf(d,"%d",(6 - (i + 1)));
-[e ( _sprintf (1 , (. , &U _d :s 10C - -> 6 `i + _i -> 1 `i ]
-"34
-[; ;main.c: 34:         LCD_String_xy(2, 0, d);
-[e ( _LCD_String_xy (3 , , -> -> 2 `i `uc -> -> 0 `i `uc -> &U _d `*Cuc ]
-"35
-[; ;main.c: 35:         _delay((unsigned long)((1000)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"36
-[; ;main.c: 36:     }
+"43
+[; ;main.c: 43:         LCD_String_xy(2,i,".");
+[e ( _LCD_String_xy (3 , , -> -> 2 `i `uc -> _i `uc :s 16C ]
+"44
+[; ;main.c: 44:         _delay((unsigned long)((200)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"45
+[; ;main.c: 45:     }
 }
 [e ++ _i -> 1 `i ]
-[e $ < _i -> 5 `i 2374  ]
-[e :U 2375 ]
+[e $ < _i -> 16 `i 2380  ]
+[e :U 2381 ]
 }
-"37
-[; ;main.c: 37:     LCD_String_xy(1, 0, "Closing Box...");
-[e ( _LCD_String_xy (3 , , -> -> 1 `i `uc -> -> 0 `i `uc :s 11C ]
-"38
-[; ;main.c: 38:     LCD_String_xy(2,0," ");
-[e ( _LCD_String_xy (3 , , -> -> 2 `i `uc -> -> 0 `i `uc :s 12C ]
-"39
-[; ;main.c: 39:     closeBox();
-[e ( _closeBox ..  ]
-"40
-[; ;main.c: 40:     _delay((unsigned long)((1000)*(4000000/4000.0)));
-[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
-"41
-[; ;main.c: 41:     LCD_String_xy(1, 0, "Box closed...");
-[e ( _LCD_String_xy (3 , , -> -> 1 `i `uc -> -> 0 `i `uc :s 13C ]
-"56
-[; ;main.c: 56:     while(1);
-[e :U 2378 ]
-[e :U 2377 ]
-[e $U 2378  ]
-[e :U 2379 ]
+"46
+[; ;main.c: 46:     LCD_Clear();
+[e ( _LCD_Clear ..  ]
+"47
+[; ;main.c: 47:     if(pword > 9999){
+[e $ ! > _pword -> 9999 `i 2383  ]
+{
+"48
+[; ;main.c: 48:         LCD_String_xy(1, 0, "Password is not");
+[e ( _LCD_String_xy (3 , , -> -> 1 `i `uc -> -> 0 `i `uc :s 17C ]
+"49
+[; ;main.c: 49:         LCD_String_xy(2,0, "set please reset");
+[e ( _LCD_String_xy (3 , , -> -> 2 `i `uc -> -> 0 `i `uc :s 18C ]
+"50
+[; ;main.c: 50:         _delay((unsigned long)((5000)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 5000 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"51
+[; ;main.c: 51:     }else{
+}
+[e $U 2384  ]
+[e :U 2383 ]
+{
+"52
+[; ;main.c: 52:         LCD_String_xy(1, 0, "Password is set");
+[e ( _LCD_String_xy (3 , , -> -> 1 `i `uc -> -> 0 `i `uc :s 19C ]
+"53
+[; ;main.c: 53:         _delay((unsigned long)((2000)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"54
+[; ;main.c: 54:     }
+}
+[e :U 2384 ]
 "57
-[; ;main.c: 57:     return;
-[e $UE 2373  ]
+[; ;main.c: 57:     LCD_Clear();
+[e ( _LCD_Clear ..  ]
 "58
-[; ;main.c: 58: }
-[e :UE 2373 ]
+[; ;main.c: 58:     while(userGuess < 0){
+[e $U 2385  ]
+[e :U 2386 ]
+{
+"59
+[; ;main.c: 59:         LCD_String_xy(1,0,"Enter Password: ");
+[e ( _LCD_String_xy (3 , , -> -> 1 `i `uc -> -> 0 `i `uc :s 20C ]
+"60
+[; ;main.c: 60:         userGuess = getValue();
+[e = _userGuess ( _getValue ..  ]
+"61
+[; ;main.c: 61:         _delay((unsigned long)((1000)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"62
+[; ;main.c: 62:         LCD_Clear();
+[e ( _LCD_Clear ..  ]
+"65
+[; ;main.c: 65:         if(userGuess == pword){
+[e $ ! == _userGuess _pword 2388  ]
+{
+"66
+[; ;main.c: 66:             LCD_String_xy(1, 0, "Password is");
+[e ( _LCD_String_xy (3 , , -> -> 1 `i `uc -> -> 0 `i `uc :s 21C ]
+"67
+[; ;main.c: 67:             LCD_String_xy(2,0, "correct");
+[e ( _LCD_String_xy (3 , , -> -> 2 `i `uc -> -> 0 `i `uc :s 22C ]
+"68
+[; ;main.c: 68:             _delay((unsigned long)((1500)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1500 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"80
+[; ;main.c: 80:             INTCON0bits.GIE = 0;
+[e = . . _INTCON0bits 0 6 -> -> 0 `i `uc ]
+"81
+[; ;main.c: 81:             openBox();
+[e ( _openBox ..  ]
+"82
+[; ;main.c: 82:             LCD_String_xy(1, 0, "Box open");
+[e ( _LCD_String_xy (3 , , -> -> 1 `i `uc -> -> 0 `i `uc :s 23C ]
+"83
+[; ;main.c: 83:             _delay((unsigned long)((2000)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"93
+[; ;main.c: 93:             closeBox();
+[e ( _closeBox ..  ]
+"96
+[; ;main.c: 96:             LCD_String_xy(1, 0, "Box closed");
+[e ( _LCD_String_xy (3 , , -> -> 1 `i `uc -> -> 0 `i `uc :s 24C ]
+"97
+[; ;main.c: 97:             _delay((unsigned long)((2000)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"98
+[; ;main.c: 98:             INTCON0bits.GIE = 1;
+[e = . . _INTCON0bits 0 6 -> -> 1 `i `uc ]
+"99
+[; ;main.c: 99:         }else{
+}
+[e $U 2389  ]
+[e :U 2388 ]
+{
+"100
+[; ;main.c: 100:             LCD_String_xy(1, 0, "Password is");
+[e ( _LCD_String_xy (3 , , -> -> 1 `i `uc -> -> 0 `i `uc :s 25C ]
+"101
+[; ;main.c: 101:             LCD_String_xy(2,0, "incorrect...");
+[e ( _LCD_String_xy (3 , , -> -> 2 `i `uc -> -> 0 `i `uc :s 26C ]
+"102
+[; ;main.c: 102:             _delay((unsigned long)((2000)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"103
+[; ;main.c: 103:         }
+}
+[e :U 2389 ]
+"105
+[; ;main.c: 105:         LCD_Clear();
+[e ( _LCD_Clear ..  ]
+"106
+[; ;main.c: 106:         LCD_String_xy(1, 0, "Reinitializing");
+[e ( _LCD_String_xy (3 , , -> -> 1 `i `uc -> -> 0 `i `uc :s 27C ]
+"107
+[; ;main.c: 107:         for(int i = 0; i < 16; i++){
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+[e $ < _i -> 16 `i 2390  ]
+[e $U 2391  ]
+[e :U 2390 ]
+{
+"108
+[; ;main.c: 108:             LCD_String_xy(2,i,".");
+[e ( _LCD_String_xy (3 , , -> -> 2 `i `uc -> _i `uc :s 28C ]
+"109
+[; ;main.c: 109:             _delay((unsigned long)((200)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"110
+[; ;main.c: 110:         }
+}
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 16 `i 2390  ]
+[e :U 2391 ]
+}
+"111
+[; ;main.c: 111:         LCD_Clear();
+[e ( _LCD_Clear ..  ]
+"112
+[; ;main.c: 112:         userGuess = -1;
+[e = _userGuess -U -> 1 `i ]
+"113
+[; ;main.c: 113:     }
+}
+[e :U 2385 ]
+"58
+[; ;main.c: 58:     while(userGuess < 0){
+[e $ < _userGuess -> 0 `i 2386  ]
+[e :U 2387 ]
+"114
+[; ;main.c: 114:     return;
+[e $UE 2379  ]
+"115
+[; ;main.c: 115: }
+[e :UE 2379 ]
 }
 [p f _sprintf 8388736 ]
+[a 17C 80 97 115 115 119 111 114 100 32 105 115 32 110 111 116 0 ]
+[a 18C 115 101 116 32 112 108 101 97 115 101 32 114 101 115 101 116 0 ]
 [a 7C 80 97 115 115 119 111 114 100 32 82 101 115 101 116 0 ]
+[a 19C 80 97 115 115 119 111 114 100 32 105 115 32 115 101 116 0 ]
+[a 22C 99 111 114 114 101 99 116 0 ]
+[a 21C 80 97 115 115 119 111 114 100 32 105 115 0 ]
+[a 25C 80 97 115 115 119 111 114 100 32 105 115 0 ]
+[a 23C 66 111 120 32 111 112 101 110 0 ]
+[a 27C 82 101 105 110 105 116 105 97 108 105 122 105 110 103 0 ]
+[a 13C 69 108 101 99 116 114 111 110 105 99 32 83 97 102 101 0 ]
+[a 15C 67 104 101 99 107 105 110 103 32 80 97 115 115 119 114 100 0 ]
+[a 24C 66 111 120 32 99 108 111 115 101 100 0 ]
 [a 2C 37 100 0 ]
 [a 3C 37 100 0 ]
 [a 4C 37 100 0 ]
 [a 5C 37 100 0 ]
 [a 10C 37 100 0 ]
+[a 12C 37 100 0 ]
 [a 1C 95 95 95 95 0 ]
+[a 11C 67 108 111 115 105 110 103 32 66 111 120 32 105 110 58 0 ]
+[a 9C 79 112 101 110 105 110 103 32 66 111 120 32 105 110 58 0 ]
 [a 6C 78 101 119 32 80 97 115 115 119 111 114 100 58 0 ]
-[a 11C 67 108 111 115 105 110 103 32 66 111 120 46 46 46 0 ]
-[a 9C 79 112 101 110 105 110 103 32 66 111 120 46 46 46 0 ]
-[a 13C 66 111 120 32 99 108 111 115 101 100 46 46 46 0 ]
+[a 26C 105 110 99 111 114 114 101 99 116 46 46 46 0 ]
+[a 16C 46 0 ]
+[a 28C 46 0 ]
 [a 8C 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 0 ]
-[a 12C 32 0 ]
+[a 20C 69 110 116 101 114 32 80 97 115 115 119 111 114 100 58 32 0 ]
+[a 14C 32 32 73 110 105 116 105 97 108 105 122 105 110 103 32 32 0 ]

@@ -25,7 +25,17 @@ _Bool PWM2_OutputStatusGet(void);
 
 void openBox(){
     _Bool pwmStatus;
+    char d[10];
     PWM2_LoadDutyValue( 31 );
+    
+    LCD_Clear();
+    LCD_String_xy(1, 0, "Opening Box in:");
+    for(int i = 0; i < 5 ; i++){
+        sprintf(d,"%d",(6 - (i + 1)));
+        LCD_String_xy(2, 0, d);
+        __delay_ms(1000);
+    }
+    LCD_Clear();
     
     //Will update pulse for 100 ms
     for(int i = 0;i < 100;i++)
@@ -38,6 +48,16 @@ void openBox(){
 void closeBox(){
     _Bool pwmStatus;
     PWM2_LoadDutyValue( 67 );
+    char d[10];
+    
+    LCD_Clear();
+    LCD_String_xy(1, 0, "Closing Box in:");
+    for(int i = 0; i < 5 ; i++){
+        sprintf(d,"%d",(6 - (i + 1)));
+        LCD_String_xy(2, 0, d);
+        __delay_ms(1000);
+    }
+    LCD_Clear();
     
     //Will update pulse for 100 ms
     for(int i = 0;i < 100;i++)

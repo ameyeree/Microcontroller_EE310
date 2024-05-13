@@ -27434,7 +27434,17 @@ _Bool PWM2_OutputStatusGet(void);
 
 void openBox(){
     _Bool pwmStatus;
+    char d[10];
     PWM2_LoadDutyValue( 31 );
+
+    LCD_Clear();
+    LCD_String_xy(1, 0, "Opening Box in:");
+    for(int i = 0; i < 5 ; i++){
+        sprintf(d,"%d",(6 - (i + 1)));
+        LCD_String_xy(2, 0, d);
+        _delay((unsigned long)((1000)*(4000000/4000.0)));
+    }
+    LCD_Clear();
 
 
     for(int i = 0;i < 100;i++)
@@ -27447,6 +27457,16 @@ void openBox(){
 void closeBox(){
     _Bool pwmStatus;
     PWM2_LoadDutyValue( 67 );
+    char d[10];
+
+    LCD_Clear();
+    LCD_String_xy(1, 0, "Closing Box in:");
+    for(int i = 0; i < 5 ; i++){
+        sprintf(d,"%d",(6 - (i + 1)));
+        LCD_String_xy(2, 0, d);
+        _delay((unsigned long)((1000)*(4000000/4000.0)));
+    }
+    LCD_Clear();
 
 
     for(int i = 0;i < 100;i++)
@@ -27486,7 +27506,7 @@ void TMR2_Initialize(void)
 
     T2CON = 0xF0;
 }
-# 93 "./servo.h"
+# 113 "./servo.h"
 void TMR2_Start(void)
 {
 
@@ -27543,7 +27563,7 @@ void TMR2_LoadPeriodRegister(uint8_t periodVal)
 {
    TMR2_Period8BitSet(periodVal);
 }
-# 167 "./servo.h"
+# 187 "./servo.h"
 void PWM_Output_D8_Enable (void){
     PPSLOCK = 0x55;
     PPSLOCK = 0xAA;
@@ -27619,11 +27639,13 @@ _Bool PWM2_OutputStatusGet(void)
 }
 # 11 "main.c" 2
 
-
-int userGuess = 0;
+int userGuess = -1;
 int pword;
 char d[10];
+
+
 void main(void) {
+
     OSCSTATbits.HFOR =1;
     OSCFRQ=0x02;
 
@@ -27637,19 +27659,69 @@ void main(void) {
     PWM2_Initialize();
 
 
-    LCD_String_xy(1, 0, "Opening Box...");
-    openBox();
-    for(int i = 0; i < 5 ; i++){
-        sprintf(d,"%d",(6 - (i + 1)));
-        LCD_String_xy(2, 0, d);
-        _delay((unsigned long)((1000)*(4000000/4000.0)));
-    }
-    LCD_String_xy(1, 0, "Closing Box...");
-    LCD_String_xy(2,0," ");
-    closeBox();
+    pword = (eepromRead(0) * 100) + eepromRead(2);
+
+
+    LCD_String_xy(1, 0, "Electronic Safe");
+    LCD_String_xy(2, 0, "  Initializing  ");
     _delay((unsigned long)((1000)*(4000000/4000.0)));
-    LCD_String_xy(1, 0, "Box closed...");
-# 56 "main.c"
-    while(1);
+    LCD_Clear();
+
+
+    LCD_String_xy(1, 0, "Checking Passwrd");
+    for(int i = 0; i < 16; i++){
+        LCD_String_xy(2,i,".");
+        _delay((unsigned long)((200)*(4000000/4000.0)));
+    }
+    LCD_Clear();
+    if(pword > 9999){
+        LCD_String_xy(1, 0, "Password is not");
+        LCD_String_xy(2,0, "set please reset");
+        _delay((unsigned long)((5000)*(4000000/4000.0)));
+    }else{
+        LCD_String_xy(1, 0, "Password is set");
+        _delay((unsigned long)((2000)*(4000000/4000.0)));
+    }
+
+
+    LCD_Clear();
+    while(userGuess < 0){
+        LCD_String_xy(1,0,"Enter Password: ");
+        userGuess = getValue();
+        _delay((unsigned long)((1000)*(4000000/4000.0)));
+        LCD_Clear();
+
+
+        if(userGuess == pword){
+            LCD_String_xy(1, 0, "Password is");
+            LCD_String_xy(2,0, "correct");
+            _delay((unsigned long)((1500)*(4000000/4000.0)));
+# 80 "main.c"
+            INTCON0bits.GIE = 0;
+            openBox();
+            LCD_String_xy(1, 0, "Box open");
+            _delay((unsigned long)((2000)*(4000000/4000.0)));
+# 93 "main.c"
+            closeBox();
+
+
+            LCD_String_xy(1, 0, "Box closed");
+            _delay((unsigned long)((2000)*(4000000/4000.0)));
+            INTCON0bits.GIE = 1;
+        }else{
+            LCD_String_xy(1, 0, "Password is");
+            LCD_String_xy(2,0, "incorrect...");
+            _delay((unsigned long)((2000)*(4000000/4000.0)));
+        }
+
+        LCD_Clear();
+        LCD_String_xy(1, 0, "Reinitializing");
+        for(int i = 0; i < 16; i++){
+            LCD_String_xy(2,i,".");
+            _delay((unsigned long)((200)*(4000000/4000.0)));
+        }
+        LCD_Clear();
+        userGuess = -1;
+    }
     return;
 }
