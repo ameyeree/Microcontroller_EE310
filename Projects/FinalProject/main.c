@@ -1,5 +1,36 @@
+/*******************************************************************************
+ * Title: Final Project--Electronic Safe
+ *******************************************************************************
+ * Program Details:
+ *  Demonstrates an Electronic Safe utilizing an LCD, servo motor using 
+ * PWM, Interrupt using a switch that allows the password to be changed and 
+ * saved into EEPROM, and a matrix keypad allowing user inputs.
+ * The servo motor will rotate approximately 90 degrees to open the lid to a
+ * box.
+ * 
+ * Inputs: 
+ *      Interrupt: RB0
+ *      Matrix Keypad: RA0-RA4, RC4
+ * Outputs: 
+ *      LCD: RD0-RD7, RC2, RC3
+ *      PWM: RC5
+ * Setup: C- Simulator
+ * Date: May 12th, 2024
+ * File Dependencies / Libraries: It is required to include the 
+ * Configuration Header File as well as the calcFunctions header file
+ * Compiler: xc8, 2.46
+ * OS and Computer: HP, Windows 11 Home 64-bit
+ * Author: Anthony Meyer Slechta
+ * Versions:
+ *      V1.0: Original
+ * Useful links:  
+ *      Datasheet: https://ww1.microchip.com/downloads/en/DeviceDoc/PIC18(L)F26-27-45-46-47-55-56-57K42-Data-Sheet-40001919G.pdf 
+ *      PIC18F Instruction Sets: https://onlinelibrary.wiley.com/doi/pdf/10.1002/9781119448457.app4 
+ *******************************************************************************/
 
-
+/**************************
+ * Headers
+ **************************/
 #include <xc.h>
 #include "config.h"
 #include <stdio.h>

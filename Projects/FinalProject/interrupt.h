@@ -1,4 +1,9 @@
-
+/*******************************************************************************
+ * Password Reset Module
+ *******************************************************************************
+ * Program Details:
+ *  An interrupt that allows the user to save an updated password to EEPROM.
+ *******************************************************************************/
 int password;
 void eepromWrite(uint8_t address, uint8_t data);
 void __interrupt(irq(IRQ_INT0),base(0x4008)) INT0_ISR(void)

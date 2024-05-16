@@ -1,9 +1,10 @@
-/* 
- * File:   calcFunctions.h
- * Author: Anthony Meyer Slechta
- *
- * Created on April 2, 2024, 5:19 PM
- */
+/*******************************************************************************
+ * Keypad Module
+ *******************************************************************************
+ * Program Details:
+ *  Utilizes a matrix keypad to get user values and return them as an integer
+ * value.
+ *******************************************************************************/
 //#include "LCD.h"
 void initializeKeypad();
 void initializePORTA();

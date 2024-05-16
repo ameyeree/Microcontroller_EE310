@@ -1,6 +1,14 @@
-#define RS LATC2                   /* PORTD 0 pin is used for Register Select */
-#define EN LATC3                   /* PORTD 1 pin is used for Enable */
-#define ldata LATD                 /* PORTB is used for transmitting data to LCD */
+/*******************************************************************************
+ * LCD Control module
+ *******************************************************************************
+ * Program Details:
+ *  Allows the user to send output to an LCD. LCD_Init() must be called before 
+ * it can be utilized in main.
+ *******************************************************************************/
+
+#define RS LATC2                   /* PORTC 2 pin is used for Register Select */
+#define EN LATC3                   /* PORTC 3 pin is used for Enable */
+#define ldata LATD                 /* PORTD is used for transmitting data to LCD */
 
 #define LCD_Port TRISD              
 //#define LCD_Control TRISD

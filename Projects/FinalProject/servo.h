@@ -1,9 +1,10 @@
-/* 
- * File:   PWM.h
- * Author: student
- *
- * Created on May 1, 2023, 9:02 AM
- */
+/*******************************************************************************
+ * PWM Functions
+ *******************************************************************************
+ * Program Details:
+ *  Allows the user to send out a 20ms pulse with varying duty cycles to
+ * rotate a servo motor.
+ *******************************************************************************/
 
 #ifndef PWM_H
 #define	PWM_H
